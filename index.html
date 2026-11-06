@@ -127,6 +127,60 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 </li>
 </ol>
 <hr />
+<hr />
+<h3>0.4. Kiểm chứng 5 Tiêu chí Thực chiến Mở rộng (<code>/market-research</code> v0.2.0: COGS Stress-Test, Distribution &amp; CAC, Tourist Churn, Platform Risk, Core JTBD Depth)</h3>
+<p>Để hoàn thiện 100% tấm la bàn trước khi chốt kiến trúc, bảng dưới đây kiểm tra trực tiếp đề xuất của Quick Magic qua 5 bộ lọc kinh tế học đơn vị và phân phối:</p>
+<h4>1. Giá vốn (COGS), Hệ số tạo hỏng (<code>Reroll Multiplier = 3x</code>) &amp; Stress-Test Gói Unlimited</h4>
+<ul>
+<li><strong>Chi phí thật trên mỗi kết quả dùng được (Cost per Usable Output):</strong></li>
+<li>Trong thực tế sản xuất video quảng cáo AI (Kling V3/4.0, Seedance 2.5, Veo 3.1), người dùng phải tạo trung bình <strong>3 lần (Reroll Multiplier = 3x)</strong> mới chọn được 1 cảnh 5–8 giây không bị lỗi chuyển động hoặc sai chi tiết sản phẩm.</li>
+<li>Như vậy, ở <strong>Gói Starter (180.000đ = 5.000 credit)</strong>:<ul>
+<li>Nếu dùng <strong>Veo 3.1 Fast (8s 1080p = 399 cr/lần)</strong>: 5.000 credit tạo được 12,5 lần bấm $\rightarrow$ thu được <strong>~4 video thành phẩm dùng được</strong> (chi phí thực tế khách trả: <strong>~45.000đ / video thành phẩm</strong>).</li>
+<li>Nếu dùng <strong>Seedance 2.5 (5s 720p = 2.064 cr/lần)</strong>: 5.000 credit chỉ bấm được 2,4 lần $\rightarrow$ <strong>chưa chắc ra nổi 1 video hoàn chỉnh</strong> nếu lần đầu bị lỗi! Đây là lý do bắt buộc phải đẩy khách Shop Online dùng <strong>Marketing Studio (~200 cr/video)</strong> hoặc <strong>Qivi 1 (99.000đ–150.000đ / 30 giây)</strong> thay vì để khách mới tự đốt credit vào Seedance 2.5 thô ở gói 180k.</li>
+</ul>
+</li>
+<li><strong>Bảng Stress-Test Biên lợi nhuận Gộp (Gross Margin) trên 3 kịch bản người dùng:</strong></li>
+</ul>
+<p>| Gói / Sản phẩm | Doanh thu thu về (VND) | Kịch bản 1: Light User (dùng 30% credit) | Kịch bản 2: Average User (dùng 80% credit) | Kịch bản 3: Power / Abuse User (cày 100% credit + cày tính năng Unlimited 6h/ngày) | Chốt chặn Kiến trúc bắt buộc |
+|---|---:|---|---|---|
+| <strong>Gói Starter</strong> (5.000 cr) | <strong>180.000đ / tháng</strong> | COGS ~25.000đ $\rightarrow$ <strong>Lãi gộp +86%</strong> | COGS ~68.000đ $\rightarrow$ <strong>Lãi gộp +62%</strong> | COGS ~85.000đ (không có Unlimited) $\rightarrow$ <strong>Lãi gộp +53%</strong> | An toàn vì bị chặn cứng bởi trần 5.000 credit. |
+| <strong>Gói Business</strong> (45.000 cr + Unlimited Sub/Cắt clip/Review phim + 10 ngày Free Qimi) | <strong>1.170.000đ / tháng</strong> | COGS ~210.000đ $\rightarrow$ <strong>Lãi gộp +82%</strong> | COGS ~580.000đ $\rightarrow$ <strong>Lãi gộp +50%</strong> | Nếu 1 xưởng MMO dùng chung tài khoản cày <strong>1.000 ảnh Qimi/ngày (×10 ngày = 10.000 ảnh)</strong> + <strong>100 video Review phim/tháng</strong>: COGS GPU/API có thể vọt lên <strong>&gt;1.800.000đ</strong> $\rightarrow$ <strong>LỖ GỘP (-54%)</strong> | <strong>1.</strong> Giới hạn <strong>1 luồng chạy nối tiếp (sequential)</strong> cho tác vụ nằm trong diện Unlimited.<br><strong>2.</strong> Áp dụng <strong>Fair-Use Cap 300 ảnh Qimi miễn phí/ngày</strong> ở tốc độ cao, vượt ngưỡng chuyển sang hàng chờ tiêu chuẩn. |
+| <strong>Vé Unlimited Qimi</strong> (1 ngày / 30 ngày) | <strong>81.000đ / ngày</strong> hoặc <strong>1.215.000đ / tháng</strong> | Tạo ~50 ảnh/ngày $\rightarrow$ COGS ~7.500đ $\rightarrow$ <strong>Lãi gộp +91%</strong> | Tạo ~200 ảnh/ngày $\rightarrow$ COGS ~30.000đ $\rightarrow$ <strong>Lãi gộp +63%</strong> | Cắm script gọi tự động 24/24 (1 ảnh/10 giây = <strong>8.640 ảnh/ngày</strong>): COGS GPU ~1.290.000đ/ngày $\rightarrow$ <strong>LỖ NẶNG (-1.490%)</strong> | <strong>Cấm gọi qua API/script đối với Vé Unlimited Web</strong>; chỉ cho bấm từng lệnh trên giao diện Web (tối đa 1 job <code>IN_PROGRESS</code> tại một thời điểm). |
+| <strong>Open API — Nạp 500.000đ tặng Unlimited ảnh 1K</strong> (Qimi 2.5/3 &amp; GPT Image 2 Fast) | <strong>500.000đ nạp ví</strong> (vốn 500k vẫn còn nguyên để gọi video!) | Gọi 500 ảnh 1K miễn phí $\rightarrow$ COGS phụ thêm ~75.000đ | Gọi 2.000 ảnh 1K miễn phí $\rightarrow$ COGS phụ thêm ~300.000đ | <strong>Tử huyệt lớn nhất:</strong> Khách nạp 500.000đ, dùng toàn bộ 500.000đ đó để gọi Veo/Seedance (COGS đã tốn ~350.000đ), đồng thời bắn API <strong>50.000 ảnh GPT Image 2 Fast 1K miễn phí</strong> (giá gốc OpenAI Low $0.006/ảnh = $300 ≈ <strong>7,65 triệu VND</strong>!) $\rightarrow$ <strong>VỠ TRẬN TÀI CHÍNH</strong> | <strong>Sửa ngay quy tắc API:</strong> Ưu đãi "Unlimited ảnh khi nạp 500k" <strong>CHỈ được áp dụng cho model tự host nội bộ (Qimi 2.5/3)</strong> với giới hạn <code>1 RPS</code>, <strong>TUYỆT ĐỐI KHÔNG bao gồm GPT Image 2 Fast</strong> (vì GPT Image 2 trả tiền tươi theo token cho OpenAI). |</p>
+<h4>2. Kênh phân phối gốc &amp; Bài toán <code>CAC vs LTV</code> (Distribution Wedge)</h4>
+<ul>
+<li><strong>Vì sao không thể sống dựa vào chạy Facebook/TikTok Ads bán gói 180.000đ?</strong></li>
+<li>Với gói Starter 180.000đ/tháng (lãi gộp sau COGS khoảng ~110.000đ/tháng), nếu tỷ lệ khách thử 1 tháng rồi nghỉ (Tourist Churn) là 50%, thì LTV trung bình của khách gói nhỏ chỉ khoảng <strong>220.000đ – 300.000đ</strong>. Nếu chạy quảng cáo chuyển đổi trực tiếp (Paid CAC tại VN cho SaaS thường từ 150.000đ – 350.000đ/khách trả tiền), công ty sẽ <strong>hoà hoặc lỗ ngay ở chi phí marketing</strong>.</li>
+<li><strong>3 Kênh Phân Phối Tự Nhiên (Low-CAC Distribution Engines) bắt buộc phải thiết lập:</strong>
+  1. <strong>Kênh Affiliate &amp; White-Label qua Cộng đồng Thầy dạy AI / MMO / TikTok Shop (Học từ LovinBot &amp; Podsqueeze):</strong> Trả hoa hồng <strong>25%–30% định kỳ</strong> cho các KOC/Giảng viên dạy làm video AI, xây kênh TikTok Shop, diễn hoạ kiến trúc. Một video hướng dẫn trên TikTok/YouTube của giảng viên có thể mang về hàng trăm người đăng ký với CAC = 0đ trả trước.
+  2. <strong>Kênh Viral Template &amp; QM Apps (Product-Led Growth):</strong> Cho phép Creator đóng gói quy trình trong <em>Bàn Sáng Tạo (Spaces)</em> thành <strong>QM Apps</strong> (ví dụ: <em>"App thay áo mẫu thời trang trong 1 click"</em>, <em>"App tạo video flycam đất nền từ ảnh chụp"</em>) và chia sẻ link cho người khác dùng; người tạo App được hưởng <strong>5%–10% số credit</strong> tiêu thụ trên App đó.
+  3. <strong>Kênh MCP / CLI <code>qm</code> + 11 Agent Skills trên GitHub / npm:</strong> Đây là kênh lấy khách Developer &amp; Agency có <strong>CAC = 0đ</strong> tốt nhất (như cách <strong>Postiz</strong> đạt $351k MRR và <strong>CreativeClaw</strong> đạt $109k/30d trên TrustMRR).</li>
+</ul>
+<h4>3. Kiểm tra Độ giữ chân thật (<code>Tourist Churn vs Daily Habit</code>)</h4>
+<ul>
+<li>Dữ liệu TrustMRR (Phần 5.2) cho thấy các công cụ "tạo video AI cho vui" bị khách bỏ sau 30 ngày vì không gắn vào dòng tiền hàng ngày.</li>
+<li>Để biến Quick Magic từ <em>Tourist Tool</em> thành <em>Daily Habit</em>:</li>
+<li><strong>Với Shop Online:</strong> Gắn chặt vào nhu cầu <strong>ra mẫu mới hàng tuần + đăng bài tự động + trả lời bình luận/tin nhắn khách mua hàng</strong>. Khi fanpage/Instagram của shop đã nối vào luồng đăng bài và trực inbox của Quick Magic, tỷ lệ huỷ gói (churn) sẽ giảm mạnh.</li>
+<li><strong>Với khách Bất động sản (<em>Studio Phim Dự Án</em>):</strong> Nhu cầu làm phim dự án mang tính thời vụ theo đợt mở bán $\rightarrow$ <strong>Ưu tiên bán Gói 3 tháng (giảm 20%) hoặc gói Credit không hết hạn</strong> thay vì kỳ vọng họ duy trì thuê bao từng tháng lẻ.</li>
+</ul>
+<h4>4. Rủi ro Phụ thuộc Nền tảng Đầu vào &amp; Đầu ra (<code>Upstream &amp; Downstream Platform Risk</code>)</h4>
+<ul>
+<li><strong>Rủi ro Đầu vào (Upstream Provider Risk):</strong></li>
+<li>Quick Magic đang có lợi thế lớn nhờ giá <strong>Veo 3.1 Fast rẻ hơn 70–80%</strong> và <strong>Nano Banana Pro rẻ hơn 50%</strong>. Tuy nhiên, nếu mức giá rẻ này phụ thuộc vào các gói tài trợ/credit khuyến mãi đám mây (GCP/BytePlus credits) hoặc cổng trung gian, thì khi nguồn credit giá rẻ cạn kiệt, biên lợi nhuận sẽ co lại ngay lập tức.</li>
+<li><strong>Giải pháp kiến trúc:</strong> Dùng giai đoạn có nguồn API Veo/Nano Banana giá rẻ để chiếm lĩnh thị phần, đồng thời điều hướng tối đa người dùng sang <strong>model tự chủ (<code>Qimi 2.5/3</code> cho ảnh và <code>Qivi 1</code> cho video)</strong> — nơi Quick Magic kiểm soát 100% giá thành phần cứng GPU.</li>
+<li><strong>Rủi ro Đầu ra (Downstream Sàn TMĐT &amp; MXH):</strong></li>
+<li>Thuật toán TikTok Shop, Shopee Video và YouTube năm 2026 quét rất gắt các video 100% AIGC công nghiệp (nhép môi giả, giọng đọc robot, biến dạng sản phẩm).</li>
+<li><strong>Giải pháp kiến trúc:</strong> Các mẫu trong <em>Marketing Studio</em> và <em>Studio Review phim</em> phải mặc định tích hợp bộ biến đổi chống trùng lặp fingerprint/metadata và khuyến nghị cấu trúc <strong>Hybrid (ghép cảnh quay sản phẩm thật + hook/bối cảnh AI)</strong> để bảo vệ tài khoản của khách hàng.</li>
+</ul>
+<h4>5. Độ sâu Kết quả (<code>Core JTBD Depth</code>) vs Độ rộng Tính năng</h4>
+<ul>
+<li>Trên biểu đồ định vị (Phần 1.1), Quick Magic đạt <strong>13.0–13.5 / 14 điểm tính năng</strong> (cao nhất toàn bảng). Nhưng bài học từ <strong>Photoroom (~$200M ARR, chỉ làm 4.5/14 điểm)</strong> và <strong>Arcads ($15M ARR với 8 người, chỉ làm 5.5/14 điểm)</strong> chỉ ra rằng: <strong>Khách hàng không trả tiền cho 14 tính năng trung bình; họ trả tiền cho 1 tính năng tạo ra đơn hàng xuất sắc nhất.</strong></li>
+<li><strong>Thứ tự ưu tiên chiều sâu R&amp;D (Core JTBD):</strong>
+  1. <strong>Độ trung thực của Sản phẩm &amp; Trang phục Việt Nam</strong> (trong <em>Ảnh sản phẩm AI</em>, <em>Thử đồ AI</em>, <em>Marketing Studio</em>): phải đạt chất lượng ngang Photoroom/FitRoom (không méo chữ tiếng Việt, giữ đúng chất liệu vải).
+  2. <strong>Chất lượng &amp; Tốc độ của model chủ lực <code>Qivi 1</code> + <code>KageBunshin</code></strong>: đây là hào luỹ kỹ thuật giúp tạo video 30 giây có tiếng với giá chỉ 99k–150k VND.
+  3. <strong>Trải nghiệm "1 câu lệnh ra thành phẩm" qua <code>Supercomputer / Genie</code> và <code>MCP/CLI</code></strong>: giúp người không biết viết prompt vẫn lấy được kết quả đỉnh cao.</li>
+<li><em>Các tính năng phụ trợ (như Plugin Blender 3D hay tạo nhạc lẻ)</em> chỉ nên giữ ở mức duy trì, <strong>không để hút mất nguồn lực kỹ thuật của 3 mũi nhọn trên</strong>.</li>
+</ul>
 <h2>PHẦN 1: BIỂU ĐỒ ĐỊNH VỊ <code>GIÁ TRỊ × TÍNH NĂNG</code> &amp; MA TRẬN 14 TIÊU CHÍ CHUẨN</h2>
 <h3>1.1. Quy tắc chấm điểm Định vị (<code>/market-research</code>)</h3>
 <ul>

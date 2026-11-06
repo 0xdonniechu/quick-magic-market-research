@@ -33,19 +33,46 @@ blockquote{margin:1em 0;padding:.4em 1em;border-left:3px solid var(--accent);bac
 </style></head><body><main><div class="top"><a href="../index.html">← Tất cả báo cáo</a></div><h1>Deepdive Thị trường AI Video/Image Studio &amp; Multi-model Media API: Định hình Kiến trúc Quick Magic (2026-11-06)</h1>
 <blockquote>
 <p><strong>Mục tiêu Bước 0 (<code>/market-research</code>):</strong>
-Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/video 5s 720p &amp; 1080p, $/giây trên Web &amp; API), nỗi đau thực tế của khách trả tiền (1–2 sao), dòng chảy vốn/doanh thu thật và quy mô <strong>TAM → SAM → SOM</strong> của thị trường <strong>Nền tảng tổng hợp đa model Tạo ảnh/Video AI, Creative Workflow Studio &amp; Media Generation API (Quốc tế &amp; Việt Nam)</strong> để <strong>chốt kiến trúc sản phẩm, bảng giá và chiến lược Go-To-Market cho Quick Magic</strong> theo 4 câu hỏi trọng tâm của R&amp;D:
-1. Nên tập trung vào nhóm khách nào trước: <strong>Shop online</strong>, <strong>Creator</strong> hay <strong>API cho Developer</strong>?
-2. Tính năng nào nên đẩy làm <strong>"cửa vào" (wedge)</strong> cho khách mới (giọng đọc, phụ đề, tạo ảnh hay video quảng cáo)?
-3. Bảng giá gói tháng (Web) và Open API (kèm <strong>Qivi 1</strong> &amp; <strong>Kling 4.0</strong>) có cạnh tranh so với các công cụ AI quốc tế và nội địa đang bán ở Việt Nam không?
-4. Có nên đóng gói theo ngành (ví dụ <strong>Bất động sản</strong> với <em>Studio Phim Dự Án</em>, <strong>Thời trang</strong> với <em>Thử đồ AI</em>) không?</p>
+Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/video 5s 720p &amp; 1080p, $/giây trên Web &amp; API), nỗi đau thực tế của khách trả tiền (1–2 sao), dòng chảy vốn/doanh thu thật và quy mô <strong>TAM → SAM → SOM</strong> của thị trường <strong>Nền tảng tổng hợp đa model Tạo ảnh/Video AI, Creative Workflow Studio &amp; Media Generation API (Quốc tế &amp; Việt Nam)</strong> để <strong>chốt kiến trúc sản phẩm, bảng giá và chiến lược Go-To-Market cho Quick Magic</strong> theo 4 câu hỏi trọng tâm của R&amp;D:</p>
+<ol>
+<li>Nên tập trung vào nhóm khách nào trước: <strong>Shop online</strong>, <strong>Creator</strong> hay <strong>API cho Developer</strong>?</li>
+<li>Tính năng nào nên đẩy làm <strong>"cửa vào" (wedge)</strong> cho khách mới (giọng đọc, phụ đề, tạo ảnh hay video quảng cáo)?</li>
+<li>Bảng giá gói tháng (Web) và Open API (kèm <strong>Qivi 1</strong> &amp; <strong>Kling 4.0</strong>) có cạnh tranh so với các công cụ AI quốc tế và nội địa đang bán ở Việt Nam không?</li>
+<li>Có nên đóng gói theo ngành (ví dụ <strong>Bất động sản</strong> với <em>Studio Phim Dự Án</em>, <strong>Thời trang</strong> với <em>Thử đồ AI</em>) không?</li>
+</ol>
 </blockquote>
 <hr />
 <h2>PHẦN 0: KẾT LUẬN ĐIỀU HÀNH &amp; ĐỀ XUẤT KIẾN TRÚC CHO QUICK MAGIC (EXECUTIVE VERDICT)</h2>
 <h3>0.1. Bức tranh toàn cảnh thị trường: Tiền thật đang nằm ở đâu?</h3>
-<p>Dữ liệu từ 15 công ty dẫn đầu toàn cầu và 187 sản phẩm có doanh thu xác minh qua Stripe trên TrustMRR (Phần 5) chỉ ra quy luật <strong>Phân bổ Quả Tạ (Barbell Distribution)</strong>:
-1. <strong>Đầu nặng Hạ tầng (Lớp 3 &amp; 4 — API &amp; Foundation Models):</strong> Tiền chảy về người nắm cụm GPU inference tốc độ cao và trọng số model gốc: <strong>fal.ai</strong> đạt <strong>$800M+ ARR</strong> (định giá $16B), <strong>MiniMax/Hailuo</strong> đạt <strong>$800M ARR</strong> (IPO HKEX, vốn hoá ~$8.2B), <strong>ElevenLabs</strong> đạt <strong>$600M ARR</strong> ($22B), <strong>Kling AI</strong> đạt <strong>~$500M ARR</strong> (vừa gọi $2.9B ở định giá $18B), <strong>Runway</strong> đạt <strong>$200M ARR</strong> ($5.3B).
-2. <strong>Đầu nặng Ứng dụng Dọc gắn với Doanh thu Quảng cáo / TMĐT (Lớp 2 — E-com &amp; Performance Ad Studios):</strong> Đây là nơi có <strong>hiệu quả vốn và biên lợi nhuận tự thân tốt nhất</strong>: <strong>Photoroom</strong> đạt <strong>~$200M ARR</strong> (có lãi, chỉ giải bài toán ảnh sản phẩm TMĐT), <strong>HeyGen</strong> đạt <strong>$200M ARR</strong> (hoà vốn dòng tiền), <strong>Arcads.ai</strong> đi từ $0 lên <strong>$12M–$15M ARR (xác minh Stripe) với đúng 8 nhân sự</strong> chỉ nhờ làm video UGC chạy Ads chuyển đổi, <strong>Creatify.ai</strong> đạt <strong>$9M ARR sau 18 tháng</strong>.
-3. <strong>Vùng kẹp ở giữa (Lớp 1 — All-in-one Multi-model Wrapper):</strong> Nếu không có sẵn 100 triệu người dùng SEO như <strong>Freepik/Magnific</strong> ($230M ARR) hoặc gọi &gt;$500M vốn VC để xoay trục sang Enterprise như <strong>Higgsfield AI</strong> ($5.4B), các nền tảng indie/bootstrapped gom hàng chục model bán gói rẻ trên TrustMRR có <strong>trần doanh thu chỉ quanh $15K–$40K MRR</strong> (như <strong>Kolbo.AI</strong> $38.9K MRR, <strong>Apiframe</strong> $35.9K MRR), trong khi hàng loạt công cụ tạo video chung chung (<strong>Speel.co, Based Labs AI, Vid.AI, StoryShort, Laper</strong>) bị <strong>churn tới mức doanh thu mới 30 ngày tụt về $0–$3K và đang phải rao bán dự án</strong>.</p>
+<p>Dữ liệu từ 15 công ty dẫn đầu toàn cầu và 187 sản phẩm có doanh thu xác minh qua Stripe trên TrustMRR (Phần 5) chỉ ra quy luật <strong>Phân bổ Quả Tạ (Barbell Distribution)</strong>:</p>
+<ol>
+<li>
+<p><strong>Đầu nặng Hạ tầng (Lớp 3 &amp; 4 — API &amp; Foundation Models):</strong> Tiền chảy về người nắm cụm GPU inference tốc độ cao và trọng số model gốc:</p>
+<ul>
+<li><strong>fal.ai:</strong> đạt <strong>$800M+ ARR</strong> (định giá $16B).</li>
+<li><strong>MiniMax / Hailuo:</strong> đạt <strong>$800M ARR</strong> (IPO HKEX, vốn hoá ~$8.2B).</li>
+<li><strong>ElevenLabs:</strong> đạt <strong>$600M ARR</strong> (định giá $22B).</li>
+<li><strong>Kling AI:</strong> đạt <strong>~$500M ARR</strong> (vừa gọi $2.9B ở định giá $18B).</li>
+<li><strong>Runway:</strong> đạt <strong>$200M ARR</strong> (định giá $5.3B).</li>
+</ul>
+</li>
+<li>
+<p><strong>Đầu nặng Ứng dụng Dọc gắn với Doanh thu Quảng cáo / TMĐT (Lớp 2 — E-com &amp; Performance Ad Studios):</strong> Đây là nơi có <strong>hiệu quả vốn và biên lợi nhuận tự thân tốt nhất</strong>:</p>
+<ul>
+<li><strong>Photoroom:</strong> đạt <strong>~$200M ARR</strong> (có lãi, chỉ giải đúng bài toán ảnh sản phẩm TMĐT).</li>
+<li><strong>HeyGen:</strong> đạt <strong>$200M ARR</strong> (hoà vốn dòng tiền).</li>
+<li><strong>Arcads.ai:</strong> đi từ $0 lên <strong>$12M–$15M ARR (xác minh Stripe) với đúng 8 nhân sự</strong> chỉ nhờ làm video UGC chạy Ads chuyển đổi.</li>
+<li><strong>Creatify.ai:</strong> đạt <strong>$9M ARR sau 18 tháng</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Vùng kẹp ở giữa (Lớp 1 — All-in-one Multi-model Wrapper):</strong></p>
+<ul>
+<li>Nếu không có sẵn 100 triệu người dùng SEO như <strong>Freepik/Magnific</strong> ($230M ARR) hoặc gọi &gt;$500M vốn VC để xoay trục sang Enterprise như <strong>Higgsfield AI</strong> ($5.4B), các nền tảng indie/bootstrapped gom hàng chục model bán gói rẻ trên TrustMRR có <strong>trần doanh thu chỉ quanh $15K–$40K MRR</strong> (như <strong>Kolbo.AI</strong> $38.9K MRR, <strong>Apiframe</strong> $35.9K MRR).</li>
+<li>Hàng loạt công cụ tạo video chung chung (<strong>Speel.co, Based Labs AI, Vid.AI, StoryShort, Laper</strong>) bị <strong>churn tới mức doanh thu mới 30 ngày tụt về $0–$3K và đang phải rao bán dự án</strong>.</li>
+</ul>
+</li>
+</ol>
 <h3>0.2. Trả lời trực diện 4 câu hỏi R&amp;D &amp; Khuyến nghị chốt kiến trúc Quick Magic</h3>
 <div class="tw"><table>
 <thead>
@@ -82,27 +109,37 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <h3>0.3. Năm nguyên tắc thiết kế Kiến trúc Kỹ thuật &amp; Sản phẩm cho Quick Magic (Rút từ 6 Tử huyệt 1–2 sao của đối thủ)</h3>
 <p>Để không đi vào vết xe đổ của <strong>Kling (1★ tràn ngập vì kẹt 99% mất credit)</strong>, <strong>Runway (1.1★ vì bóp băng thông Unlimited)</strong>, <strong>OpenArt (bị chửi "predatory credit drain")</strong> và <strong>AIMLAPI (lỗi Cloudflare 524 timeout sau 2 phút)</strong>, kiến trúc của Quick Magic cần chốt 5 cơ chế bảo vệ sau:</p>
 <ol>
-<li><strong>Cơ chế "Zero Credit Burn on Failure" &amp; "Product Masking Lock" cho Shop Online:</strong>
-   - Tự động hoàn 100% credit tức thì nếu job timeout/lỗi hoặc bị bộ lọc hậu kiểm (Safety/NSFW false positive) chặn đầu ra (như cách <code>PiAPI</code> được cộng đồng dev khen ngợi).
-   - Trong <em>Ảnh sản phẩm AI</em> và <em>Marketing Studio</em>, bắt buộc có bước <strong>tách lớp và khoá nguyên vẹn vùng sản phẩm/nhãn mác tiếng Việt gốc (True-Product Masking)</strong> rồi mới tạo nền/nhân vật xung quanh — tuyệt đối không để diffusion model tự vẽ lại bao bì khiến chữ tiếng Việt bị biến dạng (nguyên nhân số 1 làm chủ shop VN mất tiền oan và bị TikTok Shop đánh gậy).</li>
-<li><strong>Thiết kế lại bảng giá Kling V3 vs Kling 4.0 trên Web:</strong>
-   - Trong tài liệu R&amp;D, <strong>Kling V3 Omni 5s 1080p trên Web</strong> đang định giá <code>1.559 cr</code> (~56.000đ ≈ <strong>$2.20</strong>), trong khi <strong>Kling 4.0 5s 1080p trên Web</strong> dự kiến chỉ <code>1.202 cr</code> (~22.250đ ở gói Enterprise hoặc ~43.200đ ở gói Starter). Mức 56.000đ của Kling V3 đang đắt gấp ~3 lần giá mua trực tiếp trên <code>klingai.com</code> ($0.61–$0.80). <strong>Khuyến nghị:</strong> Đồng bộ giá Kling V3 xuống dưới mức Kling 4.0 (<code>~800–950 cr / 5s 1080p</code>).</li>
-<li><strong>Kiến trúc Hàng đợi (Queue) &amp; Luồng đồng thời (Concurrency) cho <code>open.quickmagic.vn</code>:</strong>
-   - Việc giới hạn mặc định <strong>2 luồng</strong> và yêu cầu nạp tới <strong>10 triệu VND (~$400)</strong> trong 28 ngày mới nâng lên <strong>10 luồng</strong> là rào cản quá cao đối với developer/indie hacker thử nghiệm (trên <code>WaveSpeed.ai</code>, chỉ cần nạp 1 lần bất kỳ dưới $1.000 là mở ngay <strong>300 luồng</strong>; <code>Kie.ai</code> cho chạy <strong>100+ luồng</strong> song song).
-   - <strong>Kiến trúc đề xuất:</strong><ul>
+<li><strong>Cơ chế "Zero Credit Burn on Failure" &amp; "Product Masking Lock" cho Shop Online:</strong><ul>
+<li>Tự động hoàn 100% credit tức thì nếu job timeout/lỗi hoặc bị bộ lọc hậu kiểm (Safety/NSFW false positive) chặn đầu ra (như cách <code>PiAPI</code> được cộng đồng dev khen ngợi).</li>
+<li>Trong <em>Ảnh sản phẩm AI</em> và <em>Marketing Studio</em>, bắt buộc có bước <strong>tách lớp và khoá nguyên vẹn vùng sản phẩm/nhãn mác tiếng Việt gốc (True-Product Masking)</strong> rồi mới tạo nền/nhân vật xung quanh — tuyệt đối không để diffusion model tự vẽ lại bao bì khiến chữ tiếng Việt bị biến dạng (nguyên nhân số 1 làm chủ shop VN mất tiền oan và bị TikTok Shop đánh gậy).</li>
+</ul>
+</li>
+<li><strong>Thiết kế lại bảng giá Kling V3 vs Kling 4.0 trên Web:</strong><ul>
+<li>Trong tài liệu R&amp;D, <strong>Kling V3 Omni 5s 1080p trên Web</strong> đang định giá <code>1.559 cr</code> (~56.000đ ≈ <strong>$2.20</strong>), trong khi <strong>Kling 4.0 5s 1080p trên Web</strong> dự kiến chỉ <code>1.202 cr</code> (~22.250đ ở gói Enterprise hoặc ~43.200đ ở gói Starter). Mức 56.000đ của Kling V3 đang đắt gấp ~3 lần giá mua trực tiếp trên <code>klingai.com</code> ($0.61–$0.80). <strong>Khuyến nghị:</strong> Đồng bộ giá Kling V3 xuống dưới mức Kling 4.0 (<code>~800–950 cr / 5s 1080p</code>).</li>
+</ul>
+</li>
+<li><strong>Kiến trúc Hàng đợi (Queue) &amp; Luồng đồng thời (Concurrency) cho <code>open.quickmagic.vn</code>:</strong><ul>
+<li>Việc giới hạn mặc định <strong>2 luồng</strong> và yêu cầu nạp tới <strong>10 triệu VND (~$400)</strong> trong 28 ngày mới nâng lên <strong>10 luồng</strong> là rào cản quá cao đối với developer/indie hacker thử nghiệm (trên <code>WaveSpeed.ai</code>, chỉ cần nạp 1 lần bất kỳ dưới $1.000 là mở ngay <strong>300 luồng</strong>; <code>Kie.ai</code> cho chạy <strong>100+ luồng</strong> song song).</li>
+<li><strong>Kiến trúc đề xuất:</strong><ul>
 <li>Tách bạch <strong>Queue Acceptance (<code>IN_QUEUE</code> — cho phép nhận tối đa 100 jobs vào hàng đợi không báo lỗi HTTP 429)</strong> và <strong>Execution Concurrency (<code>IN_PROGRESS</code>)</strong>.</li>
 <li>Tách riêng pool luồng <strong>Ảnh</strong> (nhẹ, 2–5 giây) và pool luồng <strong>Video</strong> (nặng, 1–5 phút): mặc định nạp từ <strong>500.000đ</strong> mở ngay <strong>10 luồng Ảnh + 3 luồng Video</strong>; nạp từ <strong>2.000.000đ</strong> mở <strong>25 luồng Ảnh + 6 luồng Video</strong>; nạp từ <strong>10.000.000đ</strong> mở <strong>50 luồng Ảnh + 15 luồng Video</strong>.</li>
 <li>Không bao giờ giữ kết nối HTTP đồng bộ quá 60 giây cho tác vụ tạo video (tránh lỗi Cloudflare 524 Timeout như <code>AIMLAPI</code>); bắt buộc dùng mô hình Async <code>job_id</code> + Webhook có retry tự động 3 lần (exponential backoff) + lưu trữ media CDN tối thiểu 30 ngày.</li>
 </ul>
 </li>
-<li><strong>Cơ chế "Unlimited Minh Bạch" (Tránh khủng hoảng truyền thông kiểu Freepik / Runway / Hailuo):</strong>
-   - Với <strong>Vé Unlimited Qimi (81.000đ/ngày, 1.215.000đ/30 ngày)</strong> và ưu đãi <strong>"Nạp 500.000đ API được free Unlimited ảnh Qimi 2.5/3 &amp; GPT Image 2 Fast 1K đến hết tháng"</strong>:
-   - Phải ghi rõ <strong>Rate Limit chống cày tool (Anti-Abuse Fair Use)</strong> ngay trên giao diện: ví dụ tối đa <strong>1–2 luồng tạo ảnh Unlimited chạy nối tiếp (sequential)</strong> cho mỗi tài khoản, không cho phép dùng vé Unlimited 81k/ngày để bắn 20 luồng script tự động chia sẻ cho hàng chục người dùng chung.</li>
-<li><strong>Chiến lược "Tách Giao Diện theo Chân Dung Khách Hàng (Multi-Storefront Architecture)":</strong>
-   - Thay vì đưa 28 model video + 13 model ảnh + 9 Studio + Blender + MCP/CLI lên cùng một trang chủ gây choáng ngợp:<ul>
+</ul>
+</li>
+<li><strong>Cơ chế "Unlimited Minh Bạch" (Tránh khủng hoảng truyền thông kiểu Freepik / Runway / Hailuo):</strong><ul>
+<li>Với <strong>Vé Unlimited Qimi (81.000đ/ngày, 1.215.000đ/30 ngày)</strong> và ưu đãi <strong>"Nạp 500.000đ API được free Unlimited ảnh Qimi 2.5/3 &amp; GPT Image 2 Fast 1K đến hết tháng"</strong>:</li>
+<li>Phải ghi rõ <strong>Rate Limit chống cày tool (Anti-Abuse Fair Use)</strong> ngay trên giao diện: ví dụ tối đa <strong>1–2 luồng tạo ảnh Unlimited chạy nối tiếp (sequential)</strong> cho mỗi tài khoản, không cho phép dùng vé Unlimited 81k/ngày để bắn 20 luồng script tự động chia sẻ cho hàng chục người dùng chung.</li>
+</ul>
+</li>
+<li><strong>Chiến lược "Tách Giao Diện theo Chân Dung Khách Hàng (Multi-Storefront Architecture)":</strong><ul>
+<li>Thay vì đưa 28 model video + 13 model ảnh + 9 Studio + Blender + MCP/CLI lên cùng một trang chủ gây choáng ngợp:<ul>
 <li><strong>Giao diện Mặc định (<code>quickmagic.vn</code>):</strong> Tập trung 100% vào <strong>Shop Online &amp; Creator</strong> (chọn mục tiêu: <em>Làm ảnh/video bán hàng</em>, <em>Thử đồ thời trang</em>, <em>Làm kênh Review/Faceless</em>, <em>Phim ngắn</em>). Ẩn toàn bộ thuật ngữ kỹ thuật (MCP, CLI, Webhook, Blender) vào tab <code>Dành cho Developer</code>.</li>
 <li><strong>Landing Page Ngành dọc:</strong> Tạo các đường dẫn riêng cho <code>quickmagic.vn/fashion</code> (Thử đồ &amp; Lookbook AI) và <code>quickmagic.vn/real-estate</code> (Studio Phim Dự Án BĐS &amp; Kiến trúc).</li>
 <li><strong>Cổng Developer (<code>open.quickmagic.vn</code>):</strong> Giao diện chuẩn developer giống <code>fal.ai</code> / <code>wavespeed.ai</code> (bảng giá quy thẳng ra VND/giây và VND/ảnh, playground lấy cURL/Python/JS SDK, hướng dẫn cài <code>qm</code> CLI &amp; MCP trong 1 dòng lệnh, có thông tin xuất hoá đơn VAT doanh nghiệp).</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -112,9 +149,9 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <p>Để hoàn thiện 100% tấm la bàn trước khi chốt kiến trúc, bảng dưới đây kiểm tra trực tiếp đề xuất của Quick Magic qua 5 bộ lọc kinh tế học đơn vị và phân phối:</p>
 <h4>1. Giá vốn (COGS), Hệ số tạo hỏng (<code>Reroll Multiplier = 3x</code>) &amp; Stress-Test Gói Unlimited</h4>
 <ul>
-<li><strong>Chi phí thật trên mỗi kết quả dùng được (Cost per Usable Output):</strong></li>
+<li><strong>Chi phí thật trên mỗi kết quả dùng được (Cost per Usable Output):</strong><ul>
 <li>Trong thực tế sản xuất video quảng cáo AI (Kling V3/4.0, Seedance 2.5, Veo 3.1), người dùng phải tạo trung bình <strong>3 lần (Reroll Multiplier = 3x)</strong> mới chọn được 1 cảnh 5–8 giây không bị lỗi chuyển động hoặc sai chi tiết sản phẩm.</li>
-<li>Như vậy, ở <strong>Gói Starter (180.000đ = 5.000 credit)</strong>:<ul>
+<li>Như vậy, ở <strong>Gói Starter (180.000đ = 5.000 credit)</strong>:</li>
 <li>Nếu dùng <strong>Veo 3.1 Fast (8s 1080p = 399 cr/lần)</strong>: 5.000 credit tạo được 12,5 lần bấm → thu được <strong>~4 video thành phẩm dùng được</strong> (chi phí thực tế khách trả: <strong>~45.000đ / video thành phẩm</strong>).</li>
 <li>Nếu dùng <strong>Seedance 2.5 (5s 720p = 2.064 cr/lần)</strong>: 5.000 credit chỉ bấm được 2,4 lần → <strong>chưa chắc ra nổi 1 video hoàn chỉnh</strong> nếu lần đầu bị lỗi! Đây là lý do bắt buộc phải đẩy khách Shop Online dùng <strong>Marketing Studio (~200 cr/video)</strong> hoặc <strong>Qivi 1 (99.000đ–150.000đ / 30 giây)</strong> thay vì để khách mới tự đốt credit vào Seedance 2.5 thô ở gói 180k.</li>
 </ul>
@@ -169,37 +206,53 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 </table></div>
 <h4>2. Kênh phân phối gốc &amp; Bài toán <code>CAC vs LTV</code> (Distribution Wedge)</h4>
 <ul>
-<li><strong>Vì sao không thể sống dựa vào chạy Facebook/TikTok Ads bán gói 180.000đ?</strong></li>
+<li><strong>Vì sao không thể sống dựa vào chạy Facebook/TikTok Ads bán gói 180.000đ?</strong><ul>
 <li>Với gói Starter 180.000đ/tháng (lãi gộp sau COGS khoảng ~110.000đ/tháng), nếu tỷ lệ khách thử 1 tháng rồi nghỉ (Tourist Churn) là 50%, thì LTV trung bình của khách gói nhỏ chỉ khoảng <strong>220.000đ – 300.000đ</strong>. Nếu chạy quảng cáo chuyển đổi trực tiếp (Paid CAC tại VN cho SaaS thường từ 150.000đ – 350.000đ/khách trả tiền), công ty sẽ <strong>hoà hoặc lỗ ngay ở chi phí marketing</strong>.</li>
-<li><strong>3 Kênh Phân Phối Tự Nhiên (Low-CAC Distribution Engines) bắt buộc phải thiết lập:</strong>
-  1. <strong>Kênh Affiliate &amp; White-Label qua Cộng đồng Thầy dạy AI / MMO / TikTok Shop (Học từ LovinBot &amp; Podsqueeze):</strong> Trả hoa hồng <strong>25%–30% định kỳ</strong> cho các KOC/Giảng viên dạy làm video AI, xây kênh TikTok Shop, diễn hoạ kiến trúc. Một video hướng dẫn trên TikTok/YouTube của giảng viên có thể mang về hàng trăm người đăng ký với CAC = 0đ trả trước.
-  2. <strong>Kênh Viral Template &amp; QM Apps (Product-Led Growth):</strong> Cho phép Creator đóng gói quy trình trong <em>Bàn Sáng Tạo (Spaces)</em> thành <strong>QM Apps</strong> (ví dụ: <em>"App thay áo mẫu thời trang trong 1 click"</em>, <em>"App tạo video flycam đất nền từ ảnh chụp"</em>) và chia sẻ link cho người khác dùng; người tạo App được hưởng <strong>5%–10% số credit</strong> tiêu thụ trên App đó.
-  3. <strong>Kênh MCP / CLI <code>qm</code> + 11 Agent Skills trên GitHub / npm:</strong> Đây là kênh lấy khách Developer &amp; Agency có <strong>CAC = 0đ</strong> tốt nhất (như cách <strong>Postiz</strong> đạt $351k MRR và <strong>CreativeClaw</strong> đạt $109k/30d trên TrustMRR).</li>
+</ul>
+</li>
+<li><strong>3 Kênh Phân Phối Tự Nhiên (Low-CAC Distribution Engines) bắt buộc phải thiết lập:</strong><ol>
+<li><strong>Kênh Affiliate &amp; White-Label qua Cộng đồng Thầy dạy AI / MMO / TikTok Shop (Học từ LovinBot &amp; Podsqueeze):</strong> Trả hoa hồng <strong>25%–30% định kỳ</strong> cho các KOC/Giảng viên dạy làm video AI, xây kênh TikTok Shop, diễn hoạ kiến trúc. Một video hướng dẫn trên TikTok/YouTube của giảng viên có thể mang về hàng trăm người đăng ký với CAC = 0đ trả trước.</li>
+<li><strong>Kênh Viral Template &amp; QM Apps (Product-Led Growth):</strong> Cho phép Creator đóng gói quy trình trong <em>Bàn Sáng Tạo (Spaces)</em> thành <strong>QM Apps</strong> (ví dụ: <em>"App thay áo mẫu thời trang trong 1 click"</em>, <em>"App tạo video flycam đất nền từ ảnh chụp"</em>) và chia sẻ link cho người khác dùng; người tạo App được hưởng <strong>5%–10% số credit</strong> tiêu thụ trên App đó.</li>
+<li><strong>Kênh MCP / CLI <code>qm</code> + 11 Agent Skills trên GitHub / npm:</strong> Đây là kênh lấy khách Developer &amp; Agency có <strong>CAC = 0đ</strong> tốt nhất (như cách <strong>Postiz</strong> đạt $351k MRR và <strong>CreativeClaw</strong> đạt $109k/30d trên TrustMRR).</li>
+</ol>
+</li>
 </ul>
 <h4>3. Kiểm tra Độ giữ chân thật (<code>Tourist Churn vs Daily Habit</code>)</h4>
 <ul>
 <li>Dữ liệu TrustMRR (Phần 5.2) cho thấy các công cụ "tạo video AI cho vui" bị khách bỏ sau 30 ngày vì không gắn vào dòng tiền hàng ngày.</li>
-<li>Để biến Quick Magic từ <em>Tourist Tool</em> thành <em>Daily Habit</em>:</li>
+<li>Để biến Quick Magic từ <em>Tourist Tool</em> thành <em>Daily Habit</em>:<ul>
 <li><strong>Với Shop Online:</strong> Gắn chặt vào nhu cầu <strong>ra mẫu mới hàng tuần + đăng bài tự động + trả lời bình luận/tin nhắn khách mua hàng</strong>. Khi fanpage/Instagram của shop đã nối vào luồng đăng bài và trực inbox của Quick Magic, tỷ lệ huỷ gói (churn) sẽ giảm mạnh.</li>
 <li><strong>Với khách Bất động sản (<em>Studio Phim Dự Án</em>):</strong> Nhu cầu làm phim dự án mang tính thời vụ theo đợt mở bán → <strong>Ưu tiên bán Gói 3 tháng (giảm 20%) hoặc gói Credit không hết hạn</strong> thay vì kỳ vọng họ duy trì thuê bao từng tháng lẻ.</li>
 </ul>
+</li>
+</ul>
 <h4>4. Rủi ro Phụ thuộc Nền tảng Đầu vào &amp; Đầu ra (<code>Upstream &amp; Downstream Platform Risk</code>)</h4>
 <ul>
-<li><strong>Rủi ro Đầu vào (Upstream Provider Risk):</strong></li>
+<li><strong>Rủi ro Đầu vào (Upstream Provider Risk):</strong><ul>
 <li>Quick Magic đang có lợi thế lớn nhờ giá <strong>Veo 3.1 Fast rẻ hơn 70–80%</strong> và <strong>Nano Banana Pro rẻ hơn 50%</strong>. Tuy nhiên, nếu mức giá rẻ này phụ thuộc vào các gói tài trợ/credit khuyến mãi đám mây (GCP/BytePlus credits) hoặc cổng trung gian, thì khi nguồn credit giá rẻ cạn kiệt, biên lợi nhuận sẽ co lại ngay lập tức.</li>
 <li><strong>Giải pháp kiến trúc:</strong> Dùng giai đoạn có nguồn API Veo/Nano Banana giá rẻ để chiếm lĩnh thị phần, đồng thời điều hướng tối đa người dùng sang <strong>model tự chủ (<code>Qimi 2.5/3</code> cho ảnh và <code>Qivi 1</code> cho video)</strong> — nơi Quick Magic kiểm soát 100% giá thành phần cứng GPU.</li>
-<li><strong>Rủi ro Đầu ra (Downstream Sàn TMĐT &amp; MXH):</strong></li>
+</ul>
+</li>
+<li><strong>Rủi ro Đầu ra (Downstream Sàn TMĐT &amp; MXH):</strong><ul>
 <li>Thuật toán TikTok Shop, Shopee Video và YouTube năm 2026 quét rất gắt các video 100% AIGC công nghiệp (nhép môi giả, giọng đọc robot, biến dạng sản phẩm).</li>
 <li><strong>Giải pháp kiến trúc:</strong> Các mẫu trong <em>Marketing Studio</em> và <em>Studio Review phim</em> phải mặc định tích hợp bộ biến đổi chống trùng lặp fingerprint/metadata và khuyến nghị cấu trúc <strong>Hybrid (ghép cảnh quay sản phẩm thật + hook/bối cảnh AI)</strong> để bảo vệ tài khoản của khách hàng.</li>
+</ul>
+</li>
 </ul>
 <h4>5. Độ sâu Kết quả (<code>Core JTBD Depth</code>) vs Độ rộng Tính năng</h4>
 <ul>
 <li>Trên biểu đồ định vị (Phần 1.1), Quick Magic đạt <strong>13.0–13.5 / 14 điểm tính năng</strong> (cao nhất toàn bảng). Nhưng bài học từ <strong>Photoroom (~$200M ARR, chỉ làm 4.5/14 điểm)</strong> và <strong>Arcads ($15M ARR với 8 người, chỉ làm 5.5/14 điểm)</strong> chỉ ra rằng: <strong>Khách hàng không trả tiền cho 14 tính năng trung bình; họ trả tiền cho 1 tính năng tạo ra đơn hàng xuất sắc nhất.</strong></li>
-<li><strong>Thứ tự ưu tiên chiều sâu R&amp;D (Core JTBD):</strong>
-  1. <strong>Độ trung thực của Sản phẩm &amp; Trang phục Việt Nam</strong> (trong <em>Ảnh sản phẩm AI</em>, <em>Thử đồ AI</em>, <em>Marketing Studio</em>): phải đạt chất lượng ngang Photoroom/FitRoom (không méo chữ tiếng Việt, giữ đúng chất liệu vải).
-  2. <strong>Chất lượng &amp; Tốc độ của model chủ lực <code>Qivi 1</code> + <code>KageBunshin</code></strong>: đây là hào luỹ kỹ thuật giúp tạo video 30 giây có tiếng với giá chỉ 99k–150k VND.
-  3. <strong>Trải nghiệm "1 câu lệnh ra thành phẩm" qua <code>Supercomputer / Genie</code> và <code>MCP/CLI</code></strong>: giúp người không biết viết prompt vẫn lấy được kết quả đỉnh cao.</li>
+<li>
+<p><strong>Thứ tự ưu tiên chiều sâu R&amp;D (Core JTBD):</strong></p>
+<ol>
+<li><strong>Độ trung thực của Sản phẩm &amp; Trang phục Việt Nam</strong> (trong <em>Ảnh sản phẩm AI</em>, <em>Thử đồ AI</em>, <em>Marketing Studio</em>): phải đạt chất lượng ngang Photoroom/FitRoom (không méo chữ tiếng Việt, giữ đúng chất liệu vải).</li>
+<li><strong>Chất lượng &amp; Tốc độ của model chủ lực <code>Qivi 1</code> + <code>KageBunshin</code></strong>: đây là hào luỹ kỹ thuật giúp tạo video 30 giây có tiếng với giá chỉ 99k–150k VND.</li>
+<li><strong>Trải nghiệm "1 câu lệnh ra thành phẩm" qua <code>Supercomputer / Genie</code> và <code>MCP/CLI</code></strong>: giúp người không biết viết prompt vẫn lấy được kết quả đỉnh cao.</li>
+</ol>
+<ul>
 <li><em>Các tính năng phụ trợ (như Plugin Blender 3D hay tạo nhạc lẻ)</em> chỉ nên giữ ở mức duy trì, <strong>không để hút mất nguồn lực kỹ thuật của 3 mũi nhọn trên</strong>.</li>
+</ul>
+</li>
 </ul>
 <h2>PHẦN 1: BIỂU ĐỒ ĐỊNH VỊ <code>GIÁ TRỊ × TÍNH NĂNG</code> &amp; MA TRẬN 14 TIÊU CHÍ CHUẨN</h2>
 <h3>1.1. Quy tắc chấm điểm Định vị (<code>/market-research</code>)</h3>
@@ -207,10 +260,12 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li><strong>Trục X — Tính năng (<code>Functionality</code>, tối đa 14 điểm):</strong> Đếm số hạng mục được phủ trên bộ 14 tiêu chí chuẩn của thị trường AI Video/Image Studio &amp; Media API (<code>✓ = 1.0</code>, <code>một phần = 0.5</code>, <code>✗ = 0</code>).</li>
 <li><strong>Trục Y — Giá trị (<code>Value</code>):</strong> Điểm tính năng trên mỗi <strong>$10 chi phí quy về 1 năm</strong> (<code>Functionality ÷ (Effective $/yr ÷ 10)</code>).</li>
 <li><strong>Giá quy năm (<code>Effective $/yr</code>):</strong> Lấy gói chuẩn nhỏ nhất có quyền thương mại hoặc mở khóa các model video chủ lực (tỷ giá quy đổi chuẩn cho bảng định vị: <code>1 USD = 25.500 VND</code>).</li>
-<li><strong>3 điểm dự kiến của Quick Magic (ô thoi rỗng):</strong></li>
+<li><strong>3 điểm dự kiến của Quick Magic (ô thoi rỗng):</strong><ul>
 <li><em>Quick Magic Starter (180.000đ/tháng = 2.160.000đ/năm ≈ $84.71/năm)</em></li>
 <li><em>Quick Magic Pro (510.000đ/tháng = 6.120.000đ/năm ≈ $240.00/năm)</em></li>
 <li><em>Quick Magic Business (1.170.000đ/tháng = 14.040.000đ/năm ≈ $550.59/năm)</em></li>
+</ul>
+</li>
 </ul>
 <p><img alt="Định vị Giá trị × Tính năng: Nền tảng AI Video/Image Studio &amp; Media API (2026-11-06)" src="https://0xdonniechu.github.io/quick-magic-market-research/chart-quick-magic-2026-11-06.png" /></p>
 <h3>1.2. Bảng xếp hạng Giá trị × Tính năng (18 đối thủ &amp; 3 gói Quick Magic đề xuất)</h3>
@@ -671,62 +726,50 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <h4>A. <strong>fal.ai</strong> (<code>https://fal.ai/pricing</code>, <code>https://fal.ai/models</code>)</h4>
 <ul>
 <li><strong>Mô hình thanh toán:</strong> Trả trước (Prepaid Pay-as-you-go), nạp tối thiểu <strong>$1</strong> (25.500 VND). Chỉ tính phí khi tạo thành công; miễn phí thời gian chờ queue, cold start hoặc lỗi HTTP 500+ <strong>[CONFIRMED — https://fal.ai/pricing, 2026-11-06]</strong>.</li>
-<li><strong>Chính sách Concurrency (Luồng đồng thời):</strong></li>
+<li><strong>Chính sách Concurrency (Luồng đồng thời):</strong><ul>
 <li>Không giới hạn RPM vào hàng đợi (<code>IN_QUEUE</code> qua <code>subscribe</code>/<code>submit</code> nhận không giới hạn job), nhưng giới hạn số lượng job đang thực thi cùng lúc (<code>IN_PROGRESS</code>) <strong>[CONFIRMED — https://fal.ai/pricing, docs fal.ai, 2026-11-06]</strong>.</li>
 <li><strong>Tài khoản mới:</strong> Mặc định <strong>2 luồng đồng thời (2 concurrent requests)</strong> <strong>[CONFIRMED — https://fal.ai/pricing, 2026-11-06]</strong>.</li>
 <li><strong>Tự động nâng cấp (Self-serve):</strong> Tăng tự động lên tối đa <strong>40 luồng đồng thời</strong> dựa trên tổng hóa đơn nạp tiền trong cửa sổ 4 tuần gần nhất. Trên 40 luồng phải ký hợp đồng Enterprise <strong>[CONFIRMED — https://fal.ai/pricing, 2026-11-06]</strong>.</li>
-<li><strong>Đơn giá chuẩn hoá các Model chính trên fal.ai:</strong></li>
-<li><strong>Kling Video:</strong><ul>
+</ul>
+</li>
+<li><strong>Đơn giá chuẩn hoá các Model chính trên fal.ai:</strong><ul>
+<li><strong>Kling Video:</strong></li>
 <li><em>Kling 3.0 Standard:</em> <strong>$0.084/giây</strong> (2.142đ/s, tắt âm) | <strong>$0.126/giây</strong> (3.213đ/s, bật âm; $0.63 / clip 5s) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Kling 3.0 Pro:</em> <strong>$0.112/giây</strong> (2.856đ/s, tắt âm) | <strong>$0.168/giây</strong> (4.284đ/s, bật âm; $0.84 / clip 5s) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Kling 3.0 Turbo:</em> <strong>$0.112/giây</strong> (Standard 720p) | <strong>$0.140/giây</strong> (Pro 1080p) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Kling O3 (I2V / End frames):</em> <strong>$0.112/giây</strong> (Standard) | <strong>$0.140/giây</strong> (Pro) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Kling 3.0 / O3 4K Cinema Tier:</em> <strong>$0.420/giây</strong> (10.710đ/s; $2.10 / clip 5s) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Kling 2.5:</em> <strong>~$0.070/giây</strong> (1.785đ/s) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>Google Veo 3.1:</strong><ul>
+<li><strong>Google Veo 3.1:</strong></li>
 <li><em>Veo 3.1 Standard (720p/1080p):</em> <strong>$0.20/giây</strong> (5.100đ/s, tắt âm) | <strong>$0.40/giây</strong> (10.200đ/s, bật âm) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Veo 3.1 Standard (4K):</em> <strong>$0.40/giây</strong> (tắt âm) | <strong>$0.60/giây</strong> (bật âm) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Veo 3.1 Fast (720p/1080p):</em> <strong>$0.10/giây</strong> (2.550đ/s, tắt âm) | <strong>$0.15/giây</strong> (3.825đ/s, bật âm) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Veo 3.1 Fast (4K):</em> <strong>$0.30/giây</strong> (tắt âm) | <strong>$0.35/giây</strong> (bật âm) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Veo 3.1 Lite (720p):</em> <strong>$0.03/giây</strong> (765đ/s, tắt âm) | <strong>$0.05/giây</strong> (1.275đ/s, bật âm) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>ByteDance Seedance:</strong><ul>
+<li><strong>ByteDance Seedance:</strong></li>
 <li>Tính theo token (<code>$0.014 / 1.000 tokens</code>, tức <code>$14.00 / 1M tokens</code>). Quy đổi tương đương ở chuẩn 720p:</li>
 <li><em>Seedance 2.0:</em> <strong>~$0.30/giây</strong> (7.650đ/s; ~$1.50 / clip 5s) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Seedance 2.0 Fast:</em> <strong>~$0.24/giây</strong> (6.120đ/s) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>Alibaba Wan:</strong><ul>
+<li><strong>Alibaba Wan:</strong></li>
 <li><em>Wan 3.0:</em> <strong>$0.05 – $0.20/giây</strong> (1.275đ – 5.100đ/s tuỳ độ phân giải 480p/720p/1080p) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Wan 2.5 (720p):</em> <strong>$0.05/giây</strong> ($0.25 / clip 5s) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Wan 2.1 / 2.2 Pro:</em> <strong>$0.16/giây</strong> ($0.80 / clip 5s) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>MiniMax / Hailuo:</strong><ul>
+<li><strong>MiniMax / Hailuo:</strong></li>
 <li><em>MiniMax H3 Max Turbo (by fal):</em> <strong>$0.025/s</strong> (480p) | <strong>$0.040/s</strong> (768p) | <strong>$0.080/s</strong> (1080p) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>MiniMax H3 Max (by fal):</em> <strong>$0.050/s</strong> (480p) | <strong>$0.080/s</strong> (768p) | <strong>$0.160/s</strong> (1080p) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Hailuo 02:</em> <strong>~$0.045/s</strong>; <em>Hailuo 2.3 / Video-01:</em> <strong>~$0.28 – $0.50/clip</strong> (5–6s) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>MiniMax Image-01:</em> <strong>$0.010/ảnh</strong> (255đ/ảnh) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>Google Nano Banana &amp; Imagen 4 (Ảnh):</strong><ul>
+<li><strong>Google Nano Banana &amp; Imagen 4 (Ảnh):</strong></li>
 <li><em>Nano Banana Pro:</em> <strong>$0.150/ảnh</strong> (3.825đ/ảnh) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Nano Banana 2:</em> <strong>~$0.080/ảnh</strong> (2.040đ/ảnh) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Nano Banana 2.1:</em> <strong>$0.04 – $0.06/ảnh</strong> (1K) | <strong>$0.06 – $0.08/ảnh</strong> (2K) | <strong>$0.13+/ảnh</strong> (4K) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Nano Banana (Base):</em> <strong>~$0.0398/ảnh</strong> (1.015đ/ảnh) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>Imagen 4:</em> <strong>$0.020 – $0.025/ảnh</strong> (Fast) | <strong>$0.040/ảnh</strong> (Standard) | <strong>$0.060/ảnh</strong> (Ultra) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>OpenAI GPT Image 1 / 1.5 / 2 / 2.5 (Ảnh):</strong><ul>
+<li><strong>OpenAI GPT Image 1 / 1.5 / 2 / 2.5 (Ảnh):</strong></li>
 <li><em>GPT Image 1 (1024×1024):</em> <strong>$0.011</strong> (Low) | <strong>$0.042</strong> (Medium) | <strong>$0.167</strong> (High) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>GPT Image 1.5 (1024×1024):</em> <strong>~$0.009</strong> (Low) | <strong>$0.133</strong> (High) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>GPT Image 2 / 2.5 (1024×1024):</em> <strong>$0.006</strong> (Low, 153đ) | <strong>$0.013</strong> (Medium, 332đ) | <strong>$0.053</strong> (High, 1.352đ) | <strong>$0.211</strong> (Max, 5.381đ) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>Black Forest Labs FLUX (Ảnh):</strong><ul>
+<li><strong>Black Forest Labs FLUX (Ảnh):</strong></li>
 <li><em>FLUX.1 [schnell]:</em> <strong>$0.003/MP</strong> (~77đ/ảnh) | <em>FLUX.1 [dev]:</em> <strong>$0.025/MP</strong> | <em>FLUX 1.1 [pro]:</em> <strong>$0.040 – $0.050/ảnh</strong> | <em>FLUX 1.1 [pro] Ultra:</em> <strong>$0.060/ảnh</strong> <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 <li><em>FLUX.2 Series:</em> <strong>$0.009/ảnh</strong> (klein) | <strong>$0.012/ảnh</strong> (dev) | <strong>$0.030/ảnh</strong> (pro) | <strong>$0.050/ảnh</strong> (flex) | <strong>$0.070/ảnh</strong> (max) <strong>[CONFIRMED — https://fal.ai/models, 2026-11-06]</strong>.</li>
 </ul>
@@ -736,41 +779,33 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <h4>B. <strong>Replicate</strong> (<code>https://replicate.com/pricing</code>)</h4>
 <ul>
 <li><strong>Mô hình thanh toán:</strong> Pay-as-you-go; các Official Models tính theo giây video hoặc theo bức ảnh đầu ra; các Community Models tính theo thời gian chạy phần cứng GPU (T4: <code>$0.000225/s</code>, L40S: <code>$0.000975/s</code>, A100: <code>$0.001400/s</code>, H100: <code>$0.001525/s</code>) <strong>[CONFIRMED — https://replicate.com/pricing, 2026-11-06]</strong>.</li>
-<li><strong>Chính sách Rate Limit &amp; Concurrency:</strong></li>
+<li><strong>Chính sách Rate Limit &amp; Concurrency:</strong><ul>
 <li><strong>API Request Rate Limits:</strong> Tạo prediction (<code>POST /v1/predictions</code>) tối đa <strong>600 requests/phút</strong> (10 req/s duy trì, burst 600 req/s). Các endpoint <code>GET</code>/polling tối đa <strong>3.000 requests/phút</strong> <strong>[CONFIRMED — https://replicate.com/docs/reference/http#rate-limits, 2026-11-06]</strong>.</li>
 <li><strong>Tài khoản chưa gắn thẻ (Unverified/Trial):</strong> Bị bóp xuống <strong>1 request/giây</strong> và tối đa <strong>6 requests/phút</strong>. Tài khoản trả trước sắp hết số dư (không bật auto-reload) cũng bị hạ bậc rate limit tự động <strong>[CONFIRMED — https://replicate.com/docs/reference/http#rate-limits, 2026-11-06]</strong>.</li>
 <li><strong>Execution Concurrency:</strong> Các model chia sẻ dùng chung pool có giới hạn slot GPU song song nội bộ theo lịch sử thanh toán; muốn cam kết số luồng GPU riêng không phải xếp hàng phải thuê <strong>Replicate Deployments</strong> (nhưng phải trả tiền cho cả thời gian setup, active và idle) <strong>[CONFIRMED — https://replicate.com/pricing, 2026-11-06]</strong>.</li>
-<li><strong>Đơn giá chuẩn hoá các Model chính trên Replicate:</strong></li>
-<li><strong>Google Veo 3.1:</strong><ul>
+</ul>
+</li>
+<li><strong>Đơn giá chuẩn hoá các Model chính trên Replicate:</strong><ul>
+<li><strong>Google Veo 3.1:</strong></li>
 <li><em>Veo 3.1 Standard:</em> <strong>$0.20/giây</strong> (tắt âm) | <strong>$0.40/giây</strong> (bật âm) <strong>[CONFIRMED — https://replicate.com/google/veo-3.1, 2026-11-06]</strong>.</li>
 <li><em>Veo 3.1 Fast:</em> <strong>$0.10/giây</strong> (tắt âm) | <strong>$0.15/giây</strong> (bật âm) <strong>[CONFIRMED — https://replicate.com/google/veo-3.1-fast, 2026-11-06]</strong>.</li>
 <li><em>Veo 3.1 Lite:</em> <strong>$0.05/giây</strong> (720p) | <strong>$0.08/giây</strong> (1080p) <strong>[CONFIRMED — https://replicate.com/google/veo-3.1-lite, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>Kuaishou Kling:</strong><ul>
+<li><strong>Kuaishou Kling:</strong></li>
 <li><em>Kling 3.0 Standard (<code>kwaivgi/kling-v3-video</code>):</em> <strong>$0.168/giây</strong> (tắt âm) | <strong>$0.252/giây</strong> (bật âm) — <em>cao gấp đôi giá fal.ai!</em> <strong>[CONFIRMED — https://replicate.com/kwaivgi/kling-v3-video, 2026-11-06]</strong>.</li>
 <li><em>Kling 3.0 Pro:</em> <strong>$0.224/giây</strong> (tắt âm) | <strong>$0.336/giây</strong> (bật âm) <strong>[CONFIRMED — https://replicate.com/kwaivgi/kling-v3-video, 2026-11-06]</strong>.</li>
 <li><em>Kling 3.0 4K:</em> <strong>$0.420/giây</strong> <strong>[CONFIRMED — https://replicate.com/kwaivgi/kling-v3-video, 2026-11-06]</strong>.</li>
 <li><em>Kling 2.1:</em> <strong>$0.25 – $0.90/video</strong> (5s–10s) | <em>Master:</em> <strong>$1.40 – $2.80/video</strong> <strong>[CONFIRMED — https://replicate.com/pricing, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>ByteDance Seedance:</strong><ul>
+<li><strong>ByteDance Seedance:</strong></li>
 <li><em>Seedance 2.0 (<code>bytedance/seedance-2.0</code>):</em> <strong>$0.10/giây</strong> (480p) | <strong>~$0.18 – $0.23/giây</strong> (720p) | <strong>~$0.45/giây</strong> (1080p; $2.25 / clip 5s) <strong>[CONFIRMED — https://replicate.com/bytedance/seedance-2.0, 2026-11-06]</strong>.</li>
 <li><em>Seedance 2.0 Fast:</em> Khởi điểm <strong>$0.08/giây</strong> (480p) <strong>[CONFIRMED — https://replicate.com/bytedance/seedance-2.0-fast, 2026-11-06]</strong>.</li>
 <li><em>Seedance 1.0:</em> Lite <strong>$0.09 – $0.72/video</strong>; Pro <strong>$0.15 – $1.50/video</strong> <strong>[CONFIRMED — https://replicate.com/pricing, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>Alibaba Wan:</strong><ul>
+<li><strong>Alibaba Wan:</strong></li>
 <li><em>Wan 3.0 (<code>alibaba/wan-3</code>):</em> <strong>$0.025 – $0.035/giây</strong> (480p) | <strong>$0.05/giây</strong> (720p) | <strong>$0.10/giây</strong> (1080p) <strong>[CONFIRMED — https://replicate.com/alibaba/wan-3, 2026-11-06]</strong>.</li>
 <li><em>Wan 2.1 / 2.2 / 2.5:</em> <strong>$0.07 – $0.09/giây</strong> (480p) | <strong>$0.25/giây</strong> (720p); bản tối ưu PrunaAI <code>wan-2.2-fast</code> khoảng <strong>$0.18/clip</strong> <strong>[CONFIRMED — https://replicate.com/pricing, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>MiniMax Hailuo:</strong><ul>
+<li><strong>MiniMax Hailuo:</strong></li>
 <li><em>Hailuo 2.3 (<code>minimax/hailuo-2.3</code>):</em> <strong>$0.28/video</strong> (6s @ 768p, tức ~$0.047/s) hoặc <strong>~$0.082/giây</strong> (1080p) <strong>[CONFIRMED — https://replicate.com/minimax/hailuo-2.3, 2026-11-06]</strong>.</li>
 <li><em>Hailuo 02:</em> <strong>$0.10 – $0.50/video</strong> (6s–10s) <strong>[CONFIRMED — https://replicate.com/pricing, 2026-11-06]</strong>.</li>
-</ul>
-</li>
-<li><strong>Model Ảnh (FLUX, Imagen 4, Ideogram):</strong><ul>
+<li><strong>Model Ảnh (FLUX, Imagen 4, Ideogram):</strong></li>
 <li><em>FLUX 1.1 Pro:</em> <strong>$0.040/ảnh</strong> | <em>FLUX.1 Dev:</em> <strong>$0.025/ảnh</strong> | <em>FLUX.2 Dev (1MP):</em> <strong>$0.012 – $0.014/ảnh</strong> | <em>FLUX.1 Schnell:</em> <strong>$0.003/ảnh</strong> <strong>[CONFIRMED — https://replicate.com/pricing, 2026-11-06]</strong>.</li>
 <li><em>Imagen 4:</em> <strong>$0.020/ảnh</strong> (Fast) | <strong>$0.040/ảnh</strong> (Standard) | <strong>$0.060/ảnh</strong> (Ultra) <strong>[CONFIRMED — https://replicate.com/google/imagen-4, 2026-11-06]</strong>.</li>
 <li><em>Ideogram v3 Quality:</em> <strong>$0.090/ảnh</strong> (2.295đ/ảnh; các bản Turbo/v2 từ $0.04–$0.08/ảnh) <strong>[CONFIRMED — https://replicate.com/pricing, 2026-11-06]</strong>.</li>
@@ -781,15 +816,17 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <h4>C. <strong>WaveSpeed AI (<code>https://wavespeed.ai</code>)</strong> &amp; <strong>each::labs (<code>https://eachlabs.ai</code>)</strong></h4>
 <ol>
 <li>
-<p><strong>WaveSpeed AI (<code>wavespeed.ai</code>):</strong>
-   - <strong>Mô hình &amp; MCP:</strong> Pay-as-you-go (tặng $1 dùng thử cho tài khoản đủ điều kiện). Có <strong>Official MCP Server (<code>@wavespeed/mcp</code> / <code>https://api.wavespeed.ai/mcp</code>)</strong> rất mạnh: tự động đọc live catalog, tự động upload file local <code>@./path/to/file.jpg</code>, có tool <code>get_price</code> / <code>estimate_only: true</code> báo giá trước khi trừ tiền, hỗ trợ <code>edit_video</code>, <code>extend_video</code> <strong>[CONFIRMED — https://wavespeed.ai, https://www.npmjs.com/package/@wavespeed/mcp, 2026-11-06]</strong>.
-   - <strong>Chính sách Concurrency (Vượt trội nhất cho khách nạp tiền):</strong></p>
+<p><strong>WaveSpeed AI (<code>wavespeed.ai</code>):</strong></p>
 <ul>
+<li><strong>Mô hình &amp; MCP:</strong> Pay-as-you-go (tặng $1 dùng thử cho tài khoản đủ điều kiện). Có <strong>Official MCP Server (<code>@wavespeed/mcp</code> / <code>https://api.wavespeed.ai/mcp</code>)</strong> rất mạnh: tự động đọc live catalog, tự động upload file local <code>@./path/to/file.jpg</code>, có tool <code>get_price</code> / <code>estimate_only: true</code> báo giá trước khi trừ tiền, hỗ trợ <code>edit_video</code>, <code>extend_video</code> <strong>[CONFIRMED — https://wavespeed.ai, https://www.npmjs.com/package/@wavespeed/mcp, 2026-11-06]</strong>.</li>
+<li><strong>Chính sách Concurrency (Vượt trội nhất cho khách nạp tiền):</strong><ul>
 <li><strong>Bronze (Mặc định chưa nạp):</strong> Tối đa <strong>2 concurrent tasks</strong>, 5 predictions/phút <strong>[CONFIRMED — https://wavespeed.ai/docs, 2026-11-06]</strong>.</li>
 <li><strong>Silver (Chỉ cần nạp 1 lần bất kỳ dưới $1.000):</strong> Mở khóa ngay <strong>300 concurrent tasks</strong>, 500 predictions/phút <strong>[CONFIRMED — https://wavespeed.ai/docs, 2026-11-06]</strong>.</li>
 <li><strong>Gold (Nạp 1 lần $1.000 – $4.999):</strong> <strong>3.000 concurrent tasks</strong>, 3.000 predictions/phút <strong>[CONFIRMED — https://wavespeed.ai/docs, 2026-11-06]</strong>.</li>
 <li><strong>Ultra (Nạp 1 lần ≥ $5.000):</strong> <strong>10.000 concurrent tasks</strong>, 5.000 predictions/phút <strong>[CONFIRMED — https://wavespeed.ai/docs, 2026-11-06]</strong>.</li>
-<li><strong>Bảng giá API trên WaveSpeed AI:</strong></li>
+</ul>
+</li>
+<li><strong>Bảng giá API trên WaveSpeed AI:</strong><ul>
 <li><em>Kling 4.0:</em> Khởi điểm <strong>$0.157/giây</strong> (~4.004đ/s) <strong>[CONFIRMED — https://wavespeed.ai, 2026-11-06]</strong>.</li>
 <li><em>Kling 3.0 Std:</em> Khởi điểm <strong>$0.084/giây</strong> (~2.142đ/s) <strong>[CONFIRMED — https://wavespeed.ai, 2026-11-06]</strong>.</li>
 <li><em>Veo 3.1 Lite:</em> <strong>$0.05/giây</strong> (720p) – <strong>$0.08/giây</strong> (1080p) <strong>[CONFIRMED — https://wavespeed.ai, 2026-11-06]</strong>.</li>
@@ -802,17 +839,21 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li><em>Flux Schnell:</em> <strong>$0.003/ảnh</strong> | <em>Flux 2 Klein:</em> <strong>$0.008/ảnh</strong> | <em>Flux Kontext:</em> <strong>$0.024/ảnh</strong> (Dev) – <strong>$0.048/ảnh</strong> (Pro) <strong>[CONFIRMED — https://wavespeed.ai, 2026-11-06]</strong>.</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
-<p><strong>each::labs (<code>eachlabs.ai</code>):</strong>
-   - <strong>Mô hình &amp; MCP:</strong> Cổng điều phối 600+ models, cam kết <strong>Price-Matching Guarantee</strong> (bán đúng giá niêm yết của nhà cung cấp gốc, không cộng markup), tặng 10.000 free observability traces và 5GB <code>each::storage</code> <strong>[VENDOR-CLAIMED — https://eachlabs.ai/pricing, 2026-11-06]</strong>.
-   - <strong>MCP Server (<code>https://mcp.eachlabs.ai/mcp</code>):</strong> Hỗ trợ hiển thị <strong>Interactive UI Cards (MCP Apps)</strong> ngay trong khung chat Claude Desktop / claude.ai để kéo thanh timeline cắt video, chọn biến thể ảnh, thêm phụ đề <strong>[CONFIRMED — https://eachlabs.ai, 2026-11-06]</strong>.
-   - <strong>Concurrency &amp; Fallback:</strong> Tự động cân bằng tải và <strong>Automatic Fallback</strong> sang provider dự phòng nếu provider chính bị lỗi hoặc dính <code>429 Too Many Requests</code> <strong>[CONFIRMED — https://eachlabs.ai, 2026-11-06]</strong>.
-   - <strong>Bảng giá API trên each::labs:</strong></p>
+<p><strong>each::labs (<code>eachlabs.ai</code>):</strong></p>
 <ul>
+<li><strong>Mô hình &amp; MCP:</strong> Cổng điều phối 600+ models, cam kết <strong>Price-Matching Guarantee</strong> (bán đúng giá niêm yết của nhà cung cấp gốc, không cộng markup), tặng 10.000 free observability traces và 5GB <code>each::storage</code> <strong>[VENDOR-CLAIMED — https://eachlabs.ai/pricing, 2026-11-06]</strong>.</li>
+<li><strong>MCP Server (<code>https://mcp.eachlabs.ai/mcp</code>):</strong> Hỗ trợ hiển thị <strong>Interactive UI Cards (MCP Apps)</strong> ngay trong khung chat Claude Desktop / claude.ai để kéo thanh timeline cắt video, chọn biến thể ảnh, thêm phụ đề <strong>[CONFIRMED — https://eachlabs.ai, 2026-11-06]</strong>.</li>
+<li><strong>Concurrency &amp; Fallback:</strong> Tự động cân bằng tải và <strong>Automatic Fallback</strong> sang provider dự phòng nếu provider chính bị lỗi hoặc dính <code>429 Too Many Requests</code> <strong>[CONFIRMED — https://eachlabs.ai, 2026-11-06]</strong>.</li>
+<li><strong>Bảng giá API trên each::labs:</strong><ul>
 <li><em>Veo 3.1 Lite:</em> <strong>~$0.08/giây</strong> (1080p có âm) | <em>Veo 3.1 Fast:</em> <strong>~$0.12/giây</strong> | <em>Veo 3.1 Standard:</em> <strong>~$0.40/giây</strong> (720p/1080p) – <strong>$0.60/giây</strong> (4K) <strong>[CONFIRMED — https://eachlabs.ai, 2026-11-06]</strong>.</li>
 <li><em>Kling v3 Turbo:</em> <strong>~$0.14/giây</strong> (1080p có âm) | <em>Kling v3 Standard/Pro:</em> <strong>~$0.168+/giây</strong> <strong>[CONFIRMED — https://eachlabs.ai, 2026-11-06]</strong>.</li>
 <li><em>Seedance 2.0 Mini:</em> <strong>$0.039 – $0.087/giây</strong> | <em>Seedance 2.5:</em> Lên tới <strong>~$0.68/giây</strong> ở cấu hình cao <strong>[CONFIRMED — https://eachlabs.ai, 2026-11-06]</strong>.</li>
 <li><em>Wan v2.6 Image:</em> <strong>$0.03/ảnh</strong>; <em>Wan Video (2.5/2.7/3.0):</em> <strong>~$0.05 – $0.15/giây</strong> <strong>[CONFIRMED — https://eachlabs.ai, 2026-11-06]</strong>.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -820,13 +861,15 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <h4>D. <strong>Các cổng API trung gian chiết khấu: Kie.ai (<code>kie.ai</code>), PiAPI (<code>piapi.ai</code>), AI/ML API (<code>aimlapi.com</code>)</strong></h4>
 <ol>
 <li>
-<p><strong>Kie.ai (<code>https://kie.ai</code>) — Đối thủ quốc tế giống mô hình giá của <code>open.quickmagic.vn</code> nhất:</strong>
-   - <strong>Cơ chế ví &amp; Credit:</strong> Pay-as-you-go, credit không bao giờ hết hạn, <strong>1 credit = $0.005 USD</strong> (200 credits = $1). Đăng ký mới tặng 80 credits ($0.40). Nạp gói lớn ($1.250+) được tặng thêm <strong>+10% bonus</strong> (giảm ~10% đơn giá). Job lỗi = $0 <strong>[CONFIRMED — https://kie.ai, 2026-11-06]</strong>.
-   - <strong>Chính sách Rate Limit &amp; Concurrency:</strong></p>
+<p><strong>Kie.ai (<code>https://kie.ai</code>) — Đối thủ quốc tế giống mô hình giá của <code>open.quickmagic.vn</code> nhất:</strong></p>
 <ul>
+<li><strong>Cơ chế ví &amp; Credit:</strong> Pay-as-you-go, credit không bao giờ hết hạn, <strong>1 credit = $0.005 USD</strong> (200 credits = $1). Đăng ký mới tặng 80 credits ($0.40). Nạp gói lớn ($1.250+) được tặng thêm <strong>+10% bonus</strong> (giảm ~10% đơn giá). Job lỗi = $0 <strong>[CONFIRMED — https://kie.ai, 2026-11-06]</strong>.</li>
+<li><strong>Chính sách Rate Limit &amp; Concurrency:</strong><ul>
 <li>Giới hạn gửi lệnh: <strong>20 yêu cầu tạo mới / 10 giây</strong> trên mỗi tài khoản (trả về mã <code>429</code> nếu vượt, job vượt không vào queue mà phải retry ở client) <strong>[CONFIRMED — https://kie.ai/docs, 2026-11-06]</strong>.</li>
 <li>Số tác vụ chạy song song (Parallel/Concurrent tasks): Hỗ trợ <strong>100+ luồng chạy đồng thời (100+ concurrent running tasks)</strong> <strong>[CONFIRMED — https://kie.ai/docs, 2026-11-06]</strong>.</li>
-<li><strong>Đơn giá các Model trên Kie.ai:</strong></li>
+</ul>
+</li>
+<li><strong>Đơn giá các Model trên Kie.ai:</strong><ul>
 <li><em>Nano Banana Pro (Gemini 3.0 Pro Image):</em> <strong>18 credits = $0.090/ảnh</strong> (2.295đ/ảnh ở 1K/2K; ~$0.081 nếu có bonus nạp) | <strong>24 credits = $0.120/ảnh</strong> (4K) <strong>[CONFIRMED — https://kie.ai, 2026-11-06]</strong>.</li>
 <li><em>Nano Banana 2 (Gemini 3.1 Flash Image):</em> <strong>8 credits = $0.040/ảnh</strong> (1.020đ/ảnh ở 1K) <strong>[CONFIRMED — https://kie.ai, 2026-11-06]</strong>.</li>
 <li><em>Nano Banana / 2.1 / Lite (Gemini 2.5 Flash Image):</em> <strong>4 credits = $0.020/ảnh</strong> (510đ/ảnh) <strong>[CONFIRMED — https://kie.ai, 2026-11-06]</strong>.</li>
@@ -842,12 +885,14 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li><em>Seedance 1.0 Pro:</em> <strong>$0.014/s</strong> (480p) | <strong>$0.030/s</strong> (720p) | <strong>$0.070/s</strong> (1080p); <em>1.0 Pro Fast:</em> <strong>$0.016/s</strong> (720p) | <strong>$0.036/s</strong> (1080p) <strong>[CONFIRMED — https://kie.ai, 2026-11-06]</strong>.</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
-<p><strong>PiAPI (<code>https://piapi.ai</code>):</strong>
-   - <strong>Mô hình &amp; Concurrency:</strong> Pay-as-you-go ($0.50 free credit) + gói thuê bao mở rộng luồng và tối đa 100 sub-accounts. Gói Free/Starter có <strong>1–2 luồng đồng thời</strong> cho video; riêng <strong>GPT Image async hỗ trợ tới 100 in-flight tasks</strong> đồng thời <strong>[CONFIRMED — https://piapi.ai, 2026-11-06]</strong>.
-   - <strong>Thay đổi danh mục quan trọng:</strong> PiAPI đã <strong>ngừng cung cấp trực tiếp Midjourney API</strong> (chuyển hướng sang <code>legnext.ai</code>) và <strong>ngừng cung cấp trực tiếp Suno API</strong> (chuyển hướng sang <code>sunor.cc</code>) <strong>[CONFIRMED — https://piapi.ai, 2026-11-06]</strong>.
-   - <strong>Đơn giá các Model trên PiAPI:</strong></p>
+<p><strong>PiAPI (<code>https://piapi.ai</code>):</strong></p>
 <ul>
+<li><strong>Mô hình &amp; Concurrency:</strong> Pay-as-you-go ($0.50 free credit) + gói thuê bao mở rộng luồng và tối đa 100 sub-accounts. Gói Free/Starter có <strong>1–2 luồng đồng thời</strong> cho video; riêng <strong>GPT Image async hỗ trợ tới 100 in-flight tasks</strong> đồng thời <strong>[CONFIRMED — https://piapi.ai, 2026-11-06]</strong>.</li>
+<li><strong>Thay đổi danh mục quan trọng:</strong> PiAPI đã <strong>ngừng cung cấp trực tiếp Midjourney API</strong> (chuyển hướng sang <code>legnext.ai</code>) và <strong>ngừng cung cấp trực tiếp Suno API</strong> (chuyển hướng sang <code>sunor.cc</code>) <strong>[CONFIRMED — https://piapi.ai, 2026-11-06]</strong>.</li>
+<li><strong>Đơn giá các Model trên PiAPI:</strong><ul>
 <li><em>Kling 3.0 / 3.0 Omni / 4.0:</em> Từ <strong>$0.10/giây</strong> (2.550đ/s) <strong>[CONFIRMED — https://piapi.ai, 2026-11-06]</strong>.</li>
 <li><em>Kling 2.5 / 2.6 / Base:</em> Từ <strong>$0.20/video</strong>; <em>Kling AI Avatar:</em> Từ <strong>$0.052/giây</strong> <strong>[CONFIRMED — https://piapi.ai, 2026-11-06]</strong>.</li>
 <li><em>Veo 3.1 / Veo 3:</em> Từ <strong>$0.06/giây</strong> (1.530đ/s) <strong>[CONFIRMED — https://piapi.ai, 2026-11-06]</strong>.</li>
@@ -855,21 +900,29 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li><em>GPT Image 1 / 1.5 / 2 / 2.5:</em> Tính theo token (<code>gpt-image-2.5-flare</code>: <code>$0.00375</code> / 1k text input, <code>$0.006</code> / 1k image input, <code>$0.0225</code> / 1k output tokens — rẻ hơn ~25% so với giá $30/1M output tokens của OpenAI) <strong>[CONFIRMED — https://piapi.ai, 2026-11-06]</strong>.</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
-<p><strong>AI/ML API (<code>https://aimlapi.com</code>):</strong>
-   - <strong>Mô hình &amp; Concurrency:</strong> Ví trả trước / gói nạp theo bậc cho 1.000+ models (vẫn giữ <strong>Suno AI Music API</strong>, cộng với Kling, Veo 3.1, Seedance 2.0/2.5, GPT Image 1/2/2.5, Flux, Seedream, Imagen). Rate limit &amp; concurrency mở theo tier nạp tiền <strong>[CONFIRMED — https://aimlapi.com, 2026-11-06]</strong>.
-   - <strong>Đơn giá:</strong> <em>Veo 3.1 / Lite:</em> <strong>~$0.20/giây</strong> (biến thiên theo tham số); <em>Kling 2.6 Pro / 3.0 Turbo:</em> từ <strong>~$0.091/giây</strong> <strong>[CONFIRMED — https://aimlapi.com, 2026-11-06]</strong>.</p>
+<p><strong>AI/ML API (<code>https://aimlapi.com</code>):</strong></p>
+<ul>
+<li><strong>Mô hình &amp; Concurrency:</strong> Ví trả trước / gói nạp theo bậc cho 1.000+ models (vẫn giữ <strong>Suno AI Music API</strong>, cộng với Kling, Veo 3.1, Seedance 2.0/2.5, GPT Image 1/2/2.5, Flux, Seedream, Imagen). Rate limit &amp; concurrency mở theo tier nạp tiền <strong>[CONFIRMED — https://aimlapi.com, 2026-11-06]</strong>.</li>
+<li><strong>Đơn giá:</strong> <em>Veo 3.1 / Lite:</em> <strong>~$0.20/giây</strong> (biến thiên theo tham số); <em>Kling 2.6 Pro / 3.0 Turbo:</em> từ <strong>~$0.091/giây</strong> <strong>[CONFIRMED — https://aimlapi.com, 2026-11-06]</strong>.</li>
+</ul>
 </li>
 </ol>
 <hr />
 <h3>2.2. Giá niêm yết chính thức của Hãng gốc (BytePlus ModelArk / Google Cloud Vertex AI / OpenAI / Kling Official API)</h3>
 <ol>
 <li>
-<p><strong>BytePlus ModelArk (Quốc tế) &amp; Volcano Engine (Trung Quốc) — Giá gốc Seedance &amp; Seedream:</strong>
-   - <strong>Công thức tính Token Video Seedance (24 FPS chuẩn):</strong>
-     <strong><code>Tokens = ((Input Video Duration + Output Video Duration) × Width × Height × 24)(1024)</code></strong>
-     <em>(Ví dụ: 1 giây video 1080p 16:9 = <code>48.600 tokens</code>; 1 giây 720p 16:9 = <code>21.600 tokens</code>; 1 giây 480p 16:9 = <code>9.600 tokens</code>. Đã bao gồm âm thanh miễn phí cho dòng 2.0 và 2.5)</em> <strong>[CONFIRMED — BytePlus ModelArk Pricing Docs, 2026-11-06]</strong>.
-   - <strong>Đơn giá gốc Seedance trên BytePlus ModelArk (Không kèm video đầu vào):</strong></p>
+<p><strong>BytePlus ModelArk (Quốc tế) &amp; Volcano Engine (Trung Quốc) — Giá gốc Seedance &amp; Seedream:</strong></p>
+<ul>
+<li>
+<p><strong>Công thức tính Token Video Seedance (24 FPS chuẩn):</strong>
+ <strong><code>Tokens = ((Input Video Duration + Output Video Duration) × Width × Height × 24)(1024)</code></strong>
+ <em>(Ví dụ: 1 giây video 1080p 16:9 = <code>48.600 tokens</code>; 1 giây 720p 16:9 = <code>21.600 tokens</code>; 1 giây 480p 16:9 = <code>9.600 tokens</code>. Đã bao gồm âm thanh miễn phí cho dòng 2.0 và 2.5)</em> <strong>[CONFIRMED — BytePlus ModelArk Pricing Docs, 2026-11-06]</strong>.</p>
+</li>
+<li>
+<p><strong>Đơn giá gốc Seedance trên BytePlus ModelArk (Không kèm video đầu vào):</strong></p>
 <ul>
 <li><strong>Seedance 2.5 (<code>dreamina-seedance-2-5-260628</code>):</strong> <code>$10.70 / 1M tokens</code> (480p/720p) | <code>$11.70 / 1M tokens</code> (1080p) <em>(Nếu có video đầu vào: <code>$6.40/1M</code> ở 480p/720p và <code>$7.00/1M</code> ở 1080p nhưng cộng thêm thời lượng video đầu vào)</em>.</li>
 <li>Quy ra giây (không video đầu vào): <strong>480p = <code>$0.103/giây</code></strong> ($0.514 / clip 5s) | <strong>720p = <code>$0.231/giây</code></strong> ($1.156 / clip 5s) | <strong>1080p = <code>$0.569/giây</code></strong> ($2.843 / clip 5s) <strong>[CONFIRMED — BytePlus ModelArk Pricing Docs, 2026-11-06]</strong>.</li>
@@ -878,40 +931,52 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li><strong>Seedance 2.0 Fast:</strong> <code>$5.60 / 1M tokens</code> → <strong>480p = <code>$0.056/giây</code></strong> | <strong>720p = <code>$0.120/giây</code></strong> <strong>[CONFIRMED — BytePlus ModelArk Pricing Docs, 2026-11-06]</strong>.</li>
 <li><strong>Seedance 2.0 Mini:</strong> <code>$3.50 / 1M tokens</code> → <strong>480p = <code>$0.036/giây</code></strong> | <strong>720p = <code>$0.076/giây</code></strong> <strong>[CONFIRMED — BytePlus ModelArk Pricing Docs, 2026-11-06]</strong>.</li>
 <li><strong>Seedance 1.5 Pro (<code>seedance-1-5-pro-251215</code>):</strong> <code>$2.40 / 1M tokens</code> (có âm) | <code>$1.20 / 1M tokens</code> (không âm) <strong>[CONFIRMED — BytePlus ModelArk Pricing Docs, 2026-11-06]</strong>.</li>
-<li><strong>Đơn giá gốc Seedream (Ảnh) trên BytePlus ModelArk:</strong></li>
+</ul>
+</li>
+<li><strong>Đơn giá gốc Seedream (Ảnh) trên BytePlus ModelArk:</strong><ul>
 <li><em>Seedream 5.0 Pro:</em> <strong><code>$0.050 – $0.120 / ảnh</code></strong> | <em>Seedream 5.0 (Standard/Lite):</em> <strong><code>$0.035 / ảnh</code></strong> | <em>Seedream 5.0 Flash:</em> <strong><code>$0.018 / ảnh</code></strong> | <em>Seedream 4.5 / 4.0 / 3.0:</em> <strong><code>$0.030 / ảnh</code></strong> <strong>[CONFIRMED — BytePlus ModelArk Pricing Docs, 2026-11-06]</strong>.</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
-<p><strong>Google Cloud Vertex AI (Gemini Enterprise Agent Platform) — Giá gốc Veo 3.1, Imagen 4 &amp; Gemini Image (Nano Banana):</strong>
-   - <strong>Veo 3.1 (Tính theo giây <code>/ 1 count</code>):</strong></p>
+<p><strong>Google Cloud Vertex AI (Gemini Enterprise Agent Platform) — Giá gốc Veo 3.1, Imagen 4 &amp; Gemini Image (Nano Banana):</strong></p>
 <ul>
+<li><strong>Veo 3.1 (Tính theo giây <code>/ 1 count</code>):</strong><ul>
 <li><em>Veo 3.1 Standard:</em> <strong><code>$0.20/giây</code></strong> (720p/1080p, tắt âm) | <strong><code>$0.40/giây</code></strong> (720p/1080p, bật âm) | <strong><code>$0.40/giây</code></strong> (4K, tắt âm) | <strong><code>$0.60/giây</code></strong> (4K, bật âm) <strong>[CONFIRMED — Google Cloud Agent Platform Pricing, 2026-11-06]</strong>.</li>
 <li><em>Veo 3.1 Fast:</em> <strong><code>$0.08/giây</code></strong> (720p, tắt âm) | <strong><code>$0.10/giây</code></strong> (720p, bật âm) | <strong><code>$0.10/giây</code></strong> (1080p, tắt âm) | <strong><code>$0.12/giây</code></strong> (1080p, bật âm) | <strong><code>$0.25/giây</code></strong> (4K, tắt âm) | <strong><code>$0.30/giây</code></strong> (4K, bật âm) <strong>[CONFIRMED — Google Cloud Agent Platform Pricing, 2026-11-06]</strong>.</li>
 <li><em>Veo 3.1 Lite:</em> <strong><code>$0.03/giây</code></strong> (720p, tắt âm) | <strong><code>$0.05/giây</code></strong> (720p, bật âm) | <strong><code>$0.05/giây</code></strong> (1080p, tắt âm) | <strong><code>$0.08/giây</code></strong> (1080p, bật âm) <strong>[CONFIRMED — Google Cloud Agent Platform Pricing, 2026-11-06]</strong>.</li>
-<li><strong>Gemini Native Image Generation (Tên thương mại trên các cổng: dòng Nano Banana):</strong></li>
+</ul>
+</li>
+<li><strong>Gemini Native Image Generation (Tên thương mại trên các cổng: dòng Nano Banana):</strong><ul>
 <li><em>Gemini 3 Pro Image (= Nano Banana Pro):</em> <code>$120.00 / 1M output image tokens</code> → <strong>1K / 2K (1.120 tokens) = <code>~$0.134 / ảnh</code></strong> (3.417đ/ảnh) | <strong>4K (2.000 tokens) = <code>~$0.240 / ảnh</code></strong> (6.120đ/ảnh) <strong>[CONFIRMED — Google Cloud Pricing, 2026-11-06]</strong>.</li>
 <li><em>Gemini 3.1 Flash Image (= Nano Banana 2):</em> <code>$60.00 / 1M output tokens</code> (Global) → <strong>512px = <code>~$0.045/ảnh</code></strong> | <strong>1K = <code>~$0.067/ảnh</code></strong> | <strong>2K = <code>~$0.101/ảnh</code></strong> | <strong>4K = <code>~$0.150/ảnh</code></strong> <strong>[CONFIRMED — Google Cloud Pricing, 2026-11-06]</strong>.</li>
 <li><em>Gemini 3.1 Flash-Lite Image &amp; Gemini 2.5 Flash Image (= Nano Banana Base/Lite):</em> <code>$30.00 / 1M output tokens</code> → <strong>1K (1.120 tokens) = <code>~$0.034 / ảnh</code></strong> <strong>[CONFIRMED — Google Cloud Pricing, 2026-11-06]</strong>.</li>
+</ul>
+</li>
 <li><strong>Imagen 4:</strong> <strong>Fast = <code>$0.02/ảnh</code></strong> | <strong>Standard = <code>$0.04/ảnh</code></strong> | <strong>Ultra = <code>$0.06/ảnh</code></strong> | <strong>Upscaling (2K/3K/4K) = <code>$0.06/ảnh</code></strong> <strong>[CONFIRMED — Google Cloud Pricing, 2026-11-06]</strong>.</li>
 </ul>
 </li>
 <li>
-<p><strong>OpenAI Official API — Giá gốc GPT Image:</strong>
-   - <em>(Lưu ý: <code>gpt-image-1</code> đã đóng ngày 23/10/2026; <code>gpt-image-1.5</code> và <code>gpt-image-1-mini</code> đóng ngày 01/12/2026)</em>.
-   - <strong>GPT Image 2 (<code>gpt-image-2</code> / 2.5 / 2.6):</strong> Input Text <code>$5.00/1M</code>, Input Image <code>$8.00/1M</code>, Output Image <strong><code>$30.00/1M tokens</code></strong> (Batch API giảm 50% còn <strong><code>$15.00/1M tokens</code></strong>).</p>
+<p><strong>OpenAI Official API — Giá gốc GPT Image:</strong></p>
 <ul>
+<li><em>(Lưu ý: <code>gpt-image-1</code> đã đóng ngày 23/10/2026; <code>gpt-image-1.5</code> và <code>gpt-image-1-mini</code> đóng ngày 01/12/2026)</em>.</li>
+<li><strong>GPT Image 2 (<code>gpt-image-2</code> / 2.5 / 2.6):</strong> Input Text <code>$5.00/1M</code>, Input Image <code>$8.00/1M</code>, Output Image <strong><code>$30.00/1M tokens</code></strong> (Batch API giảm 50% còn <strong><code>$15.00/1M tokens</code></strong>).<ul>
 <li>Quy ra từng bức ảnh (Standard API):</li>
 <li><strong>1024×1024 (Square):</strong> Low = <strong><code>$0.006/ảnh</code></strong> | Medium = <strong><code>$0.053/ảnh</code></strong> | High = <strong><code>$0.211/ảnh</code></strong> <strong>[CONFIRMED — https://openai.com/api/pricing, 2026-11-06]</strong>.</li>
 <li><strong>1024×1536 / 1536×1024:</strong> Low = <strong><code>$0.005/ảnh</code></strong> | Medium = <strong><code>$0.041/ảnh</code></strong> | High = <strong><code>$0.165/ảnh</code></strong> <strong>[CONFIRMED — https://openai.com/api/pricing, 2026-11-06]</strong>.</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
-<p><strong>Kling Official Open Platform API — Giá gốc theo Unit (<code>1 Unit ≈ $0.14 USD</code>):</strong>
-   - <strong>Kling 4.0 (Không kèm video đầu vào):</strong> <strong>720p = <code>1.0 Unit/s = $0.140/giây</code></strong> | <strong>1080p = <code>1.5 Units/s = $0.210/giây</code></strong> <strong>[CONFIRMED — Kling AI Open Platform Pricing, 2026-11-06]</strong>.
-   - <strong>Kling 4.0 (Có kèm video đầu vào):</strong> Đơn giá <code>0.6 Units/s</code> (<code>$0.084/s</code> ở 720p) và <code>0.9 Units/s</code> (<code>$0.126/s</code> ở 1080p), nhưng thời lượng tính phí nhân đôi (<code>Output × 2</code>) hoặc cộng dồn (<code>Input + Output</code>), nên chi phí thực tế cho mỗi giây video đầu ra là <strong><code>$0.168/giây</code> (720p)</strong> và <strong><code>$0.252/giây</code> (1080p)</strong> <strong>[CONFIRMED — Kling AI Open Platform Pricing, 2026-11-06]</strong>.
-   - <strong>Kling 4.0 Flash (720p):</strong> Không video đầu vào = <strong><code>0.6 Units/s = $0.084/giây</code></strong> <strong>[CONFIRMED — Kling AI Open Platform Pricing, 2026-11-06]</strong>.
-   - <strong>Kling 3.0:</strong> Không âm = <strong><code>$0.084/s</code> (720p)</strong>, <strong><code>$0.112/s</code> (1080p)</strong> | Có âm hoặc Motion Control = <strong><code>$0.126/s</code> (720p)</strong>, <strong><code>$0.168/s</code> (1080p)</strong> | 4K = <strong><code>$0.420/s</code></strong> <strong>[CONFIRMED — Kling AI Open Platform Pricing, 2026-11-06]</strong>.</p>
+<p><strong>Kling Official Open Platform API — Giá gốc theo Unit (<code>1 Unit ≈ $0.14 USD</code>):</strong></p>
+<ul>
+<li><strong>Kling 4.0 (Không kèm video đầu vào):</strong> <strong>720p = <code>1.0 Unit/s = $0.140/giây</code></strong> | <strong>1080p = <code>1.5 Units/s = $0.210/giây</code></strong> <strong>[CONFIRMED — Kling AI Open Platform Pricing, 2026-11-06]</strong>.</li>
+<li><strong>Kling 4.0 (Có kèm video đầu vào):</strong> Đơn giá <code>0.6 Units/s</code> (<code>$0.084/s</code> ở 720p) và <code>0.9 Units/s</code> (<code>$0.126/s</code> ở 1080p), nhưng thời lượng tính phí nhân đôi (<code>Output × 2</code>) hoặc cộng dồn (<code>Input + Output</code>), nên chi phí thực tế cho mỗi giây video đầu ra là <strong><code>$0.168/giây</code> (720p)</strong> và <strong><code>$0.252/giây</code> (1080p)</strong> <strong>[CONFIRMED — Kling AI Open Platform Pricing, 2026-11-06]</strong>.</li>
+<li><strong>Kling 4.0 Flash (720p):</strong> Không video đầu vào = <strong><code>0.6 Units/s = $0.084/giây</code></strong> <strong>[CONFIRMED — Kling AI Open Platform Pricing, 2026-11-06]</strong>.</li>
+<li><strong>Kling 3.0:</strong> Không âm = <strong><code>$0.084/s</code> (720p)</strong>, <strong><code>$0.112/s</code> (1080p)</strong> | Có âm hoặc Motion Control = <strong><code>$0.126/s</code> (720p)</strong>, <strong><code>$0.168/s</code> (1080p)</strong> | 4K = <strong><code>$0.420/s</code></strong> <strong>[CONFIRMED — Kling AI Open Platform Pricing, 2026-11-06]</strong>.</li>
+</ul>
 </li>
 </ol>
 <hr />
@@ -919,10 +984,12 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <blockquote>
 <p><strong>Tuyên bố cần kiểm chứng của Quick Magic:</strong> <em>"Seedance 2.5 thấp hơn khoảng 35%, Nano Banana Pro khoảng 50%, Veo 3.1 Fast khoảng 80%, Kling 4.0 ngang giá quốc tế"</em>.</p>
 </blockquote>
-<p>Dưới đây là bảng đối chiếu toán học chính xác giữa:
-- <strong>(A) Giá niêm yết của Hãng gốc</strong> (BytePlus ModelArk / Google Vertex AI / Kling Official API)
-- <strong>(B) Giá trên các cổng API quốc tế lớn</strong> (<code>fal.ai</code>, <code>Wavespeed.ai</code>, <code>Kie.ai</code>, <code>PiAPI.ai</code>)
-- <strong>(C) Giá thực tế trên Quick Magic</strong> (Tính theoทั้ง 2 ngưỡng: gói phổ thông Pro/Business <code>1 credit ≈ $0.0010</code> và gói nạp lẻ ưu đãi tối đa <code>$1 = 1.316 credit</code> tức <code>1 credit = $0.000760</code>):</p>
+<p>Dưới đây là bảng đối chiếu toán học chính xác giữa:</p>
+<ul>
+<li><strong>(A) Giá niêm yết của Hãng gốc</strong> (BytePlus ModelArk / Google Vertex AI / Kling Official API)</li>
+<li><strong>(B) Giá trên các cổng API quốc tế lớn</strong> (<code>fal.ai</code>, <code>Wavespeed.ai</code>, <code>Kie.ai</code>, <code>PiAPI.ai</code>)</li>
+<li><strong>(C) Giá thực tế trên Quick Magic</strong> (Tính theoทั้ง 2 ngưỡng: gói phổ thông Pro/Business <code>1 credit ≈ $0.0010</code> và gói nạp lẻ ưu đãi tối đa <code>$1 = 1.316 credit</code> tức <code>1 credit = $0.000760</code>):</li>
+</ul>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -1125,18 +1192,22 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 </tbody>
 </table></div>
 <blockquote>
-<p><strong>Nhận định chiến lược về mức giá 180.000đ (Starter 180.000đ) và 485.000–510.000đ (Pro 510.000đ) của Quick Magic:</strong>
-- Nếu một creator/chủ shop Việt Nam mua lẻ combo <strong>"CapCut Pro riêng (100k) + Vbee TTS (169k) + Kling Standard (200k) + ChatGPT/Midjourney share (120k)"</strong>, họ đang phải trả <strong><code>~589.000 VND/tháng</code></strong>, phải đăng nhập 4 nơi, chịu cảnh văng tài khoản và bị ăn cắp credit.
-- Gói <strong>Starter (~178k–180k VND)</strong> của Quick Magic đánh đúng vào <strong>ngưỡng giá tâm lý của 1 tài khoản Kling Standard lậu hoặc 1 gói Vbee tháng</strong>, nhưng mở khóa cùng lúc 36+ model (Seedance 2.5, Veo 3.1, Kling V3, Nano Banana Pro, Qimi 3) + Phụ đề + TTS + Thử đồ trong một tài khoản chính chủ.
-- Gói <strong>Pro (~485k–510k VND)</strong> và <strong>Business (~1,12 triệu VND)</strong> dùng vũ khí <strong>"Unlimited Sub / Cắt video / Review phim + 10 ngày miễn phí ảnh Qimi 3"</strong> để triệt tiêu nỗi sợ "hết credit giữa chừng" — vốn là lý do lớn nhất khiến dân MMO tìm mua tài khoản Hailuo/CapCut Unlimited lậu.</p>
+<p><strong>Nhận định chiến lược về mức giá 180.000đ (Starter 180.000đ) và 485.000–510.000đ (Pro 510.000đ) của Quick Magic:</strong></p>
+<ul>
+<li>Nếu một creator/chủ shop Việt Nam mua lẻ combo <strong>"CapCut Pro riêng (100k) + Vbee TTS (169k) + Kling Standard (200k) + ChatGPT/Midjourney share (120k)"</strong>, họ đang phải trả <strong><code>~589.000 VND/tháng</code></strong>, phải đăng nhập 4 nơi, chịu cảnh văng tài khoản và bị ăn cắp credit.</li>
+<li>Gói <strong>Starter (~178k–180k VND)</strong> của Quick Magic đánh đúng vào <strong>ngưỡng giá tâm lý của 1 tài khoản Kling Standard lậu hoặc 1 gói Vbee tháng</strong>, nhưng mở khóa cùng lúc 36+ model (Seedance 2.5, Veo 3.1, Kling V3, Nano Banana Pro, Qimi 3) + Phụ đề + TTS + Thử đồ trong một tài khoản chính chủ.</li>
+<li>Gói <strong>Pro (~485k–510k VND)</strong> và <strong>Business (~1,12 triệu VND)</strong> dùng vũ khí <strong>"Unlimited Sub / Cắt video / Review phim + 10 ngày miễn phí ảnh Qimi 3"</strong> để triệt tiêu nỗi sợ "hết credit giữa chừng" — vốn là lý do lớn nhất khiến dân MMO tìm mua tài khoản Hailuo/CapCut Unlimited lậu.</li>
+</ul>
 </blockquote>
 <hr />
 <h2>PHẦN 4: MA TRẬN CHẤM ĐIỂM 14 TIÊU CHÍ CHUẨN &amp; DANH SÁCH <code>sites.md</code></h2>
 <h3>4.1. Bảng chấm điểm Ma trận 14 Tiêu chí chuẩn</h3>
-<p><strong>Thang điểm quy ước:</strong>
-- <code>2</code> = Có đầy đủ, là tính năng cốt lõi / dẫn đầu thị trường.
-- <code>1</code> = Có hỗ trợ một phần / qua model bên thứ ba hoặc giới hạn.
-- <code>0</code> = Không có.</p>
+<p><strong>Thang điểm quy ước:</strong></p>
+<ul>
+<li><code>2</code> = Có đầy đủ, là tính năng cốt lõi / dẫn đầu thị trường.</li>
+<li><code>1</code> = Có hỗ trợ một phần / qua model bên thứ ba hoặc giới hạn.</li>
+<li><code>0</code> = Không có.</li>
+</ul>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -1433,9 +1504,11 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <hr />
 <h1>BÁO CÁO BƯỚC 0 (AGENT 2): PHÂN TÍCH ĐÁNH GIÁ 1–2 SAO, NỖI ĐAU KHÁCH HÀNG ĐÃ TRẢ TIỀN &amp; 6 TỬ HUYỆT NGÀNH CHO QUICK MAGIC (<code>what-to-build</code>)</h1>
 <p><strong>Ngày thực hiện:</strong> <code>2026-11-06</code><br />
-<strong>Quy ước nhãn xác thực:</strong>
-- <strong>[CONFIRMED — kèm URL và ngày đọc 2026-11-06]</strong>: Dữ kiện, điểm số, số lượng đánh giá và trích dẫn nguyên văn lấy trực tiếp từ trang gốc (<code>trustpilot.com</code>, <code>news.ycombinator.com</code>, và <strong>đọc toàn văn qua công cụ <code>read-blocked</code> (<code>~/.claude/skills/read-blocked/scripts/read.sh</code>) sử dụng Bright Data Scraping Browser, Wayback Machine &amp; Arctic Shift cho <code>g2.com</code>, <code>capterra.com</code>, <code>reddit.com</code></strong>).
-- <strong>[UNVERIFIED — lý do]</strong>: Nguồn không có hồ sơ riêng trên nền tảng tương ứng.</p>
+<strong>Quy ước nhãn xác thực:</strong></p>
+<ul>
+<li><strong>[CONFIRMED — kèm URL và ngày đọc 2026-11-06]</strong>: Dữ kiện, điểm số, số lượng đánh giá và trích dẫn nguyên văn lấy trực tiếp từ trang gốc (<code>trustpilot.com</code>, <code>news.ycombinator.com</code>, và <strong>đọc toàn văn qua công cụ <code>read-blocked</code> (<code>~/.claude/skills/read-blocked/scripts/read.sh</code>) sử dụng Bright Data Scraping Browser, Wayback Machine &amp; Arctic Shift cho <code>g2.com</code>, <code>capterra.com</code>, <code>reddit.com</code></strong>).</li>
+<li><strong>[UNVERIFIED — lý do]</strong>: Nguồn không có hồ sơ riêng trên nền tảng tương ứng.</li>
+</ul>
 <hr />
 <h2>PHẦN 1: BẢNG TỔNG HỢP REVIEW &amp; NỖI ĐAU 1–2 SAO THEO TỪNG HÃNG (5 NHÓM ĐỐI THỦ — ĐÃ ĐỌC TRỰC TIẾP G2, CAPTERRA, REDDIT QUA <code>read-blocked</code>)</h2>
 <h3>Nhóm 1: All-in-one AI Video/Image Aggregator &amp; Studio</h3>
@@ -1638,48 +1711,66 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <h3>PHẦN 2: PHÂN TÍCH 6 NHÓM "TỬ HUYỆT NGÀNH" TỪ REVIEW 1–2 SAO (TRUSTPILOT + G2 + CAPTERRA + REDDIT) &amp; HÀM Ý TRỰC TIẾP CHO QUICK MAGIC</h3>
 <h3>(a) Tử huyệt 1: Đốt credit oan &amp; Phí ẩn "Agent Overhead" (Credit Burn &amp; Hidden Overhead)</h3>
 <ul>
-<li><strong>Thực trạng từ 1–2 sao (Trustpilot, G2, Capterra, Reddit):</strong> Đây là nguyên nhân số 1 gây phẫn nộ trên toàn bộ các nền tảng <strong>Kling AI, Runway, Higgsfield, OpenArt, HeyGen, Creatify, Arcads</strong>:
-  1. <strong>Phí ẩn "Agent Conversation Overhead" ăn chặn 50% tổng credit (phát hiện từ G2 <code>openart.ai</code>):</strong> Đánh giá 1 sao của CTO Rubik Angelo B. trên G2 bóc trần việc tạo 1 video 6 giây trong OpenArt Director tốn <code>1.304 credits</code>, trong đó tạo ảnh + video thật chỉ hết <code>652 credits</code>, còn <strong><code>652 credits</code> (50%!) bị trừ ngầm cho hội thoại điều phối của Agent ("Director - Agent Conversation")</strong> mà không báo trước.
-  2. <strong>Sửa 1 chữ hoặc chỉnh sửa nhỏ bị tính tiền đúp 100% như làm mới (phát hiện từ G2 <code>heygen.com</code> &amp; <code>creatify.ai</code>):</strong> Cả <em>George M.</em> (G2 HeyGen) và <em>Keith M.</em> (G2 Creatify) đều phẫn nộ vì sau khi render mới phát hiện lỗi nhỏ (hoặc 5–10 giây cuối bị lệch khẩu hình, phát ra tiếng thở "hhh" lạ như <em>Tea L.</em> phản ánh trên G2 HeyGen), bấm sửa 1 chữ và xuất lại thì bị trừ 100% credit từ đầu ("double charged").
-  3. <strong>Render lỗi vẫn trừ tiền &amp; Không có bản xem thử (G2 <code>runwayml.com</code>):</strong> Render 3 tiếng ra màn hình đen (Runway) hoặc kẹt 99% báo lỗi (Kling) vẫn trừ credit; người dùng G2 Runway phàn nàn không có cách nào preview/test prompt trước khi bị đốt sạch số dư.
-  4. <strong>Tự động nạp bù (Auto Top-off) trái phép &amp; Khóa tài khoản trả thù (phát hiện từ Capterra <code>Freepik/Magnific</code>):</strong> Đánh giá 1 sao trên Capterra tố cáo Magnific tự ý quẹt thẻ $32 "top-off"; khi khách đòi hoàn lại $32, hãng hủy luôn gói năm đã trả tiền, xóa sạch credit và khóa vĩnh viễn tài khoản chứa dữ liệu nhiều năm.</li>
-<li><strong>Hàm ý trực tiếp cho Quick Magic (khi mỗi video tốn 50.000đ – 180.000đ &amp; có Agent/Director trong Studio):</strong>
-  1. <strong>Tuyệt đối miễn phí tầng LLM/Agent điều phối (Zero Agent Overhead):</strong> Trong các Studio tự động của Quick Magic (viết kịch bản, chia cảnh, prompt enhancer), chi phí LLM điều phối phải được miễn phí hoặc gộp minh bạch, <strong>tuyệt đối không thu phí ẩn 50% kiểu OpenArt Director</strong>, và <strong>phải hiển thị bảng dự toán tổng số credit của toàn bộ Project trước khi bấm chạy</strong> (như CEO <em>The Presence Collective</em> đòi hỏi trên G2 OpenArt, và như <em>Wavespeed.ai</em> được khen trên Reddit vì hiển thị giá tiền động theo thanh trượt).
-  2. <strong>Chế độ "Sửa kịch bản / Render lại phân cảnh lỗi" giá rẻ (Segment Re-render):</strong> Trong quy trình tạo video nhiều cảnh hoặc Lipsync/TTS, nếu khách chỉ sửa 1 câu thoại hoặc sửa 5 giây cuối bị lệch lip-sync, chỉ trừ credit đúng phân đoạn 5 giây đó, không trừ lại 100% cả video như HeyGen/Creatify.
-  3. <strong>Cam kết "Lỗi kỹ thuật / Kẹt 99% / Timeout = Tự động hoàn 100% Credit tức thì"</strong> + <strong>Khóa vùng sản phẩm (Product Masking)</strong> để không bao giờ làm méo chữ tiếng Việt trên bao bì sản phẩm.
-  4. <strong>Cho phép nâng cấp bù trừ (Pro-rata Upgrade) &amp; Liên thông ví Web – API:</strong> Rút kinh nghiệm từ đánh giá 1 sao của <em>Alexis</em> trên G2 <strong>Photoroom</strong> (mua gói năm Max muốn nâng lên gói API đắt hơn nhưng bị bắt trả tiền cả 2 gói cùng lúc khiến khách bỏ sang Pixelcut), Quick Magic cần cho phép chuyển đổi/nâng cấp mượt mà giữa gói Web và ví Open API.</li>
+<li><strong>Thực trạng từ 1–2 sao (Trustpilot, G2, Capterra, Reddit):</strong> Đây là nguyên nhân số 1 gây phẫn nộ trên toàn bộ các nền tảng <strong>Kling AI, Runway, Higgsfield, OpenArt, HeyGen, Creatify, Arcads</strong>:<ol>
+<li><strong>Phí ẩn "Agent Conversation Overhead" ăn chặn 50% tổng credit (phát hiện từ G2 <code>openart.ai</code>):</strong> Đánh giá 1 sao của CTO Rubik Angelo B. trên G2 bóc trần việc tạo 1 video 6 giây trong OpenArt Director tốn <code>1.304 credits</code>, trong đó tạo ảnh + video thật chỉ hết <code>652 credits</code>, còn <strong><code>652 credits</code> (50%!) bị trừ ngầm cho hội thoại điều phối của Agent ("Director - Agent Conversation")</strong> mà không báo trước.</li>
+<li><strong>Sửa 1 chữ hoặc chỉnh sửa nhỏ bị tính tiền đúp 100% như làm mới (phát hiện từ G2 <code>heygen.com</code> &amp; <code>creatify.ai</code>):</strong> Cả <em>George M.</em> (G2 HeyGen) và <em>Keith M.</em> (G2 Creatify) đều phẫn nộ vì sau khi render mới phát hiện lỗi nhỏ (hoặc 5–10 giây cuối bị lệch khẩu hình, phát ra tiếng thở "hhh" lạ như <em>Tea L.</em> phản ánh trên G2 HeyGen), bấm sửa 1 chữ và xuất lại thì bị trừ 100% credit từ đầu ("double charged").</li>
+<li><strong>Render lỗi vẫn trừ tiền &amp; Không có bản xem thử (G2 <code>runwayml.com</code>):</strong> Render 3 tiếng ra màn hình đen (Runway) hoặc kẹt 99% báo lỗi (Kling) vẫn trừ credit; người dùng G2 Runway phàn nàn không có cách nào preview/test prompt trước khi bị đốt sạch số dư.</li>
+<li><strong>Tự động nạp bù (Auto Top-off) trái phép &amp; Khóa tài khoản trả thù (phát hiện từ Capterra <code>Freepik/Magnific</code>):</strong> Đánh giá 1 sao trên Capterra tố cáo Magnific tự ý quẹt thẻ $32 "top-off"; khi khách đòi hoàn lại $32, hãng hủy luôn gói năm đã trả tiền, xóa sạch credit và khóa vĩnh viễn tài khoản chứa dữ liệu nhiều năm.</li>
+</ol>
+</li>
+<li><strong>Hàm ý trực tiếp cho Quick Magic (khi mỗi video tốn 50.000đ – 180.000đ &amp; có Agent/Director trong Studio):</strong><ol>
+<li><strong>Tuyệt đối miễn phí tầng LLM/Agent điều phối (Zero Agent Overhead):</strong> Trong các Studio tự động của Quick Magic (viết kịch bản, chia cảnh, prompt enhancer), chi phí LLM điều phối phải được miễn phí hoặc gộp minh bạch, <strong>tuyệt đối không thu phí ẩn 50% kiểu OpenArt Director</strong>, và <strong>phải hiển thị bảng dự toán tổng số credit của toàn bộ Project trước khi bấm chạy</strong> (như CEO <em>The Presence Collective</em> đòi hỏi trên G2 OpenArt, và như <em>Wavespeed.ai</em> được khen trên Reddit vì hiển thị giá tiền động theo thanh trượt).</li>
+<li><strong>Chế độ "Sửa kịch bản / Render lại phân cảnh lỗi" giá rẻ (Segment Re-render):</strong> Trong quy trình tạo video nhiều cảnh hoặc Lipsync/TTS, nếu khách chỉ sửa 1 câu thoại hoặc sửa 5 giây cuối bị lệch lip-sync, chỉ trừ credit đúng phân đoạn 5 giây đó, không trừ lại 100% cả video như HeyGen/Creatify.</li>
+<li><strong>Cam kết "Lỗi kỹ thuật / Kẹt 99% / Timeout = Tự động hoàn 100% Credit tức thì"</strong> + <strong>Khóa vùng sản phẩm (Product Masking)</strong> để không bao giờ làm méo chữ tiếng Việt trên bao bì sản phẩm.</li>
+<li><strong>Cho phép nâng cấp bù trừ (Pro-rata Upgrade) &amp; Liên thông ví Web – API:</strong> Rút kinh nghiệm từ đánh giá 1 sao của <em>Alexis</em> trên G2 <strong>Photoroom</strong> (mua gói năm Max muốn nâng lên gói API đắt hơn nhưng bị bắt trả tiền cả 2 gói cùng lúc khiến khách bỏ sang Pixelcut), Quick Magic cần cho phép chuyển đổi/nâng cấp mượt mà giữa gói Web và ví Open API.</li>
+</ol>
+</li>
 </ul>
 <h3>(b) Tử huyệt 2: Bẫy gói "Unlimited" &amp; Bẫy "Mua Credit lẻ bị nhốt hàng chờ" (Relaxed Queue / Battery System / Busy Queue)</h3>
 <ul>
-<li><strong>Thực trạng từ 1–2 sao &amp; Reddit (<code>via: arctic-shift</code>):</strong> Cả 6 hãng <strong>Runway, Freepik (Magnific), Hailuo, Krea, Higgsfield và Kling</strong> đều bị cộng đồng Reddit và Trustpilot tổng sỉ vả vì các chiêu trò đánh tráo khái niệm:</li>
+<li><strong>Thực trạng từ 1–2 sao &amp; Reddit (<code>via: arctic-shift</code>):</strong> Cả 6 hãng <strong>Runway, Freepik (Magnific), Hailuo, Krea, Higgsfield và Kling</strong> đều bị cộng đồng Reddit và Trustpilot tổng sỉ vả vì các chiêu trò đánh tráo khái niệm:<ul>
 <li><strong>Higgsfield (<code>r/HiggsfieldAI</code> <code>1rvaj50</code>):</strong> Quảng cáo "Unlimited Video" nhưng thực chất chỉ là bản dùng thử 7 ngày giấu trong tooltip nhỏ; tạo ảnh Nano Banana Pro "Unlimited" thì mất tới <strong>1 tiếng/ảnh</strong> hoặc đụng phải <strong>"hệ thống bình pin ẩn (hidden battery system)" bắt nạp thêm $5 top-up</strong> mới cho dùng tiếp gói Unlimited đã trả tiền cả năm! Chưa kể tăng giá credit qua đêm 50%–67% không báo trước (<code>u/kvxsingh</code>).</li>
 <li><strong>Kling AI (<code>r/KlingAI_Videos</code> <code>1wndcac</code>):</strong> Khách mua gói Credit lẻ (standalone credits) mà không duy trì gói thuê bao tháng bị nhốt vào <strong>"Busy Queue"</strong> không thể tạo nổi 1 giây video, rồi bị đòi trả tiền thêm lần nữa để "Skip the queue" (<code>u/AnonymousGuy50</code>).</li>
 <li><strong>HeyGen (<code>r/aiwars</code> <code>1jwlqm7</code>):</strong> Bán gói Creator quảng cáo "Unlimited dubbing cho video tới 30 phút", khách vừa trả tiền xong bị khóa trần xuống 5 phút; support hồn nhiên thú nhận đội thanh toán đang <strong>"chạy thí nghiệm ngầm (random experiments)" trên lưng khách đã trả tiền</strong>!</li>
 <li><strong>Runway (<code>r/runwayml</code> <code>1ru8bd7</code>), Freepik (<code>r/Freepik_AI</code> <code>1rtn399</code>) &amp; Hailuo (<code>r/HailuoAiOfficial</code> <code>1ja8cd6</code>):</strong> Cho chạy nhanh vài lệnh đầu rồi bóp hàng chờ lên <strong>45 phút đến 3–12 tiếng/video</strong>.</li>
-<li><strong>Bài học sống còn cho "Vé Unlimited Qimi 81k/ngày - 1.215k/tháng", "Nạp 500k API free unlimited ảnh" và "Mua lẻ Credit" của Quick Magic:</strong>
-  1. <strong>Cam kết "Credit mua lẻ có quyền bình đẳng hàng chờ" (No Pay-Twice Queue Trap):</strong> Khác hẳn Kling AI, khách nạp lẻ 50k–100k VND trên Quick Magic phải được chạy ở hàng chờ tiêu chuẩn đúng cam kết, không bao giờ bị nhốt vào "Busy Queue" để ép mua thêm gói tháng.
-  2. <strong>Thiết kế "Unlimited Minh Bạch" (No Hidden Battery / No Shadow-Throttling):</strong> Công bố rõ ngay trên bảng giá số lượt Fast GPU mỗi ngày + thời gian chờ thực tế ở hàng chờ tiêu chuẩn + giới hạn luồng đồng thời, tuyệt đối không dùng "bình pin ẩn" đòi nạp thêm tiền như Higgsfield hay "thí nghiệm ngầm" cắt quyền lợi như HeyGen.
-  3. <strong>Điểm sáng cần học hỏi từ gói Năm của Freepik/Magnific (<code>r/AI_Agents</code> <code>1szbhy5</code>):</strong> Người dùng Reddit đánh giá rất cao việc gói năm cấp toàn bộ 100% credit của cả 12 tháng ngay ngày đầu tiên (thay vì nhỏ giọt từng tháng rồi xóa trắng cuối tháng). Quick Magic có thể áp dụng chính sách <strong>"Gói Năm / Credit nạp thêm không xóa trắng cuối tháng"</strong> làm lợi thế cạnh tranh trực tiếp trước Higgsfield, HeyGen và OpenArt.</li>
+</ul>
+</li>
+<li><strong>Bài học sống còn cho "Vé Unlimited Qimi 81k/ngày - 1.215k/tháng", "Nạp 500k API free unlimited ảnh" và "Mua lẻ Credit" của Quick Magic:</strong><ol>
+<li><strong>Cam kết "Credit mua lẻ có quyền bình đẳng hàng chờ" (No Pay-Twice Queue Trap):</strong> Khác hẳn Kling AI, khách nạp lẻ 50k–100k VND trên Quick Magic phải được chạy ở hàng chờ tiêu chuẩn đúng cam kết, không bao giờ bị nhốt vào "Busy Queue" để ép mua thêm gói tháng.</li>
+<li><strong>Thiết kế "Unlimited Minh Bạch" (No Hidden Battery / No Shadow-Throttling):</strong> Công bố rõ ngay trên bảng giá số lượt Fast GPU mỗi ngày + thời gian chờ thực tế ở hàng chờ tiêu chuẩn + giới hạn luồng đồng thời, tuyệt đối không dùng "bình pin ẩn" đòi nạp thêm tiền như Higgsfield hay "thí nghiệm ngầm" cắt quyền lợi như HeyGen.</li>
+<li><strong>Điểm sáng cần học hỏi từ gói Năm của Freepik/Magnific (<code>r/AI_Agents</code> <code>1szbhy5</code>):</strong> Người dùng Reddit đánh giá rất cao việc gói năm cấp toàn bộ 100% credit của cả 12 tháng ngay ngày đầu tiên (thay vì nhỏ giọt từng tháng rồi xóa trắng cuối tháng). Quick Magic có thể áp dụng chính sách <strong>"Gói Năm / Credit nạp thêm không xóa trắng cuối tháng"</strong> làm lợi thế cạnh tranh trực tiếp trước Higgsfield, HeyGen và OpenArt.</li>
+</ol>
+</li>
 </ul>
 <h3>(c) Tử huyệt 3: Chất lượng đầu ra cho E-commerce / Shop Online (Vì sao bị chê "nhìn giả" &amp; bị TikTok Shop bóp tương tác?)</h3>
 <ul>
-<li><strong>Thực trạng từ G2, Capterra, Reddit &amp; Thị trường VN:</strong></li>
+<li><strong>Thực trạng từ G2, Capterra, Reddit &amp; Thị trường VN:</strong><ul>
 <li>Trên <strong>Reddit (<code>r/generativeAI</code> <code>1wrlb27</code>)</strong>, người dùng bóc trần các bài viết <em>"Tôi đã thử 47 web AI UGC"</em> thực chất là seeding affiliate cho <strong>Creatify</strong>, trong khi avatar thực tế vẫn mang vẻ mặt robot vô hồn ("uncanny robotic look") làm sập tỷ lệ chuyển đổi quảng cáo.</li>
 <li>Trên <strong>Capterra (<code>HeyGen</code>)</strong> và <strong>G2 (<code>HeyGen</code>)</strong>, khách chỉ rõ lỗi kỹ thuật chí mạng: bàn tay và trang phục của avatar tự biến dạng giữa các cảnh (<em>Wissam B.</em>), và 5–10 giây cuối video thường bị trật nhịp lip-sync (<em>Tea L.</em>).</li>
 <li>Tại Việt Nam, nhà bán hàng TikTok Shop / Shopee nhận ra việc dùng 100% AI (Avatar đứng nói đơ + giọng TTS đều đều + ảnh thử đồ AI làm biến dạng chất vải/logo) dẫn đến bị khách lướt qua ngay trong 3 giây đầu, bị thuật toán TikTok Shop quét phạt AIGC bóp 0 view/khóa giỏ hàng, và khách nhận hàng trả hàng vì khác xa video.</li>
-<li><strong>Hàm ý sản phẩm cho Quick Magic (Marketing Studio / Thử đồ AI / Lipsync UGC):</strong></li>
+</ul>
+</li>
+<li><strong>Hàm ý sản phẩm cho Quick Magic (Marketing Studio / Thử đồ AI / Lipsync UGC):</strong><ul>
 <li><strong>Bán quy trình "Hybrid 70/30 Chuẩn Thuật Toán TikTok Shop":</strong> 3 giây đầu (AI Hook) + Giữa video (Ghép cảnh quay cận cảnh chất vải/sản phẩm thật bằng điện thoại của chủ shop) + Cuối video (CTA), kết hợp <strong>True-Product Lock</strong> (giữ nguyên 100% nhãn mác tiếng Việt) và <strong>Speech-to-Speech</strong> (chủ shop tự đọc nháp bằng điện thoại rồi dùng AI làm sạch/đổi giọng để giữ nhịp điệu tự nhiên).</li>
+</ul>
+</li>
 </ul>
 <h3>(d) Tử huyệt 4: Nỗi đau Developer dùng Media API (<code>fal.ai</code>, <code>Replicate</code>, <code>Wavespeed</code>, <code>Kie.ai</code>, <code>PiAPI</code>) &amp; Bài toán "Giới hạn 2 luồng dưới 10 triệu VND" của <code>open.quickmagic.vn</code></h3>
 <ul>
-<li><strong>Thực trạng từ Developer (G2, Capterra, HN, Reddit, Trustpilot):</strong>
-  1. <strong>Cold start &amp; Chi phí nhảy múa theo giây GPU:</strong> Đánh giá trên G2 (<code>Kaleem A.</code>) và Capterra của <strong>Replicate</strong> xác nhận cold-boot kéo dài 10–30+ giây khi container scale về 0 và cách tính tiền theo giây GPU (per-second billing) làm chi phí vọt lên bất ngờ (thậm chí lỗi UI treo GPU đốt &gt;$1.000 trên <code>r/StableDiffusion</code>).
-  2. <strong>Thiếu minh bạch chi phí từng request trên Dashboard (<code>fal.ai</code> G2) vs Hình mẫu <code>Wavespeed.ai</code> (Reddit):</strong> Trên G2, kỹ sư <em>Ankit M.</em> phê bình Dashboard tổng quan của <code>fal.ai</code> không hiển thị phân rã chi phí và thời gian chạy của từng request; ngược lại, trên Reddit (<code>1spi6mo</code>), <strong>Wavespeed.ai</strong> được ca ngợi hết lời vì hiển thị giá USD động ngay khi kéo thanh trượt độ phân giải/thời lượng và lịch sử trừ tiền chính xác tới từng xu (dù chỉ lưu file 7 ngày).
-  3. <strong>Khóa tài khoản vô cớ sau khi nạp tiền &amp; Rủi ro đứt gãy nguồn cung (Upstream Takedown):</strong> <code>fal.ai</code> và <code>Higgsfield</code> bị tố khóa tài khoản ngay khi vừa nạp thẻ Visa hợp lệ; <code>Kie.ai</code> và <code>PiAPI</code> làm gãy workflow <code>n8n</code> khi hãng gốc truy quét và gỡ model đột ngột.</li>
-<li><strong>Đánh giá rào cản "Giới hạn mặc định chỉ 2 luồng nếu nạp dưới 10 triệu VND (~$400)" của <code>open.quickmagic.vn</code>:</strong></li>
+<li><strong>Thực trạng từ Developer (G2, Capterra, HN, Reddit, Trustpilot):</strong><ol>
+<li><strong>Cold start &amp; Chi phí nhảy múa theo giây GPU:</strong> Đánh giá trên G2 (<code>Kaleem A.</code>) và Capterra của <strong>Replicate</strong> xác nhận cold-boot kéo dài 10–30+ giây khi container scale về 0 và cách tính tiền theo giây GPU (per-second billing) làm chi phí vọt lên bất ngờ (thậm chí lỗi UI treo GPU đốt &gt;$1.000 trên <code>r/StableDiffusion</code>).</li>
+<li><strong>Thiếu minh bạch chi phí từng request trên Dashboard (<code>fal.ai</code> G2) vs Hình mẫu <code>Wavespeed.ai</code> (Reddit):</strong> Trên G2, kỹ sư <em>Ankit M.</em> phê bình Dashboard tổng quan của <code>fal.ai</code> không hiển thị phân rã chi phí và thời gian chạy của từng request; ngược lại, trên Reddit (<code>1spi6mo</code>), <strong>Wavespeed.ai</strong> được ca ngợi hết lời vì hiển thị giá USD động ngay khi kéo thanh trượt độ phân giải/thời lượng và lịch sử trừ tiền chính xác tới từng xu (dù chỉ lưu file 7 ngày).</li>
+<li><strong>Khóa tài khoản vô cớ sau khi nạp tiền &amp; Rủi ro đứt gãy nguồn cung (Upstream Takedown):</strong> <code>fal.ai</code> và <code>Higgsfield</code> bị tố khóa tài khoản ngay khi vừa nạp thẻ Visa hợp lệ; <code>Kie.ai</code> và <code>PiAPI</code> làm gãy workflow <code>n8n</code> khi hãng gốc truy quét và gỡ model đột ngột.</li>
+</ol>
+</li>
+<li>
+<p><strong>Đánh giá rào cản "Giới hạn mặc định chỉ 2 luồng nếu nạp dưới 10 triệu VND (~$400)" của <code>open.quickmagic.vn</code>:</strong></p>
+<ul>
 <li><strong>ĐÂY LÀ MỘT RÀO CẢN LỚN NẾU KHÔNG TÁCH BẠCH "QUEUE ACCEPTANCE" VÀ "EXECUTION CONCURRENCY"!</strong></li>
 <li>Trên <code>fal.ai</code>, dù tài khoản mới nạp $10 cũng giới hạn 2 luồng <code>IN_PROGRESS</code>, nhưng khi bắn 20 request cùng lúc vào <code>queue.fal.run</code>, <strong>cả 20 request đều được nhận vào hàng chờ (<code>IN_QUEUE</code>) mà không bị lỗi <code>429</code></strong>.</li>
-<li><strong>Khuyến nghị cho <code>open.quickmagic.vn</code>:</strong><ol>
+<li><strong>Khuyến nghị cho <code>open.quickmagic.vn</code>:</strong></li>
+</ul>
+<ol>
 <li><strong>Cho phép Queue Acceptance tối đa 50–100 jobs (<code>IN_QUEUE</code>)</strong> ở mọi mức nạp để workflow <code>n8n</code>/<code>Make</code> của dev không bao giờ bị văng lỗi <code>HTTP 429</code>.</li>
 <li><strong>Tách luồng ảnh (5–10 luồng ngay từ mức nạp 200k–500k VND) và luồng video (2 luồng)</strong>, đồng thời hạ bậc thang mở khóa luồng (500k -&gt; 2 triệu -&gt; 10 triệu VND).</li>
 <li><strong>Học tập Wavespeed.ai &amp; khắc phục điểm yếu của fal.ai trên G2:</strong> Hiển thị bảng phân rã <code>Chi phí (VND/USD) + Thời gian chạy (ms) + Trạng thái hoàn tiền nếu lỗi</code> cho từng request ngay trên trang chính của Dashboard <code>open.quickmagic.vn</code>.</li>
@@ -1688,132 +1779,176 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 </ul>
 <h3>(e) Tử huyệt 5: Chính sách khóa nội dung (NSFW / Safety False Positive) &amp; Hoàn tiền</h3>
 <ul>
-<li><strong>Thực trạng từ 1–2 sao (G2 <code>openart.ai</code>, Trustpilot <code>heygen.com</code>, Reddit <code>r/n8n</code>):</strong></li>
+<li><strong>Thực trạng từ 1–2 sao (G2 <code>openart.ai</code>, Trustpilot <code>heygen.com</code>, Reddit <code>r/n8n</code>):</strong><ul>
 <li>Trên G2 <strong>OpenArt</strong>, CTO <em>Rubik Angelo B.</em> chỉ rõ: bộ lọc an toàn (Safety filter) chặn nhầm cả bảng tham chiếu nhân vật mặc đồ bơi hoàn toàn không nhạy cảm (non-explicit swimwear), làm gãy toàn bộ quy trình tạo video thời trang.</li>
 <li>Trên Reddit, dev đánh giá rất cao <strong>PiAPI</strong> vì <strong>tự động hoàn credit cho các task bị bộ lọc chặn</strong>, trong khi nhiều nền tảng khác vẫn trừ tiền.</li>
-<li><strong>Hàm ý cho Quick Magic:</strong>
-  1. <strong>Kiểm duyệt tiền kiểm (Pre-flight Check miễn phí trong 1 giây, trừ 0 credit)</strong> và <strong>Tự động hoàn 100% credit nếu bị bộ lọc hậu kiểm của model bên thứ ba chặn nhầm</strong> (với hạn mức chống spam mỗi ngày), đặc biệt tối ưu whitelist cho ngành Thời trang (đồ bơi, đầm dạ hội) trên TikTok Shop.
-  2. <strong>Hỗ trợ thanh toán nội địa (VietQR / MoMo) &amp; CSKH người Việt thật qua Zalo/Telegram:</strong> Giải quyết triệt để nỗi sợ bị khóa tài khoản tự động mất tiền (như "Christmas Ban Wave" của Higgsfield hay vụ khóa tài khoản trả thù trên Capterra của Magnific).</li>
+</ul>
+</li>
+<li><strong>Hàm ý cho Quick Magic:</strong><ol>
+<li><strong>Kiểm duyệt tiền kiểm (Pre-flight Check miễn phí trong 1 giây, trừ 0 credit)</strong> và <strong>Tự động hoàn 100% credit nếu bị bộ lọc hậu kiểm của model bên thứ ba chặn nhầm</strong> (với hạn mức chống spam mỗi ngày), đặc biệt tối ưu whitelist cho ngành Thời trang (đồ bơi, đầm dạ hội) trên TikTok Shop.</li>
+<li><strong>Hỗ trợ thanh toán nội địa (VietQR / MoMo) &amp; CSKH người Việt thật qua Zalo/Telegram:</strong> Giải quyết triệt để nỗi sợ bị khóa tài khoản tự động mất tiền (như "Christmas Ban Wave" của Higgsfield hay vụ khóa tài khoản trả thù trên Capterra của Magnific).</li>
+</ol>
+</li>
 </ul>
 <h3>(f) Tính năng nào khách khen thật sự đáng tiền (Chọn làm "Cửa vào" / Wedge cho Quick Magic)</h3>
-<p>Từ các đánh giá 4–5 sao đã xác minh trên <strong>G2 (11 sản phẩm), Capterra (6 sản phẩm), Trustpilot và Reddit</strong>, khách hàng trả tiền sẵn sàng móc hầu bao và ở lại lâu dài vì <strong>5 giá trị thực chất sau</strong>:
-1. <strong>Thanh toán nạp lẻ linh hoạt (Pay-as-you-go), Minh bạch giá theo thời gian thực (kiểu Wavespeed.ai) &amp; Tài khoản chính chủ bảo mật:</strong> Không ép thuê bao tự động gia hạn, không trừ phí ẩn Agent overhead, không lộ ảnh sản phẩm/prompt bí mật như tài khoản dùng chung trên chợ MMO.
-2. <strong>All-in-one hội tụ các model đỉnh nhất kèm Camera Control &amp; Hướng dẫn trực quan (Higgsfield 4.0★ Trustpilot) + Tỷ lệ P/P vượt trội:</strong> Benchmark thực tế gói $30/tháng trên Reddit (<code>r/aivideo</code> <code>1qe3p06</code>) cho thấy người dùng đặt lên bàn cân từng đồng credit giữa Higgsfield, Freepik, OpenArt và Krea. Việc Quick Magic công bố rõ số lượng ảnh Nano Banana Pro / video Veo 3.1 / Kling tạo được trên mỗi 100.000đ sẽ đánh trúng tâm lý so sánh này.
-3. <strong>URL-to-Video &amp; Batch Variations cho người chạy Ads không biết dựng phim (Creatify <code>4.8/5</code> trên G2 với <code>1.758 reviews</code>):</strong> Dán link sản phẩm -&gt; tự động tạo kịch bản và xuất hàng loạt biến thể để test A/B quảng cáo.
-4. <strong>Tách nền &amp; Ảnh sản phẩm E-commerce chuẩn xác, dễ dùng tức thì (Photoroom đạt <code>4.9/5</code> điểm Ease of Use trên Capterra):</strong> Xử lý ảnh sản phẩm hàng loạt (Batch mode) giữ nguyên chi tiết thật của sản phẩm trước khi đưa vào tạo video.
-5. <strong>Tốc độ phản hồi cực nhanh &amp; Cổng API thống nhất nhiều model (fal.ai đạt <code>4.3/5</code> trên G2 với <code>48 reviews</code>, Replicate đạt <code>4.5/5</code> với <code>24 reviews</code>):</strong> Chỉ cần 1 API key duy nhất để gọi từ Flux, Kling, Veo, Seedance với tốc độ khởi chạy nhanh, kèm bảng thống kê chi phí từng request minh bạch.</p>
+<p>Từ các đánh giá 4–5 sao đã xác minh trên <strong>G2 (11 sản phẩm), Capterra (6 sản phẩm), Trustpilot và Reddit</strong>, khách hàng trả tiền sẵn sàng móc hầu bao và ở lại lâu dài vì <strong>5 giá trị thực chất sau</strong>:</p>
+<ol>
+<li><strong>Thanh toán nạp lẻ linh hoạt (Pay-as-you-go), Minh bạch giá theo thời gian thực (kiểu Wavespeed.ai) &amp; Tài khoản chính chủ bảo mật:</strong> Không ép thuê bao tự động gia hạn, không trừ phí ẩn Agent overhead, không lộ ảnh sản phẩm/prompt bí mật như tài khoản dùng chung trên chợ MMO.</li>
+<li><strong>All-in-one hội tụ các model đỉnh nhất kèm Camera Control &amp; Hướng dẫn trực quan (Higgsfield 4.0★ Trustpilot) + Tỷ lệ P/P vượt trội:</strong> Benchmark thực tế gói $30/tháng trên Reddit (<code>r/aivideo</code> <code>1qe3p06</code>) cho thấy người dùng đặt lên bàn cân từng đồng credit giữa Higgsfield, Freepik, OpenArt và Krea. Việc Quick Magic công bố rõ số lượng ảnh Nano Banana Pro / video Veo 3.1 / Kling tạo được trên mỗi 100.000đ sẽ đánh trúng tâm lý so sánh này.</li>
+<li><strong>URL-to-Video &amp; Batch Variations cho người chạy Ads không biết dựng phim (Creatify <code>4.8/5</code> trên G2 với <code>1.758 reviews</code>):</strong> Dán link sản phẩm -&gt; tự động tạo kịch bản và xuất hàng loạt biến thể để test A/B quảng cáo.</li>
+<li><strong>Tách nền &amp; Ảnh sản phẩm E-commerce chuẩn xác, dễ dùng tức thì (Photoroom đạt <code>4.9/5</code> điểm Ease of Use trên Capterra):</strong> Xử lý ảnh sản phẩm hàng loạt (Batch mode) giữ nguyên chi tiết thật của sản phẩm trước khi đưa vào tạo video.</li>
+<li><strong>Tốc độ phản hồi cực nhanh &amp; Cổng API thống nhất nhiều model (fal.ai đạt <code>4.3/5</code> trên G2 với <code>48 reviews</code>, Replicate đạt <code>4.5/5</code> với <code>24 reviews</code>):</strong> Chỉ cần 1 API key duy nhất để gọi từ Flux, Kling, Veo, Seedance với tốc độ khởi chạy nhanh, kèm bảng thống kê chi phí từng request minh bạch.</li>
+</ol>
 <hr />
 <h2>PHẦN 3: BÁO CÁO XÁC THỰC NGUỒN DỮ LIỆU ĐÃ ĐỌC QUA <code>read-blocked</code> (BRIGHT DATA SCRAPING BROWSER, WAYBACK &amp; ARCTIC SHIFT)</h2>
 <p>Tuân thủ tuyệt đối quy chuẩn nghiên cứu của <code>/market-research</code> và công cụ <code>~/.claude/skills/read-blocked/scripts/read.sh</code>, toàn bộ các nguồn review bị chặn bởi Cloudflare / DataDome / Bot Protection (<strong>G2, Capterra, Reddit</strong>) đã được vượt tường lửa và đọc toàn văn (<code>100%</code> thành công, lưu log tại <code>scratch/rb_out/</code>):</p>
 <ol>
-<li><strong>11 trang sản phẩm trên G2 (<code>g2.com</code>) — Đọc thành công 100% qua <code>read-blocked</code> (<code>via: brightdata(scraping browser)</code> &amp; <code>via: wayback</code>):</strong>
-   - <strong>HeyGen (<code>g2.com/products/heygen/reviews</code>):</strong> <code>4.8 / 5</code> (<code>1.967 reviews</code>: 5★=1.824, 4★=109, 3★=13, 2★=7, 1★=14) — đọc qua <code>wayback</code>.
-   - <strong>Creatify AI (<code>g2.com/products/creatify-ai/reviews</code>):</strong> <code>4.8 / 5</code> (<code>1.758 reviews</code>: 5★=1.641, 4★=92, 3★=5, 2★=2, 1★=18) — đọc qua <code>wayback</code>.
-   - <strong>ElevenLabs (<code>g2.com/products/elevenlabs/reviews</code>):</strong> <code>4.5 / 5</code> (<code>1.273 reviews</code>: 5★=911, 4★=316, 3★=35, 2★=6, 1★=5) — đọc qua <code>wayback</code>.
-   - <strong>Freepik / Magnific (<code>g2.com/products/magnific/reviews</code>):</strong> <code>4.7 / 5</code> (<code>195 reviews</code>) — đọc qua <code>brightdata(scraping browser)</code>.
-   - <strong>Runway (<code>g2.com/products/runway-runway/reviews</code>):</strong> <code>4.1 / 5</code> (<code>106 reviews</code>, Unclaimed) — đọc qua <code>brightdata(scraping browser)</code>.
-   - <strong>fal.ai (<code>g2.com/products/fal-ai/reviews</code>):</strong> <code>4.3 / 5</code> (<code>48 reviews</code>: 5★=28, 4★=18, 3★=2) — đọc qua <code>brightdata(scraping browser)</code>.
-   - <strong>Replicate (<code>g2.com/products/replicate/reviews</code>):</strong> <code>4.5 / 5</code> (<code>24 reviews</code>: 5★=17, 4★=7) — đọc qua <code>brightdata(scraping browser)</code>.
-   - <strong>Photoroom (<code>g2.com/products/photoroom/reviews</code>):</strong> <code>4.3 / 5</code> (<code>20 reviews</code>: 5★=10, 4★=9, 1★=1) — đọc qua <code>brightdata(scraping browser)</code>.
-   - <strong>OpenArt (<code>g2.com/products/openart/reviews</code>):</strong> <code>2.7 / 5</code> (<code>6 reviews</code>: 5★=3, 1★/0★=3) — đọc qua <code>brightdata(scraping browser)</code>.
-   - <strong>Pippit AI (<code>g2.com/products/pippit-ai/reviews</code>):</strong> <code>4.3 / 5</code> (<code>3 reviews</code>: 5★=1, 4★=2) — đọc qua <code>brightdata(scraping browser)</code>.
-   - <strong>Krea (<code>g2.com/products/krea/reviews</code>):</strong> <code>5.0 / 5</code> (<code>2 reviews</code>: 5★=2) — đọc qua <code>brightdata(scraping browser)</code>.</li>
-<li><strong>6 trang sản phẩm trên Capterra (<code>capterra.com</code>) — Đọc thành công 100% qua <code>read-blocked</code> (<code>via: brightdata(scraping browser)</code>):</strong>
-   - <strong>HeyGen (<code>capterra.com/p/10014795/HeyGen/reviews/</code>):</strong> <code>4.7 / 5</code> (<code>320 reviews</code>, Ease of use 4.7, CS 4.6).
-   - <strong>ElevenLabs (<code>capterra.com/p/10013862/ElevenLabs/reviews/</code>):</strong> <code>4.7 / 5</code> (<code>25 reviews</code>, Ease of use 4.8, CS 4.8).
-   - <strong>Photoroom (<code>capterra.com/p/214179/PhotoRoom/reviews/</code>):</strong> <code>4.6 / 5</code> (<code>17 reviews</code>, Ease of use 4.9, CS 4.4).
-   - <strong>Freepik / Magnific (<code>capterra.com/p/10018026/Freepik/reviews/</code>):</strong> <code>4.1 / 5</code> (<code>8 reviews</code>: 5★=3, 4★=3, 3★=1, 1★=1; CS <code>3.3/5</code>).
-   - <strong>Runway (<code>capterra.com/p/10009080/Runway/reviews/</code>):</strong> <code>4.5 / 5</code> (<code>2 reviews</code>).
-   - <strong>Replicate (<code>capterra.com/p/10016154/Replicate/reviews/</code>):</strong> <code>4.0 / 5</code> (<code>2 reviews</code>).</li>
-<li><strong>16 luồng thảo luận chuyên sâu trên Reddit (<code>reddit.com</code>) — Đọc thành công 100% toàn bộ bài đăng và bình luận qua <code>read-blocked</code> (<code>via: arctic-shift(thread)</code>):</strong>
-   - Bao gồm: <code>r/HiggsfieldAI</code> (<code>1rvaj50</code>, <code>1rs1di7</code>, <code>1spi6mo</code>), <code>r/aivideo</code> (<code>1qe3p06</code>, <code>1n96t9g</code>), <code>r/AI_Agents</code> (<code>1szbhy5</code>), <code>r/Freepik_AI</code> (<code>1rtn399</code>), <code>r/KlingAI_Videos</code> (<code>1wndcac</code>, <code>1mlqsqw</code>), <code>r/HailuoAiOfficial</code> (<code>1ja8cd6</code>), <code>r/runwayml</code> (<code>1ru8bd7</code>), <code>r/StableDiffusion</code> (<code>153ri9e</code>), <code>r/n8n</code> (<code>1k7f25c</code>), <code>r/generativeAI</code> (<code>1wrlb27</code>), <code>r/aiwars</code> (<code>1jwlqm7</code>), <code>r/aicuriosity</code> (<code>1p5c6d6</code>).</li>
-<li><strong>Các hãng chưa có hồ sơ sản phẩm trên G2 / Capterra / Trustpilot (Ghi nhận trung thực):</strong>
-   - <code>piapi.ai</code> chưa có trang đánh giá riêng trên Trustpilot (bị lẫn với <code>pi.ai</code>); <code>higgsfield.ai</code>, <code>klingai.com</code>, <code>hailuoai.video</code>, <code>arcads.ai</code>, <code>kie.ai</code> là các công cụ AI thế hệ mới chưa tạo hoặc chưa có review trên Capterra/G2, đã được phủ kín 100% bằng dữ liệu từ Trustpilot và Reddit.</li>
+<li><strong>11 trang sản phẩm trên G2 (<code>g2.com</code>) — Đọc thành công 100% qua <code>read-blocked</code> (<code>via: brightdata(scraping browser)</code> &amp; <code>via: wayback</code>):</strong><ul>
+<li><strong>HeyGen (<code>g2.com/products/heygen/reviews</code>):</strong> <code>4.8 / 5</code> (<code>1.967 reviews</code>: 5★=1.824, 4★=109, 3★=13, 2★=7, 1★=14) — đọc qua <code>wayback</code>.</li>
+<li><strong>Creatify AI (<code>g2.com/products/creatify-ai/reviews</code>):</strong> <code>4.8 / 5</code> (<code>1.758 reviews</code>: 5★=1.641, 4★=92, 3★=5, 2★=2, 1★=18) — đọc qua <code>wayback</code>.</li>
+<li><strong>ElevenLabs (<code>g2.com/products/elevenlabs/reviews</code>):</strong> <code>4.5 / 5</code> (<code>1.273 reviews</code>: 5★=911, 4★=316, 3★=35, 2★=6, 1★=5) — đọc qua <code>wayback</code>.</li>
+<li><strong>Freepik / Magnific (<code>g2.com/products/magnific/reviews</code>):</strong> <code>4.7 / 5</code> (<code>195 reviews</code>) — đọc qua <code>brightdata(scraping browser)</code>.</li>
+<li><strong>Runway (<code>g2.com/products/runway-runway/reviews</code>):</strong> <code>4.1 / 5</code> (<code>106 reviews</code>, Unclaimed) — đọc qua <code>brightdata(scraping browser)</code>.</li>
+<li><strong>fal.ai (<code>g2.com/products/fal-ai/reviews</code>):</strong> <code>4.3 / 5</code> (<code>48 reviews</code>: 5★=28, 4★=18, 3★=2) — đọc qua <code>brightdata(scraping browser)</code>.</li>
+<li><strong>Replicate (<code>g2.com/products/replicate/reviews</code>):</strong> <code>4.5 / 5</code> (<code>24 reviews</code>: 5★=17, 4★=7) — đọc qua <code>brightdata(scraping browser)</code>.</li>
+<li><strong>Photoroom (<code>g2.com/products/photoroom/reviews</code>):</strong> <code>4.3 / 5</code> (<code>20 reviews</code>: 5★=10, 4★=9, 1★=1) — đọc qua <code>brightdata(scraping browser)</code>.</li>
+<li><strong>OpenArt (<code>g2.com/products/openart/reviews</code>):</strong> <code>2.7 / 5</code> (<code>6 reviews</code>: 5★=3, 1★/0★=3) — đọc qua <code>brightdata(scraping browser)</code>.</li>
+<li><strong>Pippit AI (<code>g2.com/products/pippit-ai/reviews</code>):</strong> <code>4.3 / 5</code> (<code>3 reviews</code>: 5★=1, 4★=2) — đọc qua <code>brightdata(scraping browser)</code>.</li>
+<li><strong>Krea (<code>g2.com/products/krea/reviews</code>):</strong> <code>5.0 / 5</code> (<code>2 reviews</code>: 5★=2) — đọc qua <code>brightdata(scraping browser)</code>.</li>
+</ul>
+</li>
+<li><strong>6 trang sản phẩm trên Capterra (<code>capterra.com</code>) — Đọc thành công 100% qua <code>read-blocked</code> (<code>via: brightdata(scraping browser)</code>):</strong><ul>
+<li><strong>HeyGen (<code>capterra.com/p/10014795/HeyGen/reviews/</code>):</strong> <code>4.7 / 5</code> (<code>320 reviews</code>, Ease of use 4.7, CS 4.6).</li>
+<li><strong>ElevenLabs (<code>capterra.com/p/10013862/ElevenLabs/reviews/</code>):</strong> <code>4.7 / 5</code> (<code>25 reviews</code>, Ease of use 4.8, CS 4.8).</li>
+<li><strong>Photoroom (<code>capterra.com/p/214179/PhotoRoom/reviews/</code>):</strong> <code>4.6 / 5</code> (<code>17 reviews</code>, Ease of use 4.9, CS 4.4).</li>
+<li><strong>Freepik / Magnific (<code>capterra.com/p/10018026/Freepik/reviews/</code>):</strong> <code>4.1 / 5</code> (<code>8 reviews</code>: 5★=3, 4★=3, 3★=1, 1★=1; CS <code>3.3/5</code>).</li>
+<li><strong>Runway (<code>capterra.com/p/10009080/Runway/reviews/</code>):</strong> <code>4.5 / 5</code> (<code>2 reviews</code>).</li>
+<li><strong>Replicate (<code>capterra.com/p/10016154/Replicate/reviews/</code>):</strong> <code>4.0 / 5</code> (<code>2 reviews</code>).</li>
+</ul>
+</li>
+<li><strong>16 luồng thảo luận chuyên sâu trên Reddit (<code>reddit.com</code>) — Đọc thành công 100% toàn bộ bài đăng và bình luận qua <code>read-blocked</code> (<code>via: arctic-shift(thread)</code>):</strong><ul>
+<li>Bao gồm: <code>r/HiggsfieldAI</code> (<code>1rvaj50</code>, <code>1rs1di7</code>, <code>1spi6mo</code>), <code>r/aivideo</code> (<code>1qe3p06</code>, <code>1n96t9g</code>), <code>r/AI_Agents</code> (<code>1szbhy5</code>), <code>r/Freepik_AI</code> (<code>1rtn399</code>), <code>r/KlingAI_Videos</code> (<code>1wndcac</code>, <code>1mlqsqw</code>), <code>r/HailuoAiOfficial</code> (<code>1ja8cd6</code>), <code>r/runwayml</code> (<code>1ru8bd7</code>), <code>r/StableDiffusion</code> (<code>153ri9e</code>), <code>r/n8n</code> (<code>1k7f25c</code>), <code>r/generativeAI</code> (<code>1wrlb27</code>), <code>r/aiwars</code> (<code>1jwlqm7</code>), <code>r/aicuriosity</code> (<code>1p5c6d6</code>).</li>
+</ul>
+</li>
+<li><strong>Các hãng chưa có hồ sơ sản phẩm trên G2 / Capterra / Trustpilot (Ghi nhận trung thực):</strong><ul>
+<li><code>piapi.ai</code> chưa có trang đánh giá riêng trên Trustpilot (bị lẫn với <code>pi.ai</code>); <code>higgsfield.ai</code>, <code>klingai.com</code>, <code>hailuoai.video</code>, <code>arcads.ai</code>, <code>kie.ai</code> là các công cụ AI thế hệ mới chưa tạo hoặc chưa có review trên Capterra/G2, đã được phủ kín 100% bằng dữ liệu từ Trustpilot và Reddit.</li>
+</ul>
+</li>
 </ol>
 <hr />
 <h1>Báo cáo Nghiên cứu Thị trường (Agent 3 — <code>/market-research</code>): Số liệu gốc TAM/SAM/SOM &amp; Kinh tế học Before/After cho Quick Magic (<code>quickmagic.vn</code> &amp; <code>open.quickmagic.vn</code> / <code>api.quickmagic.vn</code>)</h1>
 <blockquote>
-<p><strong>Quy ước gắn nhãn &amp; Tỷ giá quy chiếu:</strong>
-- <strong>Tỷ giá chuẩn đồng bộ từ repo (<a href="../research/vn-content-spend-2026-11-01.html"><code>research/vn-content-spend-2026-11-01.md</code></a>):</strong> <strong>26.463 VND/USD</strong> (Vietcombank, giá bán 05/07/2026) <strong>[CONFIRMED — https://vietbao.vn/ty-gia-usd-ngay-57-dong-usd-chiu-ap-luc-dxy-chot-phien-di-ngang-597846.html, đọc 2026-11-01]</strong>.
-- <strong>Nhãn độ tin cậy bắt buộc:</strong>
-  - <strong>[CONFIRMED — kèm URL và ngày đọc 2026-11-06]</strong> (hoặc <code>2026-11-01</code> với file nội bộ đã kiểm chứng): Số liệu từ báo cáo thống kê gốc, cơ quan quản lý, hiệp hội ngành hoặc bảng giá công khai đọc trực tiếp.
-  - <strong>[SECONDARY — kèm URL]</strong>: Số liệu trích dẫn lại qua báo chí chính thống / bài tổng hợp ngành có nêu tên báo cáo gốc.
-  - <strong>[VENDOR-CLAIMED — kèm URL]</strong>: Số liệu do chính nhà cung cấp công bố trên website/rate card hoặc tuyên bố R&amp;D chưa qua kiểm toán độc lập.</p>
+<p><strong>Quy ước gắn nhãn &amp; Tỷ giá quy chiếu:</strong></p>
+<ul>
+<li><strong>Tỷ giá chuẩn đồng bộ từ repo (<a href="../research/vn-content-spend-2026-11-01.html"><code>research/vn-content-spend-2026-11-01.md</code></a>):</strong> <strong>26.463 VND/USD</strong> (Vietcombank, giá bán 05/07/2026) <strong>[CONFIRMED — https://vietbao.vn/ty-gia-usd-ngay-57-dong-usd-chiu-ap-luc-dxy-chot-phien-di-ngang-597846.html, đọc 2026-11-01]</strong>.</li>
+<li><strong>Nhãn độ tin cậy bắt buộc:</strong></li>
+<li><strong>[CONFIRMED — kèm URL và ngày đọc 2026-11-06]</strong> (hoặc <code>2026-11-01</code> với file nội bộ đã kiểm chứng): Số liệu từ báo cáo thống kê gốc, cơ quan quản lý, hiệp hội ngành hoặc bảng giá công khai đọc trực tiếp.</li>
+<li><strong>[SECONDARY — kèm URL]</strong>: Số liệu trích dẫn lại qua báo chí chính thống / bài tổng hợp ngành có nêu tên báo cáo gốc.</li>
+<li><strong>[VENDOR-CLAIMED — kèm URL]</strong>: Số liệu do chính nhà cung cấp công bố trên website/rate card hoặc tuyên bố R&amp;D chưa qua kiểm toán độc lập.</li>
+</ul>
 </blockquote>
 <hr />
 <h2>PHẦN 1. ĐỒNG BỘ SỐ LIỆU GỐC TỪ REPO NỘI BỘ (<code>research/</code>) &amp; BẢNG GIÁ THỰC TẾ CỦA QUICK MAGIC</h2>
 <h3>1.1. Tóm tắt số liệu nền đã xác minh trong <code>research/</code> (đọc ngày 2026-11-06)</h3>
-<p>Từ 4 file <a href="../research/vn-content-spend-2026-11-01.html"><code>research/vn-content-spend-2026-11-01.md</code></a>, <a href="../research/content-time-effort-benchmarks-2026-11-01.html"><code>research/content-time-effort-benchmarks-2026-11-01.md</code></a>, <a href="../research/decision-vn-first-2026-11-01.html"><code>research/decision-vn-first-2026-11-01.md</code></a> và <a href="../research/revenue-models-pricing-2026-11-01.html"><code>research/revenue-models-pricing-2026-11-01.md</code></a>:
-1. <strong>Chi phí thuê Agency làm social/content tại VN:</strong>
-   - Gói Nhỏ <strong>S (~30 asset/tháng: 20 bài ảnh + 10 video ngắn):</strong> <strong>9 – 18 triệu VND/tháng</strong> ($340 – $680/tháng). Ví dụ thực tế: Web247 gói VIP <strong>10,9 triệu/tháng</strong> (30 bài + 8 reel/TikTok) <strong>[VENDOR-CLAIMED — https://www.web247agency.com/dich-vu-cham-soc-fanpage/, đọc 2026-11-01]</strong>; LDH Media quay TikTok thật <strong>9,9 – 25 triệu/tháng</strong> cho 10–20 video (990k–1,25tr/video) <strong>[VENDOR-CLAIMED — https://ldhmedia.com/dich-vu/xay-kenh-tiktok, đọc 2026-11-01]</strong>.
-   - Gói Vừa <strong>M (~90 asset/tháng: 60 bài + 30 video):</strong> <strong>29 – 55 triệu VND/tháng</strong> ($1.100 – $2.080/tháng). Ví dụ: Height Media gói TikTok <strong>35 triệu/tháng</strong> (24–40 video, chưa gồm talent &amp; VAT) <strong>[VENDOR-CLAIMED — https://heightmedia.vn/bao-gia/bao-gia-tiktok/bao-gia-xay-kenh-tiktok.html, đọc 2026-11-01]</strong>.
-   - Gói Lớn <strong>L (~150 asset/tháng):</strong> <strong>43 – 91 triệu VND/tháng</strong> ($1.620 – $3.440/tháng).
-   - <strong>Đơn giá lẻ từng asset tại VN:</strong> Bài FB kèm ảnh trong gói agency: <strong>290.000 – 410.000 VND/bài</strong>; dựng video TikTok ngắn có voice/MC/quay studio (SunAds): <strong>300.000 / 500.000 / 750.000 / 1.000.000 VND/video</strong> <strong>[VENDOR-CLAIMED — https://sunads.com.vn/tin-tuc/bang-gia-dich-vu-san-xuat-video-tiktok-2025.html, đọc 2026-11-01]</strong>; Freelancer dựng clip TikTok (vLance): <strong>200.000 VND/clip</strong> <strong>[CONFIRMED — https://www.vlance.vn/goi-dich-vu/dung-video-tiktok-nhanh-chong, đọc 2026-11-01]</strong>; Gói video AI agency (Height Media / Softway): <strong>250.000 – 450.000 VND/video AI</strong> <strong>[VENDOR-CLAIMED — https://softway.vn/dich-vu/dich-vu-media/dich-vu-san-xuat-video-tiktok/dich-vu-san-xuat-video-tiktok-2.html, đọc 2026-11-01]</strong>.
-2. <strong>Chi phí nhân sự In-house tại VN (JobsGO / Indeed 2025–2026):</strong>
-   - Nhân viên Content: <strong>9 – 15 triệu VND/tháng</strong> <strong>[SECONDARY — https://jobsgo.vn/muc-luong-content-marketing.html, đọc 2026-11-01]</strong>.
-   - Graphic Designer: <strong>10 – 15 triệu VND/tháng</strong> <strong>[SECONDARY — https://jobsgo.vn/muc-luong-graphic-designer.html, đọc 2026-11-01]</strong>.
-   - Video Editor: <strong>10 – 15 triệu VND/tháng</strong> (trung bình Hà Nội: <strong>12,02 triệu VND/tháng</strong> trên 459 mẫu lương Indeed 02/2026) <strong>[SECONDARY — https://jobsgo.vn/muc-luong-video-editor.html &amp; https://vn.indeed.com/career/video-editor/salaries/H%C3%A0-N%E1%BB%99i, đọc 2026-11-01]</strong>.
-   - Đội In-house tối thiểu (Gói S: 1 Content + 1 Designer kiêm Editor): <strong>19 – 30 triệu VND/tháng</strong> lương gross (<strong>23 – 36 triệu/tháng</strong> nếu cộng ~21,5% BHXH/chi phí doanh nghiệp).
-3. <strong>Chi phí Booking KOC / KOL tại VN:</strong>
-   - Nano KOC (1K – 10K followers): <strong>1 – 5 triệu VND/booking</strong> <strong>[VENDOR-CLAIMED — https://blog.vn.revu.net/gia-book-kol/, đọc 2026-11-01]</strong>; KOC ngành hàng giá thấp: <strong>2 – 3 triệu VND/người</strong>, KOC tầm trung / Micro (10K – 50K followers): <strong>5 – 10 triệu VND/người</strong> <strong>[SECONDARY — https://www.brandsvietnam.com/congdong/topic/342295-ngan-sach-booking-koc-kol-dau-tu-bao-nhieu-la-du-nen-phan-bo-ra-sao, đọc 2026-11-01]</strong>.
-4. <strong>Benchmark Thời gian &amp; Công sức làm thủ công (<code>content-time-effort-benchmarks-2026-11-01.md</code>):</strong>
-   - Dựng video thủ công: <strong>30 – 60 phút dựng cho mỗi 1 phút video thành phẩm</strong> (video phức tạp 1–2 giờ/phút; motion graphics 8 giờ/30 giây) <strong>[VENDOR-CLAIMED — https://www.tastyedits.com/how-long-does-it-take-to-edit-a-video/, đọc 2026-11-01]</strong>.
-   - Thời gian trung bình có trọng số (50% ảnh, 25% carousel, 25% video ngắn 1 phút): <strong>0,95 – 1,93 giờ/asset</strong> (mức sàn chưa tính kịch bản, quay thô và vòng sửa); HubSpot State of Marketing 2024 ghi nhận GenAI tiết kiệm <strong>~3 giờ/nội dung</strong> và <strong>2,5 giờ/ngày</strong> <strong>[SECONDARY — https://www.jasper.ai/blog/ai-insights-hubspot-report, đọc 2026-11-01]</strong>.
-   - Ma sát vận hành &amp; Burnout: <strong>4,5 – 8 ngày chờ duyệt</strong> qua trung bình <strong>3 phiên bản/nội dung</strong> <strong>[VENDOR-CLAIMED — https://filestage.io/insights, đọc 2026-11-01]</strong>; <strong>58% dự án phải qua ≥5 vòng duyệt</strong> <strong>[SECONDARY — https://contentmarketinginstitute.com/articles/accelerate-content-approval/, đọc 2026-11-01]</strong>; <strong>63% người làm social bị burnout</strong> và <strong>42% dự định bỏ nghề trong 2 năm</strong> <strong>[CONFIRMED — https://media.sproutsocial.com/uploads/2024/02/The-social-media-productivity-report_2024.pdf, đọc 2026-11-01]</strong>.</p>
+<p>Từ 4 file <a href="../research/vn-content-spend-2026-11-01.html"><code>research/vn-content-spend-2026-11-01.md</code></a>, <a href="../research/content-time-effort-benchmarks-2026-11-01.html"><code>research/content-time-effort-benchmarks-2026-11-01.md</code></a>, <a href="../research/decision-vn-first-2026-11-01.html"><code>research/decision-vn-first-2026-11-01.md</code></a> và <a href="../research/revenue-models-pricing-2026-11-01.html"><code>research/revenue-models-pricing-2026-11-01.md</code></a>:</p>
+<ol>
+<li><strong>Chi phí thuê Agency làm social/content tại VN:</strong><ul>
+<li>Gói Nhỏ <strong>S (~30 asset/tháng: 20 bài ảnh + 10 video ngắn):</strong> <strong>9 – 18 triệu VND/tháng</strong> ($340 – $680/tháng). Ví dụ thực tế: Web247 gói VIP <strong>10,9 triệu/tháng</strong> (30 bài + 8 reel/TikTok) <strong>[VENDOR-CLAIMED — https://www.web247agency.com/dich-vu-cham-soc-fanpage/, đọc 2026-11-01]</strong>; LDH Media quay TikTok thật <strong>9,9 – 25 triệu/tháng</strong> cho 10–20 video (990k–1,25tr/video) <strong>[VENDOR-CLAIMED — https://ldhmedia.com/dich-vu/xay-kenh-tiktok, đọc 2026-11-01]</strong>.</li>
+<li>Gói Vừa <strong>M (~90 asset/tháng: 60 bài + 30 video):</strong> <strong>29 – 55 triệu VND/tháng</strong> ($1.100 – $2.080/tháng). Ví dụ: Height Media gói TikTok <strong>35 triệu/tháng</strong> (24–40 video, chưa gồm talent &amp; VAT) <strong>[VENDOR-CLAIMED — https://heightmedia.vn/bao-gia/bao-gia-tiktok/bao-gia-xay-kenh-tiktok.html, đọc 2026-11-01]</strong>.</li>
+<li>Gói Lớn <strong>L (~150 asset/tháng):</strong> <strong>43 – 91 triệu VND/tháng</strong> ($1.620 – $3.440/tháng).</li>
+<li><strong>Đơn giá lẻ từng asset tại VN:</strong> Bài FB kèm ảnh trong gói agency: <strong>290.000 – 410.000 VND/bài</strong>; dựng video TikTok ngắn có voice/MC/quay studio (SunAds): <strong>300.000 / 500.000 / 750.000 / 1.000.000 VND/video</strong> <strong>[VENDOR-CLAIMED — https://sunads.com.vn/tin-tuc/bang-gia-dich-vu-san-xuat-video-tiktok-2025.html, đọc 2026-11-01]</strong>; Freelancer dựng clip TikTok (vLance): <strong>200.000 VND/clip</strong> <strong>[CONFIRMED — https://www.vlance.vn/goi-dich-vu/dung-video-tiktok-nhanh-chong, đọc 2026-11-01]</strong>; Gói video AI agency (Height Media / Softway): <strong>250.000 – 450.000 VND/video AI</strong> <strong>[VENDOR-CLAIMED — https://softway.vn/dich-vu/dich-vu-media/dich-vu-san-xuat-video-tiktok/dich-vu-san-xuat-video-tiktok-2.html, đọc 2026-11-01]</strong>.</li>
+</ul>
+</li>
+<li><strong>Chi phí nhân sự In-house tại VN (JobsGO / Indeed 2025–2026):</strong><ul>
+<li>Nhân viên Content: <strong>9 – 15 triệu VND/tháng</strong> <strong>[SECONDARY — https://jobsgo.vn/muc-luong-content-marketing.html, đọc 2026-11-01]</strong>.</li>
+<li>Graphic Designer: <strong>10 – 15 triệu VND/tháng</strong> <strong>[SECONDARY — https://jobsgo.vn/muc-luong-graphic-designer.html, đọc 2026-11-01]</strong>.</li>
+<li>Video Editor: <strong>10 – 15 triệu VND/tháng</strong> (trung bình Hà Nội: <strong>12,02 triệu VND/tháng</strong> trên 459 mẫu lương Indeed 02/2026) <strong>[SECONDARY — https://jobsgo.vn/muc-luong-video-editor.html &amp; https://vn.indeed.com/career/video-editor/salaries/H%C3%A0-N%E1%BB%99i, đọc 2026-11-01]</strong>.</li>
+<li>Đội In-house tối thiểu (Gói S: 1 Content + 1 Designer kiêm Editor): <strong>19 – 30 triệu VND/tháng</strong> lương gross (<strong>23 – 36 triệu/tháng</strong> nếu cộng ~21,5% BHXH/chi phí doanh nghiệp).</li>
+</ul>
+</li>
+<li><strong>Chi phí Booking KOC / KOL tại VN:</strong><ul>
+<li>Nano KOC (1K – 10K followers): <strong>1 – 5 triệu VND/booking</strong> <strong>[VENDOR-CLAIMED — https://blog.vn.revu.net/gia-book-kol/, đọc 2026-11-01]</strong>; KOC ngành hàng giá thấp: <strong>2 – 3 triệu VND/người</strong>, KOC tầm trung / Micro (10K – 50K followers): <strong>5 – 10 triệu VND/người</strong> <strong>[SECONDARY — https://www.brandsvietnam.com/congdong/topic/342295-ngan-sach-booking-koc-kol-dau-tu-bao-nhieu-la-du-nen-phan-bo-ra-sao, đọc 2026-11-01]</strong>.</li>
+</ul>
+</li>
+<li><strong>Benchmark Thời gian &amp; Công sức làm thủ công (<code>content-time-effort-benchmarks-2026-11-01.md</code>):</strong><ul>
+<li>Dựng video thủ công: <strong>30 – 60 phút dựng cho mỗi 1 phút video thành phẩm</strong> (video phức tạp 1–2 giờ/phút; motion graphics 8 giờ/30 giây) <strong>[VENDOR-CLAIMED — https://www.tastyedits.com/how-long-does-it-take-to-edit-a-video/, đọc 2026-11-01]</strong>.</li>
+<li>Thời gian trung bình có trọng số (50% ảnh, 25% carousel, 25% video ngắn 1 phút): <strong>0,95 – 1,93 giờ/asset</strong> (mức sàn chưa tính kịch bản, quay thô và vòng sửa); HubSpot State of Marketing 2024 ghi nhận GenAI tiết kiệm <strong>~3 giờ/nội dung</strong> và <strong>2,5 giờ/ngày</strong> <strong>[SECONDARY — https://www.jasper.ai/blog/ai-insights-hubspot-report, đọc 2026-11-01]</strong>.</li>
+<li>Ma sát vận hành &amp; Burnout: <strong>4,5 – 8 ngày chờ duyệt</strong> qua trung bình <strong>3 phiên bản/nội dung</strong> <strong>[VENDOR-CLAIMED — https://filestage.io/insights, đọc 2026-11-01]</strong>; <strong>58% dự án phải qua ≥5 vòng duyệt</strong> <strong>[SECONDARY — https://contentmarketinginstitute.com/articles/accelerate-content-approval/, đọc 2026-11-01]</strong>; <strong>63% người làm social bị burnout</strong> và <strong>42% dự định bỏ nghề trong 2 năm</strong> <strong>[CONFIRMED — https://media.sproutsocial.com/uploads/2024/02/The-social-media-productivity-report_2024.pdf, đọc 2026-11-01]</strong>.</li>
+</ul>
+</li>
+</ol>
 <hr />
 <h2>PHẦN 2. SỐ LIỆU GỐC ĐÃ KIỂM CHỨNG CHO 3 PHÂN KHÚC KHÁCH HÀNG TẠI VIỆT NAM &amp; SEA</h2>
 <h3>2.1. Phân khúc A — Shop bán hàng online (TMĐT), Thời trang &amp; Bất động sản/Kiến trúc tại Việt Nam</h3>
 <h4>A1. Nhà bán hàng Thương mại điện tử (Shopee, TikTok Shop, Lazada, Tiki)</h4>
 <ul>
-<li><strong>Tổng số lượng nhà bán hàng (Shop) thực sự phát sinh đơn hàng toàn thị trường:</strong></li>
+<li><strong>Tổng số lượng nhà bán hàng (Shop) thực sự phát sinh đơn hàng toàn thị trường:</strong><ul>
 <li><strong>Năm 2024:</strong> Đạt khoảng <strong>650.000 shop</strong> phát sinh đơn trên 5 sàn (giảm 20,25%, tức giảm &gt;165.000 shop so với 2023; trong đó Shopee giảm &gt;86.300 shop và TikTok Shop giảm &gt;55.000 shop không còn đơn) <strong>[SECONDARY — https://www.brandsvietnam.com/ &amp; https://advertisingvietnam.com/ trích Báo cáo Toàn cảnh TMĐT 2024 của Metric.vn, đọc 2026-11-06]</strong>.</li>
 <li><strong>Năm 2025 (cả năm):</strong> Đạt <strong>601.780 shop</strong> phát sinh đơn hàng trên 4 sàn Shopee, TikTok Shop, Lazada, Tiki (giảm tiếp 7,43%, tức giảm gần 48.000 shop so với 2024), trong khi tổng GMV toàn sàn tăng 34,75% lên <strong>429,7 nghìn tỷ đồng</strong> <strong>[CONFIRMED — https://metric.vn/insights/ &amp; https://vnexpress.net/ trích Báo cáo TMĐT Việt Nam 2025 của Metric.vn, đọc 2026-11-06]</strong>.</li>
-<li><strong>Năm 2026 (6 tháng đầu năm H1/2026 &amp; 9 tháng đầu năm 9M/2026):</strong><ul>
+<li><strong>Năm 2026 (6 tháng đầu năm H1/2026 &amp; 9 tháng đầu năm 9M/2026):</strong></li>
 <li>H1/2026: Có <strong>613.800 shop</strong> phát sinh đơn hàng (+14,11% YoY), tổng GMV đạt <strong>291,6 nghìn tỷ đồng</strong> (+44,11% YoY) <strong>[CONFIRMED — https://metric.vn/insights/ &amp; https://congthuong.vn/, đọc 2026-11-06]</strong>.</li>
 <li>9 tháng đầu năm 2026 (Q1–Q3/2026): Lũy kế có <strong>661.200 shop</strong> có đơn hàng, tổng GMV đạt <strong>442 nghìn tỷ đồng</strong> (+44,47% YoY). Tuy nhiên nếu xét riêng số shop active phát sinh đơn trong <strong>Quý 3/2026</strong> thì đạt <strong>470.300 shop</strong> (-2,47% YoY) <strong>[CONFIRMED — https://metric.vn/insights/ Báo cáo Q3/2026, đọc 2026-11-06]</strong>.</li>
 </ul>
 </li>
-<li><strong>Cơ cấu sàn &amp; Phân tầng sức mua (Shop Mall vs Shop thường):</strong></li>
+<li><strong>Cơ cấu sàn &amp; Phân tầng sức mua (Shop Mall vs Shop thường):</strong><ul>
 <li>Hai sàn <strong>Shopee (54,5% thị phần GMV H1/2026)</strong> và <strong>TikTok Shop (43,4% thị phần GMV H1/2026)</strong> cộng lại chiếm <strong>96% – 97% tổng quy mô thị trường</strong> <strong>[CONFIRMED — https://metric.vn/insights/, đọc 2026-11-06]</strong>.</li>
 <li>Nhóm <strong>Shop Mall (gian hàng chính hãng / thương hiệu lớn)</strong> chỉ chiếm <strong>2,12% (năm 2025)</strong> đến <strong>2,79% (H1/2026)</strong> tổng số lượng shop (tương đương <strong>~12.800 – 17.100 Shop Mall</strong>), nhưng chiếm tới <strong>32,6% – 34,2% tổng doanh số toàn thị trường</strong> <strong>[CONFIRMED — https://metric.vn/insights/, đọc 2026-11-06]</strong>.</li>
-<li><strong>Tỷ trọng ngành Thời trang &amp; Làm đẹp (nhóm có nhu cầu cao nhất với <em>Thử đồ AI</em>, <em>Ảnh sản phẩm AI</em> &amp; <em>Video UGC</em>):</strong></li>
+</ul>
+</li>
+<li><strong>Tỷ trọng ngành Thời trang &amp; Làm đẹp (nhóm có nhu cầu cao nhất với <em>Thử đồ AI</em>, <em>Ảnh sản phẩm AI</em> &amp; <em>Video UGC</em>):</strong><ul>
 <li><strong>Ngành Làm đẹp (Beauty &amp; Personal Care):</strong> Chiếm ~14% tổng GMV toàn sàn (~73.670 – 74.486 tỷ đồng năm 2025), với <strong>146.064 shop phát sinh đơn hàng lũy kế cả năm 2025</strong> (và khoảng <strong>58.600 shop hoạt động thực tế mỗi quý</strong> vào Q4/2025) <strong>[CONFIRMED — https://metric.vn/insights/, đọc 2026-11-06]</strong>.</li>
 <li><strong>Ngành Thời trang (Fashion &amp; Accessories):</strong> Có khoảng <strong>169.000 shop thời trang</strong> phát sinh đơn hàng trên các sàn TMĐT (theo thống kê ngành Thời trang của Metric; riêng phân khúc Thời trang trẻ em cuối 2025 có &gt;37.600 shop, nhóm Đồ thời trang chuyên biệt 14.203 shop, và năm 2025 TikTok Shop đã vượt Shopee dẫn đầu doanh thu cả Thời trang nữ lẫn Thời trang nam) <strong>[CONFIRMED — https://metric.vn/ereport/thoi-trang-nu &amp; https://metric.vn/ereport/thoi-trang-nam, đọc 2026-11-06]</strong>.</li>
 <li><strong>Tổng hợp Thời trang + Làm đẹp:</strong> Chiếm khoảng <strong>315.000 shop lũy kế năm</strong> (~52% trong tổng 601.780 shop có đơn toàn sàn), trong đó ước tính khoảng <strong>120.000 – 150.000 shop hoạt động thường xuyên hàng quý</strong> (bao gồm các Local Brand và shop chạy Facebook/Instagram/TikTok Ads).</li>
 </ul>
+</li>
+</ul>
 <h4>A2. Ngành Bất động sản &amp; Kiến trúc / Nội thất tại Việt Nam (Đánh giá <em>Studio Phim Dự Án</em> / <em>Xưởng Phim AI</em>)</h4>
 <ul>
-<li><strong>Số lượng Môi giới BĐS đang hoạt động (Theo Hội Môi giới BĐS Việt Nam — VARS &amp; VARS IRE):</strong></li>
+<li><strong>Số lượng Môi giới BĐS đang hoạt động (Theo Hội Môi giới BĐS Việt Nam — VARS &amp; VARS IRE):</strong><ul>
 <li>Tổng lực lượng tham gia hoạt động môi giới BĐS trên cả nước khi thị trường phục hồi (2025 – 2026) dao động từ <strong>300.000 – 400.000 người</strong> (so với mức đáy khủng hoảng đầu năm 2024 là <strong>~100.000 người</strong> khi 70% môi giới nghỉ việc) <strong>[SECONDARY — https://vneconomy.vn/ &amp; https://baoxaydung.vn/ trích báo cáo VARS 2024–2026, đọc 2026-11-06]</strong>.</li>
 <li>Tuy nhiên, theo thống kê của VARS cập nhật đến năm 2026, trong tổng số ~300.000 người hành nghề, <strong>chỉ có khoảng 40.000 môi giới có chứng chỉ hành nghề hợp lệ (~13%)</strong> — đây chính là nhóm môi giới chuyên nghiệp, gắn bó lâu dài và chi tiền chạy quảng cáo/làm video dự án thường xuyên <strong>[CONFIRMED — https://vars.com.vn/ &amp; https://vov.vn/ trích VARS, đọc 2026-11-06]</strong>.</li>
-<li><strong>Số lượng Sàn giao dịch BĐS &amp; Công ty dịch vụ BĐS:</strong></li>
+</ul>
+</li>
+<li><strong>Số lượng Sàn giao dịch BĐS &amp; Công ty dịch vụ BĐS:</strong><ul>
 <li>Theo VARS và Bộ Xây dựng, sau giai đoạn thanh lọc, cả nước có <strong>hơn 1.000 – 1.500 sàn giao dịch BĐS</strong> hoạt động sôi nổi trở lại (bên cạnh trung bình ~430 doanh nghiệp kinh doanh dịch vụ BĐS thành lập mới/tháng trong năm 2025 khi Luật Kinh doanh BĐS 2023 bắt buộc môi giới phải hoạt động trong sàn/doanh nghiệp môi giới) <strong>[SECONDARY — https://baoxaydung.vn/ &amp; https://tapchikinhtetaichinh.vn/, đọc 2026-11-06]</strong>.</li>
-<li><strong>Số lượng Kiến trúc sư &amp; Công ty Kiến trúc / Thiết kế Nội thất:</strong></li>
+</ul>
+</li>
+<li><strong>Số lượng Kiến trúc sư &amp; Công ty Kiến trúc / Thiết kế Nội thất:</strong><ul>
 <li>Theo Hội Kiến trúc sư Việt Nam (VAA) và Hội Nội thất Việt Nam (VNIA), cả nước có <strong>trên 20.000 kiến trúc sư</strong> (trong đó &gt;6.000 hội viên VAA) <strong>[SECONDARY — https://vienkientruc.vn/ &amp; https://vnia.vn/, đọc 2026-11-06]</strong>.</li>
 <li>Theo mẫu điều tra doanh nghiệp của Tổng cục Thống kê và Hiệp hội Gỗ &amp; Lâm sản (VIFOREST), Việt Nam có khoảng <strong>5.000 – 6.300 doanh nghiệp</strong> hoạt động trong lĩnh vực tư vấn thiết kế kiến trúc, xây dựng và thiết kế/sản xuất nội thất (với quy mô thị trường nội thất nội địa ~1,5 tỷ USD/năm) <strong>[SECONDARY — https://nso.gov.vn/ &amp; https://vietnamsourcingexpo.vn/, đọc 2026-11-06]</strong>.</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h3>2.2. Phân khúc B — Content Creator / Làm kênh / Affiliate KOC tại Việt Nam</h3>
 <ul>
-<li><strong>Lực lượng KOC / Affiliate Creator trên TikTok Shop &amp; TMĐT:</strong></li>
+<li><strong>Lực lượng KOC / Affiliate Creator trên TikTok Shop &amp; TMĐT:</strong><ul>
 <li>Theo công bố của <strong>ACCESSTRADE Việt Nam</strong> và <strong>VECOM (Hiệp hội TMĐT Việt Nam)</strong> tại diễn đàn <em>Creator Economy 2026</em>, hệ sinh thái ACCESSTRADE ghi nhận tổng cộng <strong>~2 triệu tài khoản Publisher</strong> đăng ký, trong đó có <strong>hơn 120.000+ KOC/Creator đang hoạt động tích cực</strong> trên khắp Việt Nam (tăng mạnh từ mốc <strong>45.000 KOC có ≥5.000 followers</strong> giai đoạn 2024–2025) <strong>[CONFIRMED — https://accesstrade.vn/ &amp; https://vneconomy.vn/, đọc 2026-11-06]</strong>.</li>
 <li>Theo công bố tại <em>TikTok Shop Vietnam Summit 2026</em> &amp; chương trình <em>Hội Chủ Chốt</em> (TikTok Shop + VECOM, tháng 9/2026), số lượng nhà sáng tạo nội dung Affiliate trên TikTok Shop năm 2025 <strong>tăng 140% YoY</strong>, lượng nhà sáng tạo livestream <strong>tăng 100%</strong>, và lượng video ngắn gắn giỏ hàng <strong>tăng 45% YoY</strong>; kênh Affiliate đóng góp tới <strong>60% tổng doanh thu (GMV)</strong> của nhà bán hàng trên TikTok Shop <strong>[SECONDARY — https://www.sggp.org.vn/ &amp; https://znews.vn/, đọc 2026-11-06]</strong>.</li>
-<li><strong>Lực lượng YouTube Creator / Faceless / Review phim / MMO tại Việt Nam:</strong></li>
+</ul>
+</li>
+<li><strong>Lực lượng YouTube Creator / Faceless / Review phim / MMO tại Việt Nam:</strong><ul>
 <li>Theo số liệu Google/YouTube công bố qua báo chí chính thống tại Việt Nam, Việt Nam có <strong>hơn 2.500 kênh đạt Nút Vàng</strong> (&gt;1 triệu subscribers) và <strong>hàng chục nghìn kênh đạt Nút Bạc</strong> (&gt;100.000 subscribers); số lượng kênh đạt doanh thu <strong>≥100 triệu VND/năm tăng trưởng ~35%/năm</strong> <strong>[SECONDARY — https://vietnamnet.vn/ &amp; https://vnexpress.net/, đọc 2026-11-06]</strong>.</li>
 <li>Khi gộp nhóm kênh YouTube bật kiếm tiền (YPP), nhóm làm hệ thống kênh Faceless / Review phim / Reup lách bản quyền (đa kênh trên YouTube Shorts, Facebook Reels, TikTok) và nhóm KOC Affiliate có đầu tư công cụ sản xuất video thường xuyên, quy mô tập khách hàng mục tiêu thực tế tại Việt Nam rơi vào khoảng <strong>150.000 – 200.000 Creator / chủ kênh / KOC chuyên &amp; bán chuyên</strong> (nằm trong tổng ~120.000 KOC active của AccessTrade + ~50.000–80.000 đội/cá nhân làm kênh YouTube/Facebook Reels/MMO).</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h3>2.3. Phân khúc C — Developer / AI Builder / Agency tích hợp Media API (<code>open.quickmagic.vn</code> &amp; MCP/CLI)</h3>
 <ul>
-<li><strong>Quy mô nhân lực &amp; doanh nghiệp phần mềm tại Việt Nam:</strong></li>
+<li><strong>Quy mô nhân lực &amp; doanh nghiệp phần mềm tại Việt Nam:</strong><ul>
 <li>Theo <strong>Báo cáo Thị trường IT Việt Nam (TopDev 2025–2026)</strong>, Việt Nam có <strong>530.000 – 560.000 lập trình viên / kỹ sư phần mềm</strong> (nhu cầu năm 2026 khoảng 750.000 người), với quy mô dịch vụ CNTT đạt <strong>&gt;2,07 tỷ USD</strong> <strong>[SECONDARY — https://topdev.vn/ &amp; https://daibieunhandan.vn/, đọc 2026-11-06]</strong>.</li>
 <li>Theo <strong>Bộ Thông tin &amp; Truyền thông / Bộ KH&amp;CN (2024–2026)</strong>, tổng số doanh nghiệp công nghệ số đăng ký tăng từ <strong>54.500 doanh nghiệp (2024)</strong> lên <strong>~67.000 – 80.000 doanh nghiệp (đầu năm 2026)</strong> <strong>[SECONDARY — https://tapchikinhtetaichinh.vn/ &amp; https://neu.edu.vn/, đọc 2026-11-06]</strong>.</li>
-<li><strong>Sàng lọc nhóm thực sự có nhu cầu dùng Media Generation API / MCP (<code>open.quickmagic.vn</code> &amp; MCP/CLI):</strong></li>
+</ul>
+</li>
+<li><strong>Sàng lọc nhóm thực sự có nhu cầu dùng Media Generation API / MCP (<code>open.quickmagic.vn</code> &amp; MCP/CLI):</strong><ul>
 <li>Không phải mọi doanh nghiệp công nghệ số (vốn bao gồm cả buôn bán linh kiện, gia công ERP/kế toán) đều dùng API tạo ảnh/video/phụ đề. Tập khách hàng B2B/Developer thực tế cần Media API gồm 3 nhóm:<ol>
 <li><strong>MarTech / E-commerce SaaS / Social Automation &amp; Agency tại Việt Nam:</strong> Khoảng <strong>2.000 – 3.000 Digital/Creative/Social Agency &amp; Studio sản xuất nội dung</strong> + <strong>~1.500 – 2.000 công ty sản phẩm SaaS/App/Game/EdTech/AI Studio</strong> tại Việt Nam (tổng cộng <strong>~4.000 – 5.000 tổ chức/doanh nghiệp</strong>).</li>
 <li><strong>Indie Hacker / AI Builder / Automation Freelancer (n8n, Make, Claude/Cursor MCP, MMO Tool Builders) tại Việt Nam:</strong> Khoảng <strong>10.000 – 15.000 developer/builder</strong> (tương đương ~2%–3% tổng số lập trình viên VN đang làm các dự án AI workflow, automation, tool xây kênh, bot tạo video).</li>
 <li><strong>Mở rộng Đông Nam Á (SEA):</strong> Quy mô lập trình viên và startup AI/SaaS toàn SEA gấp khoảng <strong>4 – 5 lần Việt Nam</strong> (~20.000 tổ chức/studio + ~50.000 AI builder).</li>
 </ol>
+</li>
+</ul>
 </li>
 </ul>
 <hr />
@@ -1984,10 +2119,12 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <hr />
 <h2>PHẦN 4. TÍNH TOÁN CHUỖI TAM → SAM → SOM TƯỜNG MINH CHO QUICK MAGIC (12 THÁNG)</h2>
 <blockquote>
-<p><strong>Công thức bắt buộc áp dụng cho mọi phân khúc:</strong>
-- <code>TAM = &lt;Tổng số người / đơn vị có nhu cầu trong thị trường&gt; × &lt;Giá gói năm trung bình (ACV)&gt;</code>
-- <code>SAM = TAM × &lt;% đúng phân khúc có ngân sách công cụ, đúng kênh tiếp cận số, đúng ngôn ngữ/luồng làm việc&gt;</code>
-- <code>SOM = SAM × &lt;% thị phần thực tế có thể chinh phục với nguồn lực trong 12 tháng đầu&gt;</code></p>
+<p><strong>Công thức bắt buộc áp dụng cho mọi phân khúc:</strong></p>
+<ul>
+<li><code>TAM = &lt;Tổng số người / đơn vị có nhu cầu trong thị trường&gt; × &lt;Giá gói năm trung bình (ACV)&gt;</code></li>
+<li><code>SAM = TAM × &lt;% đúng phân khúc có ngân sách công cụ, đúng kênh tiếp cận số, đúng ngôn ngữ/luồng làm việc&gt;</code></li>
+<li><code>SOM = SAM × &lt;% thị phần thực tế có thể chinh phục với nguồn lực trong 12 tháng đầu&gt;</code></li>
+</ul>
 </blockquote>
 <hr />
 <h3>4.1. Phân khúc A — B2C / SMB Shop Bán Hàng Online, Thời trang &amp; BĐS/Kiến trúc tại Việt Nam</h3>
@@ -1995,62 +2132,96 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <ul>
 <li><strong>Số đơn vị gốc (<code>N_A1</code>):</strong> <strong>601.780 shop</strong> có phát sinh đơn hàng trong năm trên các sàn TMĐT Việt Nam (theo Báo cáo Toàn cảnh 2025 của Metric.vn; tương đương mức 613.800 shop H1/2026) <strong>[CONFIRMED — https://metric.vn/insights/, đọc 2026-11-06]</strong>.</li>
 <li><strong>Giá năm trung bình (<code>ACV_A1</code>):</strong> Chọn <strong>Gói Pro ($18.99/tháng × 12 = $227.88/năm ≈ 6.030.000 VND/năm)</strong> làm mức chuẩn cho một shop bán hàng thường xuyên (cung cấp 17.000 credit/tháng: đủ tạo ~500 ảnh sản phẩm/thử đồ AI + ~60 video Marketing Studio mỗi tháng) <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing, đọc 2026-11-06]</strong>.</li>
-<li><strong>Phép nhân TAM (A1):</strong>
-  $$\text{TAM}_{A1} = 601.780 \text{ shop} \times \$227,88/\text{năm} = \mathbf{\$137.133.626/\text{năm}} \text{ (}\approx \mathbf{3.629 \text{ tỷ VND/năm}}\text{)}<strong><code>- **Hệ số lọc SAM (</code>%SAM_A1 = 25%`):</strong></li>
+<li>
+<p><strong>Phép nhân TAM (A1):</strong>
+  $$\text{TAM}_{A1} = 601.780 \text{ shop} \times \$227,88/\text{năm} = \mathbf{\$137.133.626/\text{năm}} \text{ (}\approx \mathbf{3.629 \text{ tỷ VND/năm}}\text{)}<strong><code>- **Hệ số lọc SAM (</code>%SAM_A1 = 25%`):</strong></p>
+<ul>
 <li>Trong 601.780 shop có đơn, khoảng <strong>52% (~315.000 shop)</strong> thuộc ngành Thời trang &amp; Làm đẹp/Gia dụng cần hình ảnh mẫu &amp; video thường xuyên <strong>[CONFIRMED — Metric.vn]</strong>.</li>
 <li>Tuy nhiên, nhiều shop nhỏ lẻ chỉ bán cầm chừng hoặc lấy lại ảnh có sẵn của nhà cung cấp/Taobao. Lọc lấy nhóm <strong>Shop Mall (~15.000 shop)</strong> + nhóm <strong>Shop thường hoạt động tích cực hàng quý và có tự làm hình ảnh / chạy Ads / đăng TikTok Video</strong> → chiếm <strong>25% tổng số shop toàn sàn</strong> (<strong>150.445 shop</strong>).<code>**\text{SAM}_{A1} = \$137.133.626 \times 25\% = \mathbf{\$34.283.407/\text{năm}} \text{ (}\approx \mathbf{907,2 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{150.445 \text{ shop}}\text{)}**</code>- <strong>Hệ số lọc SOM 12 tháng (<code>%SOM_A1 = 1,5%</code> của SAM):</strong></li>
 <li>Với nguồn lực 12 tháng đầu tại Việt Nam, chinh phục <strong>1,5% tập SAM</strong> (tương đương <strong>2.257 shop trả phí gói Pro trung bình cả năm</strong>, hoặc ~4.500 shop dùng gói Starter/nạp credit lẻ).`**\text{SOM}_{A1} = \$34.283.407 \times 1,5\% = \mathbf{\$514.251/\text{năm}} \text{ (}\approx \mathbf{13,61 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{2.257 \text{ shop active quy chuẩn}}\text{)}$$</li>
 </ul>
+</li>
+</ul>
 <h4>Chuỗi 2 (A2): Ngành Bất động sản &amp; Kiến trúc / Nội thất tại Việt Nam (<em>Studio Phim Dự Án</em>)</h4>
 <ul>
-<li><strong>Số đơn vị gốc (<code>N_A2</code>):</strong> Chọn số liệu <strong>đã sàng lọc khắt khe</strong> thay vì con số 300.000 môi giới tự do:</li>
+<li><strong>Số đơn vị gốc (<code>N_A2</code>):</strong> Chọn số liệu <strong>đã sàng lọc khắt khe</strong> thay vì con số 300.000 môi giới tự do:<ul>
 <li><strong>40.000 môi giới BĐS có chứng chỉ hành nghề hợp lệ</strong> (VARS 2026) <strong>[CONFIRMED — https://vars.com.vn/, đọc 2026-11-06]</strong></li>
 <li>Cộng <strong>1.500 sàn giao dịch BĐS</strong> đang hoạt động <strong>[SECONDARY — https://baoxaydung.vn/, đọc 2026-11-06]</strong></li>
 <li>Cộng <strong>5.500 công ty/văn phòng kiến trúc &amp; nội thất</strong> (Tổng cục Thống kê / VAA / VNIA) <strong>[SECONDARY — https://nso.gov.vn/ &amp; https://vienkientruc.vn/, đọc 2026-11-06]</strong></li>
 <li>→ Tổng tập đơn vị có nhu cầu chuyên nghiệp: <strong><code>N_A2</code> = 47.000 đơn vị/cá nhân</strong>.</li>
+</ul>
+</li>
 <li><strong>Giá năm trung bình (<code>ACV_A2</code>):</strong> Vì làm phim dự án BĐS/kiến trúc cần các model video chất lượng cao (Veo 3.1 4K, Kling V3, Seedance 2.5 tốn 886–2.000 credit/cảnh), khách hàng phân khúc này phải dùng trung bình <strong>Gói Business ($43.99/tháng × 12 = $527.88/năm ≈ 13.970.000 VND/năm)</strong> <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing, đọc 2026-11-06]</strong>.</li>
-<li><strong>Phép nhân TAM (A2):</strong>
-  $$\text{TAM}_{A2} = 47.000 \text{ đơn vị} \times \$527,88/\text{năm} = \mathbf{\$24.810.360/\text{năm}} \text{ (}\approx \mathbf{656,6 \text{ tỷ VND/năm}}\text{)}<strong><code>- **Hệ số lọc SAM (</code>%SAM_A2 = 20%`):</strong></li>
+<li>
+<p><strong>Phép nhân TAM (A2):</strong>
+  $$\text{TAM}_{A2} = 47.000 \text{ đơn vị} \times \$527,88/\text{năm} = \mathbf{\$24.810.360/\text{năm}} \text{ (}\approx \mathbf{656,6 \text{ tỷ VND/năm}}\text{)}<strong><code>- **Hệ số lọc SAM (</code>%SAM_A2 = 20%`):</strong></p>
+<ul>
 <li>Không phải mọi môi giới có chứng chỉ hoặc văn phòng KTS đều tự làm video AI (nhiều môi giới chỉ dùng video có sẵn của Chủ đầu tư cung cấp, và nhiều KTS chỉ xuất ảnh tĩnh SketchUp/Enscape). Lọc lấy <strong>20%</strong> nhóm chủ động chạy Ads dự án riêng, bán biệt thự/đất nền/nhà phố thứ cấp hoặc studio thiết kế muốn dựng clip diễn họa nhanh cho khách (<strong>9.400 đơn vị</strong>).<code>**\text{SAM}_{A2} = \$24.810.360 \times 20\% = \mathbf{\$4.962.072/\text{năm}} \text{ (}\approx \mathbf{131,3 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{9.400 \text{ đơn vị}}\text{)}**</code>- <strong>Hệ số lọc SOM 12 tháng (<code>%SOM_A2 = 2,0%</code> của SAM):</strong></li>
 <li>Chinh phục <strong>2,0% tập SAM</strong> trong 12 tháng đầu thông qua cộng đồng môi giới BĐS &amp; diễn họa kiến trúc AI (<strong>188 khách hàng gói Business trả phí cả năm</strong>, hoặc ~400–500 khách mua theo đợt mở bán dự án).`**\text{SOM}_{A2} = \$4.962.072 \times 2,0\% = \mathbf{\$99.241/\text{năm}} \text{ (}\approx \mathbf{2,63 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{188 \text{ đơn vị quy chuẩn}}\text{)}$$</li>
 </ul>
+</li>
+</ul>
 <blockquote>
-<p><strong>Tổng cộng Phân khúc A (A1 + A2):</strong>
-- <strong>TAM_A = $161.943.986/năm</strong> (~4.285,5 tỷ VND)
-- <strong>SAM_A = $39.245.479/năm</strong> (~1.038,5 tỷ VND)
-- <strong>SOM_A = $613.492/năm</strong> (~16,24 tỷ VND)</p>
+<p><strong>Tổng cộng Phân khúc A (A1 + A2):</strong></p>
+<ul>
+<li><strong>TAM_A = $161.943.986/năm</strong> (~4.285,5 tỷ VND)</li>
+<li><strong>SAM_A = $39.245.479/năm</strong> (~1.038,5 tỷ VND)</li>
+<li><strong>SOM_A = $613.492/năm</strong> (~16,24 tỷ VND)</li>
+</ul>
 </blockquote>
 <hr />
 <h3>4.2. Phân khúc B — Content Creator / Làm kênh / Affiliate KOC tại Việt Nam</h3>
 <ul>
-<li><strong>Số đơn vị gốc (<code>N_B</code>):</strong> <strong>180.000 Creator / KOC / Chủ kênh kiếm tiền tích cực tại Việt Nam</strong>, bao gồm:</li>
+<li><strong>Số đơn vị gốc (<code>N_B</code>):</strong> <strong>180.000 Creator / KOC / Chủ kênh kiếm tiền tích cực tại Việt Nam</strong>, bao gồm:<ul>
 <li><strong>120.000+ KOC/Creator hoạt động tích cực</strong> trong mạng lưới Affiliate (theo công bố của ACCESSTRADE &amp; VECOM tại <em>Creator Economy 2026</em>, đã loại bỏ ~1,88 triệu tài khoản publisher không hoạt động thường xuyên) <strong>[CONFIRMED — https://accesstrade.vn/, đọc 2026-11-06]</strong>.</li>
 <li><strong>~60.000 chủ kênh / đội nhóm làm nội dung YouTube (YPP), Facebook Reels, Review phim, Truyện tranh/Hoạt hình, MMO Faceless</strong> (trong đó có &gt;2.500 kênh Nút Vàng và hàng chục nghìn kênh Nút Bạc tại VN) <strong>[SECONDARY — https://vietnamnet.vn/, đọc 2026-11-06]</strong>.</li>
-<li><strong>Giá năm trung bình (<code>ACV_B</code>):</strong></li>
+</ul>
+</li>
+<li><strong>Giá năm trung bình (<code>ACV_B</code>):</strong><ul>
 <li>Nhóm KOC Affiliate ngắn thường dùng gói Starter ($6.99) hoặc Pro ($18.99), trong khi nhóm làm kênh Review phim / Faceless / Reup đa kênh đặc biệt chuộng <strong>Gói Business ($43.99/tháng)</strong> vì có đặc quyền <strong>Unlimited Review phim, Unlimited Auto Sub và Unlimited Cắt video AI</strong>.</li>
 <li>Lấy mức giá trung bình gia quyền thực tế là <strong>Gói Pro ($18.99/tháng × 12 = $227.88/năm ≈ 6.030.000 VND/năm)</strong> <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing, đọc 2026-11-06]</strong>.</li>
-<li><strong>Phép nhân TAM (Phân khúc B):</strong>
-  $$\text{TAM}_B = 180.000 \text{ creators} \times \$227,88/\text{năm} = \mathbf{\$41.018.400/\text{năm}} \text{ (}\approx \mathbf{1.085,5 \text{ tỷ VND/năm}}\text{)}<strong><code>- **Hệ số lọc SAM (</code>%SAM_B = 30%`):</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Phép nhân TAM (Phân khúc B):</strong>
+  $$\text{TAM}_B = 180.000 \text{ creators} \times \$227,88/\text{năm} = \mathbf{\$41.018.400/\text{năm}} \text{ (}\approx \mathbf{1.085,5 \text{ tỷ VND/năm}}\text{)}<strong><code>- **Hệ số lọc SAM (</code>%SAM_B = 30%`):</strong></p>
+<ul>
 <li>Nhiều KOC chỉ quay bằng cam thường điện thoại và sửa miễn phí trên CapCut bản thường, không trả tiền mua credit AI. Lọc lấy <strong>30%</strong> nhóm Creator làm kênh công nghiệp (Review phim, Faceless, Hoạt hình 3D/Anime, KOC làm affiliate số lượng lớn không lộ mặt, dịch video Trung/Anh sang Việt) thực sự sẵn sàng chi tiền mua công cụ AI để đua sản lượng (<strong>54.000 creators</strong>).<code>**\text{SAM}_B = \$41.018.400 \times 30\% = \mathbf{\$12.305.520/\text{năm}} \text{ (}\approx \mathbf{325,6 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{54.000 \text{ creators}}\text{)}**</code>- <strong>Hệ số lọc SOM 12 tháng (<code>%SOM_B = 2,5%</code> của SAM):</strong></li>
 <li>Nhóm MMO / Làm kênh / Review phim tại Việt Nam có tốc độ truyền miệng trong cộng đồng rất nhanh nếu công cụ giải quyết được bài toán <strong>Unlimited Sub / Cắt video / Review phim</strong> với giá rẻ hơn CapCut Pro + ElevenLabs + Midjourney cộng lại. Với mục tiêu chiếm <strong>2,5% SAM</strong> trong 12 tháng đầu (<strong>1.350 Creator duy trì gói Pro/Business trung bình cả năm</strong>):`**\text{SOM}_B = \$12.305.520 \times 2,5\% = \mathbf{\$307.638/\text{năm}} \text{ (}\approx \mathbf{8,14 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{1.350 \text{ creators quy chuẩn}}\text{)}$$</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h3>4.3. Phân khúc C — Developer / Doanh nghiệp / Agency dùng Open API &amp; MCP (<code>open.quickmagic.vn</code> &amp; MCP/CLI)</h3>
 <ul>
-<li><strong>Số đơn vị gốc (<code>N_C</code>):</strong> Thay vì lấy con số 80.000 doanh nghiệp công nghệ số hay 560.000 lập trình viên toàn ngành, ta chỉ tính tập <strong>đơn vị phát triển phần mềm, Agency tự động hóa và AI Builder có nhu cầu gọi API tạo media (ảnh, video, sub, giọng nói, thử đồ)</strong> tại Việt Nam:</li>
+<li><strong>Số đơn vị gốc (<code>N_C</code>):</strong> Thay vì lấy con số 80.000 doanh nghiệp công nghệ số hay 560.000 lập trình viên toàn ngành, ta chỉ tính tập <strong>đơn vị phát triển phần mềm, Agency tự động hóa và AI Builder có nhu cầu gọi API tạo media (ảnh, video, sub, giọng nói, thử đồ)</strong> tại Việt Nam:<ul>
 <li><strong>~3.000 Digital / Creative / Social Media / E-commerce Enabler Agency</strong> tại Việt Nam.</li>
 <li><strong>~2.000 Công ty sản phẩm SaaS, MarTech, EdTech, Game/App Studio</strong> tại Việt Nam.</li>
 <li><strong>~10.000 Indie Hacker / AI Automation Builder / Freelancer tích hợp workflow (n8n, Make, Claude/Cursor MCP, MMO Tool)</strong> (tương đương ~1,8% trong số 560.000 lập trình viên VN theo TopDev) <strong>[SECONDARY — https://topdev.vn/, đọc 2026-11-06]</strong>.</li>
 <li>→ Tổng tập đơn vị tiềm năng tại Việt Nam: <strong><code>N_C</code> = 15.000 đơn vị / AI builder</strong> <em>(Lưu ý: nếu tính mở rộng toàn Đông Nam Á - SEA, con số này gấp ~4 lần là 60.000 đơn vị)</em>.</li>
-<li><strong>Giá năm trung bình (<code>ACV_C</code>):</strong></li>
+</ul>
+</li>
+<li><strong>Giá năm trung bình (<code>ACV_C</code>):</strong><ul>
 <li>Cơ chế API/MCP của Quick Magic (<code>open.quickmagic.vn</code> + MCP Server) trừ trực tiếp vào ví Credit của tài khoản. Một Agency hoặc ứng dụng/workflow tích hợp API chạy tự động hàng ngày sẽ tiêu thụ mức tương đương <strong>Gói Enterprise ($83.99/tháng × 12 = $1.007,88/năm ≈ 26.671.000 VND/năm — 100.000 credit/tháng)</strong> <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing &amp; https://quickmagic.vn/mcp, đọc 2026-11-06]</strong>.</li>
-<li><strong>Phép nhân TAM (Phân khúc C — tính riêng thị trường Việt Nam):</strong>
+</ul>
+</li>
+<li>
+<p><strong>Phép nhân TAM (Phân khúc C — tính riêng thị trường Việt Nam):</strong>
   $$\text{TAM}_C = 15.000 \text{ đơn vị/builder} \times \$1.007,88/\text{năm} = \mathbf{\$15.118.200/\text{năm}} \text{ (}\approx \mathbf{400,1 \text{ tỷ VND/năm}}\text{)}$$
-  <em>(Nếu tính gộp khu vực SEA với 60.000 đơn vị: <code>TAM_C_SEA = $60.472.800/năm</code>).</em></li>
-<li><strong>Hệ số lọc SAM (<code>%SAM_C = 20%</code>):</strong></li>
-<li>Phần lớn developer/công ty phần mềm gọi trực tiếp API gốc quốc tế (OpenAI, Google Vertex AI / Veo, Replicate, Fal.ai, ElevenLabs). Nhóm chọn dùng cổng gom API nội địa của Quick Magic (<code>open.quickmagic.vn</code> &amp; MCP/CLI) là nhóm cần <strong>thanh toán VND/VietQR dễ dàng, có sẵn 20 MCP tools đóng gói sẵn cho nghiệp vụ bán hàng/thử đồ/review phim tiếng Việt, không phải tự duy trì nhiều tài khoản API quốc tế</strong> → ước tính chiếm <strong>20%</strong> (<strong>3.000 đơn vị/builder</strong>).
-  $$\text{SAM}_C = \$15.118.200 \times 20\% = \mathbf{\$3.023.640/\text{năm}} \text{ (}\approx \mathbf{80,0 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{3.000 \text{ đơn vị/builder}}\text{)}<strong><code>- **Hệ số lọc SOM 12 tháng (</code>%SOM_C = 3,5%` của SAM):</strong></li>
-<li>Với việc đã có sẵn MCP Server (<code>open.quickmagic.vn</code> + MCP Server tích hợp Claude, Cursor, Cline, ChatGPT) và CLI, trong 12 tháng đầu Quick Magic có thể thu hút <strong>3,5% tập SAM</strong> (<strong>105 khách hàng B2B / Agency / AI Builder trả phí mức Enterprise 2.250.000đ/tháng xuyên suốt năm</strong>, hoặc ~300–400 developer nạp ví credit theo dự án).`**\text{SOM}_C = \$3.023.640 \times 3,5\% = \mathbf{\$105.827/\text{năm}} \text{ (}\approx \mathbf{2,80 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{105 \text{ tài khoản API quy chuẩn}}\text{)}$$</li>
+  <em>(Nếu tính gộp khu vực SEA với 60.000 đơn vị: <code>TAM_C_SEA = $60.472.800/năm</code>).</em></p>
+</li>
+<li>
+<p><strong>Hệ số lọc SAM (<code>%SAM_C = 20%</code>):</strong></p>
+<ul>
+<li>
+<p>Phần lớn developer/công ty phần mềm gọi trực tiếp API gốc quốc tế (OpenAI, Google Vertex AI / Veo, Replicate, Fal.ai, ElevenLabs). Nhóm chọn dùng cổng gom API nội địa của Quick Magic (<code>open.quickmagic.vn</code> &amp; MCP/CLI) là nhóm cần <strong>thanh toán VND/VietQR dễ dàng, có sẵn 20 MCP tools đóng gói sẵn cho nghiệp vụ bán hàng/thử đồ/review phim tiếng Việt, không phải tự duy trì nhiều tài khoản API quốc tế</strong> → ước tính chiếm <strong>20%</strong> (<strong>3.000 đơn vị/builder</strong>).
+  $$\text{SAM}_C = \$15.118.200 \times 20\% = \mathbf{\$3.023.640/\text{năm}} \text{ (}\approx \mathbf{80,0 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{3.000 \text{ đơn vị/builder}}\text{)}<strong><code>- **Hệ số lọc SOM 12 tháng (</code>%SOM_C = 3,5%` của SAM):</strong></p>
+</li>
+<li>
+<p>Với việc đã có sẵn MCP Server (<code>open.quickmagic.vn</code> + MCP Server tích hợp Claude, Cursor, Cline, ChatGPT) và CLI, trong 12 tháng đầu Quick Magic có thể thu hút <strong>3,5% tập SAM</strong> (<strong>105 khách hàng B2B / Agency / AI Builder trả phí mức Enterprise 2.250.000đ/tháng xuyên suốt năm</strong>, hoặc ~300–400 developer nạp ví credit theo dự án).`**\text{SOM}_C = \$3.023.640 \times 3,5\% = \mathbf{\$105.827/\text{năm}} \text{ (}\approx \mathbf{2,80 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{105 \text{ tài khoản API quy chuẩn}}\text{)}$$</p>
+</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h3>4.4. Bảng Tổng hợp Chuỗi TAM → SAM → SOM Toàn Hệ sinh thái Quick Magic (Việt Nam — 12 Tháng)</h3>
@@ -2122,10 +2293,12 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 </table></div>
 <blockquote>
 <p><strong>Nhận xét chiến lược từ bảng TAM → SAM → SOM:</strong>
-Để đạt cột mốc <strong>~1 triệu USD ARR ($1.026.957/năm)</strong> tại thị trường Việt Nam trong 12 tháng (khớp với mục tiêu trong <a href="../research/decision-vn-first-2026-11-01.html"><code>research/decision-vn-first-2026-11-01.md</code></a>), Quick Magic cần duy trì trung bình <strong>~3.900 thuê bao trả phí quy chuẩn</strong> (2.257 Shop online + 1.350 Creator/KOC + 188 BĐS/Kiến trúc + 105 Agency/Developer API). Trong đó:
-- <strong>Phân khúc A1 (Shop TMĐT — Thời trang/Làm đẹp)</strong> đóng góp <strong>50,1% SOM</strong> ($514k) nhờ quy mô mẫu lớn và bài toán tiết kiệm tiền trực tiếp (thay chụp lookbook &amp; thuê KOC).
-- <strong>Phân khúc B (Creator / Review phim / Faceless)</strong> đóng góp <strong>30,0% SOM</strong> ($308k) nhờ đặc quyền <em>Unlimited Review Phim / Auto Sub / Cắt Video</em> ở gói Business ($43.99) đánh trúng nhu cầu cày sản lượng của dân MMO/làm kênh Việt Nam.
-- <strong>Phân khúc A2 (BĐS/Kiến trúc)</strong> và <strong>Phân khúc C (Open API/MCP)</strong> đóng góp <strong>19,9% SOM</strong> ($205k) nhưng có <strong>ARPU cao gấp 2,3 – 4,4 lần</strong> ($528 – $1.008/năm) và tỷ lệ giữ chân (retention) cao hơn nhóm cá nhân.</p>
+Để đạt cột mốc <strong>~1 triệu USD ARR ($1.026.957/năm)</strong> tại thị trường Việt Nam trong 12 tháng (khớp với mục tiêu trong <a href="../research/decision-vn-first-2026-11-01.html"><code>research/decision-vn-first-2026-11-01.md</code></a>), Quick Magic cần duy trì trung bình <strong>~3.900 thuê bao trả phí quy chuẩn</strong> (2.257 Shop online + 1.350 Creator/KOC + 188 BĐS/Kiến trúc + 105 Agency/Developer API). Trong đó:</p>
+<ul>
+<li><strong>Phân khúc A1 (Shop TMĐT — Thời trang/Làm đẹp)</strong> đóng góp <strong>50,1% SOM</strong> ($514k) nhờ quy mô mẫu lớn và bài toán tiết kiệm tiền trực tiếp (thay chụp lookbook &amp; thuê KOC).</li>
+<li><strong>Phân khúc B (Creator / Review phim / Faceless)</strong> đóng góp <strong>30,0% SOM</strong> ($308k) nhờ đặc quyền <em>Unlimited Review Phim / Auto Sub / Cắt Video</em> ở gói Business ($43.99) đánh trúng nhu cầu cày sản lượng của dân MMO/làm kênh Việt Nam.</li>
+<li><strong>Phân khúc A2 (BĐS/Kiến trúc)</strong> và <strong>Phân khúc C (Open API/MCP)</strong> đóng góp <strong>19,9% SOM</strong> ($205k) nhưng có <strong>ARPU cao gấp 2,3 – 4,4 lần</strong> ($528 – $1.008/năm) và tỷ lệ giữ chân (retention) cao hơn nhóm cá nhân.</li>
+</ul>
 </blockquote>
 <hr />
 <h2>PHẦN 5. MỤC "SỐ BỊ TỪ CHỐI IN" (NHỮNG CON SỐ LAN TRUYỀN TRÊN MẠNG NHƯNG BỊ LOẠI BỎ KHI TÍNH TAM/SAM/SOM)</h2>
@@ -2181,10 +2354,12 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <hr />
 <h1>Báo cáo Nghiên cứu Bước 0 (Agent 4): Hồ sơ Công ty, Dòng chảy Vốn (VC/PE/M&amp;A) &amp; Doanh thu Xác minh trong Thị trường AI Media, UGC Ad &amp; Multi-model Inference</h1>
 <blockquote>
-<p><strong>Hợp đồng gắn nhãn dữ kiện (<code>/market-research</code> &amp; <code>CLAUDE.md</code>):</strong>
-- <strong>[CONFIRMED — kèm URL, ngày đọc 2026-11-06]</strong>: Hồ sơ đăng ký doanh nghiệp/mã số thuế, báo cáo tài chính niêm yết (HKEX/SEC), thông cáo M&amp;A/gọi vốn chính thức từ quỹ/công ty thâu tóm, dữ liệu Stripe-verified trên TrustMRR (đối chiếu cả cột Doanh thu thực 30 ngày).
-- <strong>[SECONDARY — kèm URL]</strong>: Báo chí tài chính/công nghệ uy tín (Forbes, TechNode, Caixin, S&amp;P Global, Unquote, Iberian Lawyer) và nền tảng phân tích thị trường vốn tư nhân (Sacra, Dealroom, PitchBook, GetLatka).
-- <strong>[VENDOR-CLAIMED — kèm URL]</strong>: Số liệu ARR, số lượng người dùng (MAU) hoặc tuyên bố kỹ thuật do chính công ty/nhà sáng lập tự công bố trên blog/thông cáo báo chí mà không có kiểm toán độc lập.</p>
+<p><strong>Hợp đồng gắn nhãn dữ kiện (<code>/market-research</code> &amp; <code>CLAUDE.md</code>):</strong></p>
+<ul>
+<li><strong>[CONFIRMED — kèm URL, ngày đọc 2026-11-06]</strong>: Hồ sơ đăng ký doanh nghiệp/mã số thuế, báo cáo tài chính niêm yết (HKEX/SEC), thông cáo M&amp;A/gọi vốn chính thức từ quỹ/công ty thâu tóm, dữ liệu Stripe-verified trên TrustMRR (đối chiếu cả cột Doanh thu thực 30 ngày).</li>
+<li><strong>[SECONDARY — kèm URL]</strong>: Báo chí tài chính/công nghệ uy tín (Forbes, TechNode, Caixin, S&amp;P Global, Unquote, Iberian Lawyer) và nền tảng phân tích thị trường vốn tư nhân (Sacra, Dealroom, PitchBook, GetLatka).</li>
+<li><strong>[VENDOR-CLAIMED — kèm URL]</strong>: Số liệu ARR, số lượng người dùng (MAU) hoặc tuyên bố kỹ thuật do chính công ty/nhà sáng lập tự công bố trên blog/thông cáo báo chí mà không có kiểm toán độc lập.</li>
+</ul>
 </blockquote>
 <hr />
 <h2>1. Bảng Hồ Sơ Công Ty &amp; Dòng Chảy Vốn (15 Đại diện thuộc 4 Phân lớp)</h2>
@@ -2477,19 +2652,25 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 </table></div>
 <blockquote>
 <p><strong>[!WARNING] Phát hiện quan trọng từ việc đối chiếu Tiền thật 30 ngày vs. MRR trên TrustMRR (<code>winning-business-majors-2026-11-02.md</code>):</strong>
-Hàng loạt công cụ tạo AI Video / UGC Ad từng khoe MRR cao trên TrustMRR thực chất đã <strong>sụp đổ dòng tiền mới (churn cao, hết tiền thật vào Stripe)</strong> và đang tìm cách <strong>bán tháo dự án (FOR SALE)</strong>:
-1. <strong>Speel.co (<code>speel.co</code> — AI UGC video &amp; image ads):</strong> Tự quảng cáo <em>"từ 0 lên $1M ARR trong 3 tháng"</em>, hiển thị MRR <strong>$65,317</strong>, nhưng <strong>doanh thu thực tế vào Stripe trong 30 ngày qua chỉ còn $3,120</strong> (bằng 5% MRR) và đang <strong>rao bán đòi $500,000</strong>.
-2. <strong>Based Labs AI (<code>basedlabs.ai</code> — AI video tools &amp; community):</strong> Hiển thị MRR <strong>$28,537</strong>, nhưng <strong>doanh thu thực 30 ngày = $0</strong>; đang <strong>rao bán đòi $2,180,000</strong>.
-3. <strong>Produce.so (<code>produce.so</code> — AI long-form YouTube videos &amp; scripts):</strong> Hiển thị MRR <strong>$27,371</strong>, nhưng <strong>doanh thu thực 30 ngày = $0</strong>.</p>
+Hàng loạt công cụ tạo AI Video / UGC Ad từng khoe MRR cao trên TrustMRR thực chất đã <strong>sụp đổ dòng tiền mới (churn cao, hết tiền thật vào Stripe)</strong> và đang tìm cách <strong>bán tháo dự án (FOR SALE)</strong>:</p>
+<ol>
+<li><strong>Speel.co (<code>speel.co</code> — AI UGC video &amp; image ads):</strong> Tự quảng cáo <em>"từ 0 lên $1M ARR trong 3 tháng"</em>, hiển thị MRR <strong>$65,317</strong>, nhưng <strong>doanh thu thực tế vào Stripe trong 30 ngày qua chỉ còn $3,120</strong> (bằng 5% MRR) và đang <strong>rao bán đòi $500,000</strong>.</li>
+<li><strong>Based Labs AI (<code>basedlabs.ai</code> — AI video tools &amp; community):</strong> Hiển thị MRR <strong>$28,537</strong>, nhưng <strong>doanh thu thực 30 ngày = $0</strong>; đang <strong>rao bán đòi $2,180,000</strong>.</li>
+<li><strong>Produce.so (<code>produce.so</code> — AI long-form YouTube videos &amp; scripts):</strong> Hiển thị MRR <strong>$27,371</strong>, nhưng <strong>doanh thu thực 30 ngày = $0</strong>.</li>
+</ol>
 </blockquote>
 <h3>2.2. Đối chiếu từ ARR Club (<code>arrclub-100m-oct2026.md</code>, <code>arrclub.md</code>), YC (<code>sweep-yc.md</code>) &amp; a16z Speedrun (<code>sweep-speedrun-markets.md</code>)</h3>
 <ul>
-<li><strong>ARR Club ($100M Tier &amp; Breakout Radar):</strong></li>
+<li><strong>ARR Club ($100M Tier &amp; Breakout Radar):</strong><ul>
 <li>Ở tầng <strong>$100M+ ARR</strong> (tháng 10/2026), chỉ có 2 công ty thuộc nhóm Video/Image/3D góp mặt là <strong>Riverside</strong> ($100M ARR — phòng thu podcast/video chuyên nghiệp) và <strong>MeshyAI</strong> ($100M ARR — tạo mô hình 3D bằng AI) <strong>[SECONDARY — <a href="../research/arrclub-100m-oct2026.html"><code>research/arrclub-100m-oct2026.md</code></a>]</strong>.</li>
 <li>Ở nhóm <strong>Breakout Radar (&lt;$20M ARR)</strong>: <strong>Submagic</strong> (AI tạo phụ đề, emoji và B-roll cho video ngắn tại Pháp, thành lập 2023) tăng từ $1M ARR (08/2024) lên <strong>$8M ARR</strong> (06/2025); trong khi dẫn đầu toàn bảng là <strong>HeyReach</strong> ($19M ARR, bootstrapped, bán công cụ LinkedIn outreach cho <strong>Agencies</strong>) <strong>[SECONDARY — <a href="../research/arrclub.html"><code>research/arrclub.md</code></a>]</strong>.</li>
-<li><strong>Y Combinator (2025–2026 Batches, <code>sweep-yc.md</code> &amp; <code>deepdive-yc-social-media-pattern-2026-11-02.md</code>):</strong></li>
+</ul>
+</li>
+<li><strong>Y Combinator (2025–2026 Batches, <code>sweep-yc.md</code> &amp; <code>deepdive-yc-social-media-pattern-2026-11-02.md</code>):</strong><ul>
 <li><strong>Không một công ty YC nào làm "công cụ đăng mọi nơi / tạo mọi thứ" chung chung:</strong> 15/16 công ty social/media trong mẫu nghiên cứu đều chọn một điểm vào cực hẹp (ví dụ: <strong>Remix W26</strong> xoay sang video quảng cáo UGC từ dữ liệu sẵn có; <strong>Kuli Sp26</strong> làm AI xem video để chọn creator cho brand lớn; <strong>Wideframe W26</strong> làm AI coworker cho thợ dựng phim; <strong>Lapis F25</strong> tạo và chạy quảng cáo tự động).</li>
 <li><strong>Xu hướng "AI-Native Agency / Service-as-Software" tăng gấp gần 4 lần:</strong> Số công ty YC định vị trực tiếp là <em>"AI-native agency/firm"</em> (bán kết quả đầu ra thay vì bán phần mềm tự chỉnh) tăng từ 8 công ty (2025) lên <strong>30 công ty (2026)</strong> (như <strong>Adside.ai F26</strong> — AI agency chạy quảng cáo trả phí; <strong>Light Anchor Sp26</strong> — AI growth agency cho consumer brands) <strong>[CONFIRMED — <a href="../research/sweep-yc.html"><code>research/sweep-yc.md</code></a>, đọc 2026-11-06]</strong>.</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h2>3. Kết luận Dòng chảy Vốn &amp; Doanh thu: Tiền thật đang nằm ở đâu và Bài toán Sinh tử của Quick Magic</h2>
@@ -2497,29 +2678,35 @@ Hàng loạt công cụ tạo AI Video / UGC Ad từng khoe MRR cao trên TrustM
 <p>Nếu tổng hợp toàn bộ bảng số liệu trên, dòng vốn hàng tỷ USD và doanh thu thực (ARR) phân hóa cực kỳ rõ rệt theo hình <strong>Quả Tạ (Barbell Distribution)</strong>:</p>
 <ol>
 <li>
-<p><strong>Đầu nặng thứ nhất — Lớp 3 (Hạ tầng API Inference tốc độ cao) &amp; Lớp 4 (Foundation Models có sở hữu trí tuệ gốc):</strong>
-   - <strong>Đây là nơi hút vốn VC/Chiến lược khổng lồ nhất và tạo ra siêu doanh thu hạ tầng:</strong> <strong>fal.ai</strong> tăng lên <strong>$800M+ ARR</strong> (định giá <strong>$16B</strong>), <strong>MiniMax</strong> đạt <strong>$800M ARR</strong> (vốn hóa <strong>~$8.2B</strong>), <strong>ElevenLabs</strong> đạt <strong>$600M ARR</strong> (định giá <strong>$22B</strong>), <strong>Kling AI</strong> đạt <strong>~$500M ARR</strong> (gọi <strong>$2.9B</strong> ở định giá <strong>$18B</strong>), <strong>Runway</strong> đạt <strong>$200M ARR</strong> (định giá <strong>$5.3B–$6.35B</strong>), còn <strong>Replicate</strong> được <strong>Cloudflare mua đứt</strong>.
-   - <strong>Bản chất:</strong> Khi hàng vạn ứng dụng wrapper mọc lên ở Lớp 1 và Lớp 2, mỗi lệnh tạo ảnh/video/giọng nói đều phải trả phí GPU mỗi giây về cho <strong>fal.ai, Kling, MiniMax, ElevenLabs</strong>. Tiền chảy về túi người nắm <strong>cụm GPU tối ưu hóa (Inference Engine như fal.ai)</strong> và <strong>trọng số mô hình gốc (Foundation Weights)</strong>.</p>
+<p><strong>Đầu nặng thứ nhất — Lớp 3 (Hạ tầng API Inference tốc độ cao) &amp; Lớp 4 (Foundation Models có sở hữu trí tuệ gốc):</strong></p>
+<ul>
+<li><strong>Đây là nơi hút vốn VC/Chiến lược khổng lồ nhất và tạo ra siêu doanh thu hạ tầng:</strong> <strong>fal.ai</strong> tăng lên <strong>$800M+ ARR</strong> (định giá <strong>$16B</strong>), <strong>MiniMax</strong> đạt <strong>$800M ARR</strong> (vốn hóa <strong>~$8.2B</strong>), <strong>ElevenLabs</strong> đạt <strong>$600M ARR</strong> (định giá <strong>$22B</strong>), <strong>Kling AI</strong> đạt <strong>~$500M ARR</strong> (gọi <strong>$2.9B</strong> ở định giá <strong>$18B</strong>), <strong>Runway</strong> đạt <strong>$200M ARR</strong> (định giá <strong>$5.3B–$6.35B</strong>), còn <strong>Replicate</strong> được <strong>Cloudflare mua đứt</strong>.</li>
+<li><strong>Bản chất:</strong> Khi hàng vạn ứng dụng wrapper mọc lên ở Lớp 1 và Lớp 2, mỗi lệnh tạo ảnh/video/giọng nói đều phải trả phí GPU mỗi giây về cho <strong>fal.ai, Kling, MiniMax, ElevenLabs</strong>. Tiền chảy về túi người nắm <strong>cụm GPU tối ưu hóa (Inference Engine như fal.ai)</strong> và <strong>trọng số mô hình gốc (Foundation Weights)</strong>.</li>
+</ul>
 </li>
 <li>
-<p><strong>Đầu nặng thứ hai — Lớp 2 (Workflow Dọc gắn chặt với Doanh thu Quảng cáo / Thương mại điện tử - ROI-driven):</strong>
-   - <strong>Đây là nơi có hiệu quả sử dụng vốn (Capital Efficiency) và khả năng sinh lời tự thân (Profitability) tốt nhất:</strong></p>
+<p><strong>Đầu nặng thứ hai — Lớp 2 (Workflow Dọc gắn chặt với Doanh thu Quảng cáo / Thương mại điện tử - ROI-driven):</strong></p>
 <ul>
+<li><strong>Đây là nơi có hiệu quả sử dụng vốn (Capital Efficiency) và khả năng sinh lời tự thân (Profitability) tốt nhất:</strong><ul>
 <li><strong>HeyGen</strong> đạt <strong>$200M ARR</strong>, hòa vốn dòng tiền mà chỉ tiêu hết $25M vốn gọi (tạo $2.70 ARR trên mỗi $1 vốn).</li>
 <li><strong>Photoroom</strong> đạt <strong>$94M → ~$200M ARR</strong>, có lãi từ 2024 nhờ giải quyết đúng 1 bài toán sống còn của người bán hàng online (ảnh sản phẩm &amp; listing Shopee/Shopify/Depop).</li>
 <li><strong>Arcads.ai</strong> đi từ $0 lên <strong>$10M–$12M+ ARR (xác minh Stripe)</strong> hoàn toàn <strong>bootstrapped với đúng 8 nhân sự</strong> trước khi nhận $16M từ Eurazeo, chỉ nhờ làm đúng 1 việc: <strong>Tạo video UGC chạy quảng cáo chuyển đổi (Performance Ads)</strong>.</li>
 <li><strong>Creatify.ai</strong> lên <strong>$9M ARR sau 18 tháng</strong> nhờ biến link sản phẩm TMĐT thành video chạy Meta/TikTok Ads.</li>
+</ul>
+</li>
 <li><strong>Bản chất:</strong> Khách hàng doanh nghiệp/nhà bán hàng (E-commerce sellers, Performance Marketers, Agencies) <strong>không trả tiền để "chơi với AI"</strong>; họ trả tiền từ <strong>ngân sách quảng cáo (Ad Spend)</strong> vì 1 video UGC hay 1 bộ ảnh sản phẩm giúp tăng ROAS/CTR trực tiếp.</li>
 </ul>
 </li>
 <li>
-<p><strong>Vùng kẹp ở giữa — Lớp 1 (Multi-model AI Creative Studios / Aggregators):</strong>
-   - Chỉ sống khỏe khi rơi vào <strong>1 trong 3 trường hợp</strong>:</p>
-<ol>
+<p><strong>Vùng kẹp ở giữa — Lớp 1 (Multi-model AI Creative Studios / Aggregators):</strong></p>
+<ul>
+<li>Chỉ sống khỏe khi rơi vào <strong>1 trong 3 trường hợp</strong>:<ol>
 <li><strong>Có tệp phân phối gốc khổng lồ và quỹ PE hậu thuẫn để M&amp;A:</strong> Như <strong>Freepik (Magnific)</strong> có sẵn 100 triệu người dùng SEO/Stock tích lũy 15 năm và vốn của <strong>EQT</strong> để mua lại Magnific AI, đẩy lên <strong>$230M ARR</strong>.</li>
 <li><strong>Có đội ngũ kỹ thuật xuất chúng từ Big Tech đi kèm vốn VC hạng nặng và xoay trục nhanh sang Enterprise/Workflow chuyên sâu:</strong> Như <strong>Higgsfield AI</strong> (cựu giám đốc GenAI của Snap, gọi $530M+) hoặc <strong>OpenArt AI</strong> (cựu kỹ sư Google, 20 người đạt $70M–$100M ARR nhờ đi sâu vào Character Consistency &amp; Visual Storytelling tại thị trường Mỹ).</li>
 <li><strong>Nếu là Indie/Wrapper gom 100 model lại bán gói tháng rẻ:</strong> Dữ liệu TrustMRR chứng minh trần doanh thu thực chỉ quanh quẩn <strong>$15K–$40K MRR</strong> (như <strong>Kolbo.AI</strong> ở mức $38.9K MRR hay <strong>Apiframe</strong> ở mức $35.9K MRR), trong khi hàng loạt công cụ tạo video chung chung khác (<strong>Speel.co, Based Labs AI, Vid.AI, StoryShort, Laper</strong>) bị <strong>churn tới mức doanh thu 30 ngày tụt về $0–$3K và phải rao bán dự án</strong>.</li>
 </ol>
+</li>
+</ul>
 </li>
 </ol>
 <hr />
@@ -2527,27 +2714,35 @@ Hàng loạt công cụ tạo AI Video / UGC Ad từng khoe MRR cao trên TrustM
 <p>Khi đặt <strong>Quick Magic (<code>quickmagic.vn</code>)</strong> — theo bản thiết kế R&amp;D gồm cả B2C Web Studio lẫn B2B Open API — lên bàn cân cùng lúc với cả 4 lớp đối thủ trên, mô hình <em>"Web + 10 Studio + MCP + CLI + Plugin Blender + Social Auto-post (Super Post) + API Gateway + Tự gắn nhãn model Qimi/Qivi"</em> bộc lộ <strong>4 mâu thuẫn cấu trúc về phân bổ nguồn lực</strong>:</p>
 <ol>
 <li>
-<p><strong>Một đội ngũ địa phương đang tự đặt mình vào thế đối đầu trực diện với hàng tỷ USD R&amp;D ở cả 4 mặt trận khác nhau:</strong>
-   - Ở mảng <strong>Cổng API &amp; MCP (<code>api.quickmagic.vn</code>)</strong>, họ phải cạnh tranh về độ trễ (latency), giá sỉ GPU và độ ổn định với <strong>fal.ai ($1.95B vốn, $800M ARR)</strong> và <strong>Cloudflare + Replicate</strong>. Một đại lý mua đi bán lại API (reseller/aggregator) không thể có biên lợi nhuận gộp và tốc độ inference ngang bằng nhà cung cấp hạ tầng gốc.
-   - Ở mảng <strong>Tự huấn luyện / gắn nhãn mô hình gốc (Qimi / Qivi)</strong>, việc tự train foundation video/image model đòi hỏi tối thiểu hàng trăm triệu đến hàng tỷ USD tiền cụm GPU (như <strong>Kling gọi $2.9B, Luma gọi $900M, Runway gọi $887M</strong>). Với một startup thu tiền lẻ qua Sepay, "model riêng" thực chất chỉ có thể là bản fine-tune nhẹ (LoRA/wrapper) hoặc đổi tên (re-skin) từ mô hình mã nguồn mở/API bên thứ ba — không tạo ra hào lũy công nghệ thật nhưng lại làm phân tán câu chuyện định vị.
-   - Ở mảng <strong>Giọng đọc tiếng Việt (TTS)</strong>, họ đụng độ trực tiếp với <strong>Vbee AI</strong> (đã có 8 năm dữ liệu tiếng Việt, &gt;2 triệu người dùng, &gt;300 doanh nghiệp và Voice Marketplace) ở phân khúc nội địa, và <strong>ElevenLabs ($22B)</strong> ở chất lượng đa ngôn ngữ.
-   - Ở mảng <strong>Quản lý &amp; Đăng bài đa kênh (Super Post)</strong>, như nghiên cứu nội bộ <code>deepdive-repurpose-tools-2026-11-03.md</code> và <code>df-guideline-multiplatform-originality-2026-11-04.md</code> đã chỉ rõ: khách hàng chuyên nghiệp rất sợ các công cụ "tự sinh rác AI rồi bắn thẳng lên mạng xã hội qua API" vì dễ làm lệch Brand Kit và dính thuật toán phạt 0 view của TikTok/Reels nếu tài khoản chưa được làm ấm hoặc nội dung bị đánh dấu hàng loạt.</p>
+<p><strong>Một đội ngũ địa phương đang tự đặt mình vào thế đối đầu trực diện với hàng tỷ USD R&amp;D ở cả 4 mặt trận khác nhau:</strong></p>
+<ul>
+<li>Ở mảng <strong>Cổng API &amp; MCP (<code>api.quickmagic.vn</code>)</strong>, họ phải cạnh tranh về độ trễ (latency), giá sỉ GPU và độ ổn định với <strong>fal.ai ($1.95B vốn, $800M ARR)</strong> và <strong>Cloudflare + Replicate</strong>. Một đại lý mua đi bán lại API (reseller/aggregator) không thể có biên lợi nhuận gộp và tốc độ inference ngang bằng nhà cung cấp hạ tầng gốc.</li>
+<li>Ở mảng <strong>Tự huấn luyện / gắn nhãn mô hình gốc (Qimi / Qivi)</strong>, việc tự train foundation video/image model đòi hỏi tối thiểu hàng trăm triệu đến hàng tỷ USD tiền cụm GPU (như <strong>Kling gọi $2.9B, Luma gọi $900M, Runway gọi $887M</strong>). Với một startup thu tiền lẻ qua Sepay, "model riêng" thực chất chỉ có thể là bản fine-tune nhẹ (LoRA/wrapper) hoặc đổi tên (re-skin) từ mô hình mã nguồn mở/API bên thứ ba — không tạo ra hào lũy công nghệ thật nhưng lại làm phân tán câu chuyện định vị.</li>
+<li>Ở mảng <strong>Giọng đọc tiếng Việt (TTS)</strong>, họ đụng độ trực tiếp với <strong>Vbee AI</strong> (đã có 8 năm dữ liệu tiếng Việt, &gt;2 triệu người dùng, &gt;300 doanh nghiệp và Voice Marketplace) ở phân khúc nội địa, và <strong>ElevenLabs ($22B)</strong> ở chất lượng đa ngôn ngữ.</li>
+<li>Ở mảng <strong>Quản lý &amp; Đăng bài đa kênh (Super Post)</strong>, như nghiên cứu nội bộ <code>deepdive-repurpose-tools-2026-11-03.md</code> và <code>df-guideline-multiplatform-originality-2026-11-04.md</code> đã chỉ rõ: khách hàng chuyên nghiệp rất sợ các công cụ "tự sinh rác AI rồi bắn thẳng lên mạng xã hội qua API" vì dễ làm lệch Brand Kit và dính thuật toán phạt 0 view của TikTok/Reels nếu tài khoản chưa được làm ấm hoặc nội dung bị đánh dấu hàng loạt.</li>
+</ul>
 </li>
 <li>
-<p><strong>Bẫy "Chiều rộng 1 km nhưng Chiều sâu 1 cm" (Feature Bloat vs. Workflow Depth):</strong>
-   - Một người bán hàng Shopee/TikTok Shop cần <strong>Ảnh sản phẩm &amp; Thử đồ ảo (Virtual Try-on)</strong> sẽ chọn công cụ xử lý viền tóc, ánh sáng sản phẩm và đồng bộ kệ hàng chuẩn xác nhất như <strong>Photoroom</strong> (xử lý 7 tỷ ảnh/năm).
-   - Một Media Buyer chạy quảng cáo chuyển đổi cần <strong>Video UGC biết chốt đơn</strong> sẽ chọn <strong>Arcads.ai</strong> hoặc <strong>Creatify.ai</strong> vì họ tối ưu sâu từng cái nhép môi, hook 3 giây đầu và A/B testing trên Meta Ads.
-   - Một 3D Animator dùng <strong>Blender</strong> có quy trình hoàn toàn tách biệt với một chủ shop thời trang hay một lập trình viên cài <strong>MCP/CLI</strong>. Việc nhồi cả <em>Plugin Blender 3D + Xưởng Phim Ngắn nhiều tập + Thời trang AI + Tải video Douyin hàng loạt + Đăng bài mạng xã hội + MCP cho Claude</em> vào chung một giao diện khiến sản phẩm không phục vụ xuất sắc bất kỳ một Chân dung khách hàng lý tưởng (ICP) nào.</p>
+<p><strong>Bẫy "Chiều rộng 1 km nhưng Chiều sâu 1 cm" (Feature Bloat vs. Workflow Depth):</strong></p>
+<ul>
+<li>Một người bán hàng Shopee/TikTok Shop cần <strong>Ảnh sản phẩm &amp; Thử đồ ảo (Virtual Try-on)</strong> sẽ chọn công cụ xử lý viền tóc, ánh sáng sản phẩm và đồng bộ kệ hàng chuẩn xác nhất như <strong>Photoroom</strong> (xử lý 7 tỷ ảnh/năm).</li>
+<li>Một Media Buyer chạy quảng cáo chuyển đổi cần <strong>Video UGC biết chốt đơn</strong> sẽ chọn <strong>Arcads.ai</strong> hoặc <strong>Creatify.ai</strong> vì họ tối ưu sâu từng cái nhép môi, hook 3 giây đầu và A/B testing trên Meta Ads.</li>
+<li>Một 3D Animator dùng <strong>Blender</strong> có quy trình hoàn toàn tách biệt với một chủ shop thời trang hay một lập trình viên cài <strong>MCP/CLI</strong>. Việc nhồi cả <em>Plugin Blender 3D + Xưởng Phim Ngắn nhiều tập + Thời trang AI + Tải video Douyin hàng loạt + Đăng bài mạng xã hội + MCP cho Claude</em> vào chung một giao diện khiến sản phẩm không phục vụ xuất sắc bất kỳ một Chân dung khách hàng lý tưởng (ICP) nào.</li>
+</ul>
 </li>
 <li>
-<p><strong>Áp lực Chi phí Vận hành (COGS) &amp; Hỗ trợ Bảo trì (Maintenance Tax) trên mức giá rẻ (180.000đ–510.000đ/tháng):</strong>
-   - Mỗi lần Google nâng cấp Veo, Kuaishou nâng cấp Kling, ByteDance nâng cấp Seedance, hay TikTok/Meta đổi chính sách Graph API, đội kỹ thuật của Quick Magic phải chia năm xẻ bảy để vá lỗi tích hợp cho hơn 10 studio và hàng chục model cùng lúc.
-   - Trong khi đó, do định giá gói cước thấp (180.000đ–1.170.000đ/tháng) và cam kết <em>"Credit không bao giờ hết hạn ngay cả khi ngừng gia hạn gói tháng"</em>, nền tảng vừa phải gánh nghĩa vụ nợ dịch vụ (deferred credit liability) kéo dài, vừa bị bào mòn biên lợi nhuận bởi chi phí gọi API ngoại tệ (USD) trả cho các hãng model gốc.</p>
+<p><strong>Áp lực Chi phí Vận hành (COGS) &amp; Hỗ trợ Bảo trì (Maintenance Tax) trên mức giá rẻ (180.000đ–510.000đ/tháng):</strong></p>
+<ul>
+<li>Mỗi lần Google nâng cấp Veo, Kuaishou nâng cấp Kling, ByteDance nâng cấp Seedance, hay TikTok/Meta đổi chính sách Graph API, đội kỹ thuật của Quick Magic phải chia năm xẻ bảy để vá lỗi tích hợp cho hơn 10 studio và hàng chục model cùng lúc.</li>
+<li>Trong khi đó, do định giá gói cước thấp (180.000đ–1.170.000đ/tháng) và cam kết <em>"Credit không bao giờ hết hạn ngay cả khi ngừng gia hạn gói tháng"</em>, nền tảng vừa phải gánh nghĩa vụ nợ dịch vụ (deferred credit liability) kéo dài, vừa bị bào mòn biên lợi nhuận bởi chi phí gọi API ngoại tệ (USD) trả cho các hãng model gốc.</li>
+</ul>
 </li>
 <li>
-<p><strong>Rào cản Niềm tin B2B (Enterprise Trust Deficit):</strong>
-   - Doanh thu bền vững nhất trong ngành này (như trường hợp <strong>ElevenLabs &gt;55% từ Enterprise, HeyGen, Photoroom, Vbee AI</strong>) đều đến từ <strong>khách hàng doanh nghiệp và Agency</strong> trả từ vài trăm đến hàng chục nghìn USD/tháng.
-   - Nếu vận hành như một công cụ chỉ thu tiền lẻ qua VietQR cá nhân mà không tách gói B2B có hợp đồng pháp nhân, xuất hoá đơn VAT và SLA rõ ràng, sản phẩm sẽ khó tiếp cận khối Doanh nghiệp/Brand/Agency lớn tại Việt Nam (vốn bắt buộc phải có chứng từ hợp lệ như cách <strong>Vbee AI</strong> đang làm).</p>
+<p><strong>Rào cản Niềm tin B2B (Enterprise Trust Deficit):</strong></p>
+<ul>
+<li>Doanh thu bền vững nhất trong ngành này (như trường hợp <strong>ElevenLabs &gt;55% từ Enterprise, HeyGen, Photoroom, Vbee AI</strong>) đều đến từ <strong>khách hàng doanh nghiệp và Agency</strong> trả từ vài trăm đến hàng chục nghìn USD/tháng.</li>
+<li>Nếu vận hành như một công cụ chỉ thu tiền lẻ qua VietQR cá nhân mà không tách gói B2B có hợp đồng pháp nhân, xuất hoá đơn VAT và SLA rõ ràng, sản phẩm sẽ khó tiếp cận khối Doanh nghiệp/Brand/Agency lớn tại Việt Nam (vốn bắt buộc phải có chứng từ hợp lệ như cách <strong>Vbee AI</strong> đang làm).</li>
+</ul>
 </li>
 </ol>
 <blockquote>
@@ -2557,29 +2752,41 @@ Tiền thật và lợi nhuận bền vững cho một đội ngũ tinh gọn <s
 <hr />
 <h2>PHẦN 6: MỤC "CHỖ ĐÃ SỬA CỦA AGENT" &amp; 3 CÁCH VALIDATE RẺ NHẤT TRƯỚC KHI BUILD TIẾP (<code>/market-research</code>)</h2>
 <h3>6.1. Chỗ đã sửa / Hiệu đính trong quá trình tổng hợp (Self-Correction Log)</h3>
-<p>Tuân thủ checklist Bước 3 của <code>/market-research</code> (<em>"Bạn đã đọc hết và sửa ít nhất một chỗ agent nói sai"</em>), phiên tổng hợp đã kiểm tra chéo và sửa 4 điểm sau:
-1. <strong>Hiệu đính nhà đầu tư của HeyGen (Agent 4):</strong> Prompt ban đầu giả định Kleiner Perkins đầu tư vào HeyGen; Agent 4 đã tra cứu nguồn gốc và đính chính chính xác: <strong>Benchmark</strong> (Victor Lazarte) mới là quỹ dẫn dắt Series A $60M (định giá $500M+) của HeyGen, còn <strong>Kleiner Perkins</strong> đầu tư vào đối thủ <strong>Synthesia</strong> và <strong>Captions/Mirage</strong>.
-2. <strong>Hiệu đính tuyên bố chiết khấu Seedance 2.5 1080p trên Open API (Agent 1B vs R&amp;D Spec):</strong>
-   - Trong tài liệu R&amp;D mục 3 &amp; 4.2, Quick Magic ghi Seedance 2.5 trên API rẻ hơn quốc tế ~35%, với giá mẫu <strong>Seedance 2.5 5s 480p = 18.360đ ($0.72)</strong> và <strong>5s 1080p = 101.540đ ($3.98)</strong>.
-   - Khi tính toán lại từ công thức token chính thức của <strong>BytePlus ModelArk</strong> (<code>48.600 tokens/giây</code> ở 1080p 24fps × <code>$11.70/1M tokens</code> = <code>$0.569/giây</code>), 1 clip 5 giây 1080p gốc không kèm video đầu vào trên BytePlus có giá niêm yết là <strong>$2.843 (~72.500đ)</strong>. Như vậy, mức giá <code>101.540đ ($3.98)</code> trên bảng giá mẫu API của Quick Magic thực chất đang <strong>đắt hơn 40% so với giá token gốc không kèm video đầu vào của BytePlus</strong> (và chỉ rẻ hơn ~35% nếu tính cho trường hợp có kèm 5 giây video đầu vào hoặc so với giá bán lẻ có markup cao trên một số cổng). Đội R&amp;D cần điều chỉnh lại công thức tính giá Seedance 2.5 1080p trên Open API (tách rõ giá <em>Text/Image-to-Video</em> khoảng <strong>48.000đ–55.000đ/5s</strong> và giá <em>Video-to-Video có video tham chiếu</em> tính riêng) để developer không bắt bẻ.
-3. <strong>Hiệu đính khoảng cách giá Kling V3 Omni vs Kling 4.0 trên Web:</strong>
-   - Phát hiện sự bất hợp lý ngay trong bảng giá R&amp;D mục 4.1 và 4.3: <strong>Kling V3 Omni 5s 1080p</strong> trên Web đang tốn <code>1.559 credit</code> (~56.000đ ở gói Starter ≈ <strong>$2.20</strong>), đắt hơn cả model thế hệ mới <strong>Kling 4.0 5s 1080p</strong> (<code>1.202 credit</code> ≈ 43.200đ ở gói Starter) và đắt gấp ~3 lần giá mua trên <code>klingai.com</code> ($0.61–$0.80). Cần hạ định mức credit của Kling V3 xuống ngay khi ra mắt Kling 4.0.
-4. <strong>Loại bỏ sự nhiễu loạn từ giao diện thử nghiệm hiện tại:</strong> Toàn bộ báo cáo đã được chuẩn hoá để đánh giá trực tiếp trên <strong>bản thiết kế sản phẩm R&amp;D (<code>quick-magic-mo-ta-san-pham-rnd.md</code>)</strong> phục vụ việc chốt kiến trúc của chủ sở hữu, không bị nhiễu bởi các thông tin hiển thị tạm thời trên môi trường web.</p>
+<p>Tuân thủ checklist Bước 3 của <code>/market-research</code> (<em>"Bạn đã đọc hết và sửa ít nhất một chỗ agent nói sai"</em>), phiên tổng hợp đã kiểm tra chéo và sửa 4 điểm sau:</p>
+<ol>
+<li><strong>Hiệu đính nhà đầu tư của HeyGen (Agent 4):</strong> Prompt ban đầu giả định Kleiner Perkins đầu tư vào HeyGen; Agent 4 đã tra cứu nguồn gốc và đính chính chính xác: <strong>Benchmark</strong> (Victor Lazarte) mới là quỹ dẫn dắt Series A $60M (định giá $500M+) của HeyGen, còn <strong>Kleiner Perkins</strong> đầu tư vào đối thủ <strong>Synthesia</strong> và <strong>Captions/Mirage</strong>.</li>
+<li><strong>Hiệu đính tuyên bố chiết khấu Seedance 2.5 1080p trên Open API (Agent 1B vs R&amp;D Spec):</strong><ul>
+<li>Trong tài liệu R&amp;D mục 3 &amp; 4.2, Quick Magic ghi Seedance 2.5 trên API rẻ hơn quốc tế ~35%, với giá mẫu <strong>Seedance 2.5 5s 480p = 18.360đ ($0.72)</strong> và <strong>5s 1080p = 101.540đ ($3.98)</strong>.</li>
+<li>Khi tính toán lại từ công thức token chính thức của <strong>BytePlus ModelArk</strong> (<code>48.600 tokens/giây</code> ở 1080p 24fps × <code>$11.70/1M tokens</code> = <code>$0.569/giây</code>), 1 clip 5 giây 1080p gốc không kèm video đầu vào trên BytePlus có giá niêm yết là <strong>$2.843 (~72.500đ)</strong>. Như vậy, mức giá <code>101.540đ ($3.98)</code> trên bảng giá mẫu API của Quick Magic thực chất đang <strong>đắt hơn 40% so với giá token gốc không kèm video đầu vào của BytePlus</strong> (và chỉ rẻ hơn ~35% nếu tính cho trường hợp có kèm 5 giây video đầu vào hoặc so với giá bán lẻ có markup cao trên một số cổng). Đội R&amp;D cần điều chỉnh lại công thức tính giá Seedance 2.5 1080p trên Open API (tách rõ giá <em>Text/Image-to-Video</em> khoảng <strong>48.000đ–55.000đ/5s</strong> và giá <em>Video-to-Video có video tham chiếu</em> tính riêng) để developer không bắt bẻ.</li>
+</ul>
+</li>
+<li><strong>Hiệu đính khoảng cách giá Kling V3 Omni vs Kling 4.0 trên Web:</strong><ul>
+<li>Phát hiện sự bất hợp lý ngay trong bảng giá R&amp;D mục 4.1 và 4.3: <strong>Kling V3 Omni 5s 1080p</strong> trên Web đang tốn <code>1.559 credit</code> (~56.000đ ở gói Starter ≈ <strong>$2.20</strong>), đắt hơn cả model thế hệ mới <strong>Kling 4.0 5s 1080p</strong> (<code>1.202 credit</code> ≈ 43.200đ ở gói Starter) và đắt gấp ~3 lần giá mua trên <code>klingai.com</code> ($0.61–$0.80). Cần hạ định mức credit của Kling V3 xuống ngay khi ra mắt Kling 4.0.</li>
+</ul>
+</li>
+<li><strong>Loại bỏ sự nhiễu loạn từ giao diện thử nghiệm hiện tại:</strong> Toàn bộ báo cáo đã được chuẩn hoá để đánh giá trực tiếp trên <strong>bản thiết kế sản phẩm R&amp;D (<code>quick-magic-mo-ta-san-pham-rnd.md</code>)</strong> phục vụ việc chốt kiến trúc của chủ sở hữu, không bị nhiễu bởi các thông tin hiển thị tạm thời trên môi trường web.</li>
+</ol>
 <h3>6.2. Ba cách Validate rẻ nhất trước khi chốt kiến trúc &amp; đổ nguồn lực R&amp;D lớn</h3>
 <p>Trước khi đầu tư sâu vào các tính năng tốn kém (như <em>Studio Phim Dự Án BĐS</em>, <em>Trợ lý trả lời tin nhắn FB/IG</em>, hay <em>tự vận hành cụm GPU cho Qivi 1</em>), hãy chạy 3 phép thử xác thực theo đúng thứ tự rẻ nhất của <code>/market-research</code>:</p>
 <ol>
-<li><strong>Test 1 — Bán trước (Pre-sell) gói "Studio Phim Dự Án BĐS &amp; Nội thất" cho 5 Sàn BĐS / Văn phòng Kiến trúc thật (Chi phí: 0đ code mới):</strong>
-   - Dùng ngay <em>Spaces (Bàn Sáng Tạo)</em> + <em>Qivi 1 / Veo 3.1 / Kling 4.0</em> hiện có để dựng tay 3 video mẫu (60 giây: flycam ngoại thất + walkthrough nội thất từ ảnh phối cảnh 3D tĩnh).
-   - Chào bán trực tiếp cho 10 giám đốc sàn BĐS / chủ văn phòng thiết kế nội thất với gói <strong>Business 1.170.000đ/tháng (hoặc 2.808.000đ/3 tháng)</strong>: nếu có <strong>≥3/10 đơn vị xuống tiền ngay</strong> trước khi có giao diện <em>Studio Phim Dự Án</em> riêng, lúc đó mới đóng gói thành Studio chuyên biệt.</li>
-<li><strong>Test 2 — Đo tỷ lệ chuyển đổi "Cửa vào (Wedge)" giữa <em>Thử đồ/Ảnh SP AI</em> vs <em>Video Quảng cáo</em> vs <em>Phụ đề/Review Phim</em> (Chi phí: 1 tuần chạy trang đích):</strong>
-   - Tạo 3 landing page riêng biệt dẫn về cùng một hệ thống đăng ký tặng 80 credit:<ul>
+<li><strong>Test 1 — Bán trước (Pre-sell) gói "Studio Phim Dự Án BĐS &amp; Nội thất" cho 5 Sàn BĐS / Văn phòng Kiến trúc thật (Chi phí: 0đ code mới):</strong><ul>
+<li>Dùng ngay <em>Spaces (Bàn Sáng Tạo)</em> + <em>Qivi 1 / Veo 3.1 / Kling 4.0</em> hiện có để dựng tay 3 video mẫu (60 giây: flycam ngoại thất + walkthrough nội thất từ ảnh phối cảnh 3D tĩnh).</li>
+<li>Chào bán trực tiếp cho 10 giám đốc sàn BĐS / chủ văn phòng thiết kế nội thất với gói <strong>Business 1.170.000đ/tháng (hoặc 2.808.000đ/3 tháng)</strong>: nếu có <strong>≥3/10 đơn vị xuống tiền ngay</strong> trước khi có giao diện <em>Studio Phim Dự Án</em> riêng, lúc đó mới đóng gói thành Studio chuyên biệt.</li>
+</ul>
+</li>
+<li><strong>Test 2 — Đo tỷ lệ chuyển đổi "Cửa vào (Wedge)" giữa <em>Thử đồ/Ảnh SP AI</em> vs <em>Video Quảng cáo</em> vs <em>Phụ đề/Review Phim</em> (Chi phí: 1 tuần chạy trang đích):</strong><ul>
+<li>Tạo 3 landing page riêng biệt dẫn về cùng một hệ thống đăng ký tặng 80 credit:<ul>
 <li>Trang A: <em>"Thay thế buổi chụp mẫu 10 triệu bằng Thử đồ AI &amp; Ảnh sản phẩm 360đ/ảnh"</em> (nhắm vào chủ shop Thời trang/Shopee).</li>
 <li>Trang B: <em>"Tạo video quảng cáo UGC &amp; nhân bản chuyển động KageBunshin chỉ từ 7.000đ/video"</em> (nhắm vào người chạy Ads TikTok/FB).</li>
 <li>Trang C: <em>"Không giới hạn Phụ đề, Cắt clip &amp; Review phim + 40 model AI chính chủ chỉ từ 180k/tháng"</em> (nhắm vào Creator/MMO).</li>
+</ul>
+</li>
 <li>Đo chính xác xem kênh nào có <strong>tỷ lệ nạp gói Starter/Pro (180k / 510k) trong 48 giờ đầu cao nhất</strong> để chọn làm trang chủ mặc định.</li>
 </ul>
 </li>
-<li><strong>Test 3 — Phỏng vấn &amp; theo dõi trực tiếp 5 Chủ Shop Thời trang + 5 Developer tích hợp API/MCP:</strong>
-   - Với <strong>5 Chủ Shop:</strong> Ngồi xem họ tải ảnh sản phẩm thật lên tạo ảnh/video quảng cáo. Đếm xem họ phải bấm tạo lại bao nhiêu lần mới ra được 1 video không bị méo chữ tiếng Việt / không bị giả để định giá lại chi phí credit thực tế trên mỗi <em>video dùng được (usable output)</em>.
-   - Với <strong>5 Developer/Builder (dùng n8n / Claude Code MCP):</strong> Xem họ phản ứng thế nào với giới hạn <strong>2 luồng mặc định</strong> của <code>open.quickmagic.vn</code> và ưu đãi <strong>"Nạp 500k miễn phí Unlimited ảnh 1K"</strong>. Nếu cả 5 dev đều bị nghẽn ở mức 2 luồng khi chạy workflow bất đồng bộ, hãy áp dụng ngay kiến trúc tách <em>Queue không giới hạn (<code>IN_QUEUE</code>)</em> + <em>10 luồng Ảnh ngay từ mốc nạp 500k</em>.</li>
+<li><strong>Test 3 — Phỏng vấn &amp; theo dõi trực tiếp 5 Chủ Shop Thời trang + 5 Developer tích hợp API/MCP:</strong><ul>
+<li>Với <strong>5 Chủ Shop:</strong> Ngồi xem họ tải ảnh sản phẩm thật lên tạo ảnh/video quảng cáo. Đếm xem họ phải bấm tạo lại bao nhiêu lần mới ra được 1 video không bị méo chữ tiếng Việt / không bị giả để định giá lại chi phí credit thực tế trên mỗi <em>video dùng được (usable output)</em>.</li>
+<li>Với <strong>5 Developer/Builder (dùng n8n / Claude Code MCP):</strong> Xem họ phản ứng thế nào với giới hạn <strong>2 luồng mặc định</strong> của <code>open.quickmagic.vn</code> và ưu đãi <strong>"Nạp 500k miễn phí Unlimited ảnh 1K"</strong>. Nếu cả 5 dev đều bị nghẽn ở mức 2 luồng khi chạy workflow bất đồng bộ, hãy áp dụng ngay kiến trúc tách <em>Queue không giới hạn (<code>IN_QUEUE</code>)</em> + <em>10 luồng Ảnh ngay từ mốc nạp 500k</em>.</li>
+</ul>
+</li>
 </ol><div class="src">Nguồn: <code>research/deepdive-quick-magic-ai-media-studio-2026-11-06.md</code> (bản .md cho agent đọc)</div></main></body></html>

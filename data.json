@@ -1,0 +1,172 @@
+{
+  "title": "Định vị Giá trị × Tính năng: Nền tảng AI Video/Image Studio & Media API (đọc 2026-11-06)",
+  "rubric_size": 14,
+  "groups": {
+    "studio": {
+      "label": "All-in-one AI Studio (Quốc tế)",
+      "color": "#6B5CE8"
+    },
+    "ecom": {
+      "label": "E-com & UGC Ad Studio",
+      "color": "#2F7BD6"
+    },
+    "api": {
+      "label": "Multi-model Media API",
+      "color": "#0D9488"
+    },
+    "native": {
+      "label": "Foundation Model / Nội địa VN",
+      "color": "#D97706"
+    }
+  },
+  "products": [
+    {
+      "name": "Higgsfield Plus",
+      "group": "studio",
+      "functionality": 11.5,
+      "effective_per_year": 468.0,
+      "basis": "$39/mo billed yearly ($468/yr, mở đủ model)"
+    },
+    {
+      "name": "Freepik/Magnific Prem+",
+      "group": "studio",
+      "functionality": 8.5,
+      "effective_per_year": 405.0,
+      "basis": "$33.75/mo billed yearly ($405/yr, có Unlimited)"
+    },
+    {
+      "name": "Krea.ai Pro",
+      "group": "studio",
+      "functionality": 8.5,
+      "effective_per_year": 252.0,
+      "basis": "$21/mo billed yearly ($252/yr, mở Veo/Kling/Seedance)"
+    },
+    {
+      "name": "OpenArt Plus",
+      "group": "studio",
+      "functionality": 7.5,
+      "effective_per_year": 324.0,
+      "basis": "$27/mo billed yearly ($324/yr, có bản quyền TM)"
+    },
+    {
+      "name": "Poe Standard",
+      "group": "studio",
+      "functionality": 4.5,
+      "effective_per_year": 199.99,
+      "basis": "$199.99/yr (660k-1M points/mo)"
+    },
+    {
+      "name": "Weavy (Figma Weave)",
+      "group": "studio",
+      "functionality": 7.0,
+      "effective_per_year": 228.0,
+      "basis": "$19/mo billed yearly ($228/yr)"
+    },
+    {
+      "name": "Pippit (CapCut E-com)",
+      "group": "ecom",
+      "functionality": 8.5,
+      "effective_per_year": 120.0,
+      "basis": "~$10/mo billed yearly ($120/yr)"
+    },
+    {
+      "name": "Creatify Starter",
+      "group": "ecom",
+      "functionality": 7.5,
+      "effective_per_year": 228.0,
+      "basis": "$19/mo billed yearly ($228/yr)"
+    },
+    {
+      "name": "HeyGen Creator",
+      "group": "ecom",
+      "functionality": 6.0,
+      "effective_per_year": 288.0,
+      "basis": "$24/mo billed yearly ($288/yr)"
+    },
+    {
+      "name": "Arcads Starter",
+      "group": "ecom",
+      "functionality": 5.5,
+      "effective_per_year": 1056.0,
+      "basis": "$88/mo billed yearly ($1,056/yr)"
+    },
+    {
+      "name": "Runway Standard",
+      "group": "native",
+      "functionality": 8.0,
+      "effective_per_year": 144.0,
+      "basis": "$12/mo billed yearly ($144/yr)"
+    },
+    {
+      "name": "Kling AI Standard",
+      "group": "native",
+      "functionality": 6.5,
+      "effective_per_year": 79.2,
+      "basis": "$6.60/mo billed yearly ($79.20/yr)"
+    },
+    {
+      "name": "Hailuo Standard",
+      "group": "native",
+      "functionality": 4.5,
+      "effective_per_year": 100.8,
+      "basis": "$8.40/mo billed yearly ($100.80/yr)"
+    },
+    {
+      "name": "fal.ai (Pay-as-you-go)",
+      "group": "api",
+      "functionality": 6.0,
+      "effective_per_year": 120.0,
+      "basis": "$10/mo ($120/yr) mức nạp dev chuẩn"
+    },
+    {
+      "name": "each::labs / WaveSpeed",
+      "group": "api",
+      "functionality": 8.0,
+      "effective_per_year": 120.0,
+      "basis": "$10/mo ($120/yr) mức nạp dev chuẩn"
+    },
+    {
+      "name": "LovinBot VN",
+      "group": "native",
+      "functionality": 4.5,
+      "effective_per_year": 70.59,
+      "basis": "449k VND/3 tháng (~$70.59/yr)"
+    },
+    {
+      "name": "Vbee AI VN",
+      "group": "native",
+      "functionality": 4.5,
+      "effective_per_year": 70.12,
+      "basis": "149k VND/tháng (~$70.12/yr gia hạn)"
+    },
+    {
+      "name": "FitRoom VN",
+      "group": "ecom",
+      "functionality": 4.5,
+      "effective_per_year": 96.0,
+      "basis": "$96/yr gói Standard"
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Quick Magic Starter (180k/th ~ $85/yr)",
+      "functionality": 13.0,
+      "effective_per_year": 84.71
+    },
+    {
+      "name": "Quick Magic Pro (510k/th ~ $240/yr)",
+      "functionality": 13.0,
+      "effective_per_year": 240.0
+    },
+    {
+      "name": "Quick Magic Business (1,17tr/th ~ $551/yr)",
+      "functionality": 13.5,
+      "effective_per_year": 550.59
+    }
+  ],
+  "highlight_zone": {
+    "min_functionality": 9.0,
+    "min_value": 0.5,
+    "label": "Đa năng (Web+Studio+API/MCP+VN) & Giá trị cao: Khoảng trống Quick Magic"
+  }
+}

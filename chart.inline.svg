@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 720" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" role="img">
+<title>Định vị Giá trị × Tính năng: Nền tảng AI Video/Image Studio &amp; Media API (đọc 2026-11-06)</title>
+<text x="90" y="34" font-size="20" font-weight="600" class="axis">Định vị Giá trị × Tính năng: Nền tảng AI Video/Image Studio &amp; Media API (đọc 2026-11-06)</text>
+<text x="90" y="54" font-size="12" class="tick">X: categories covered of 14 (✓=1, partial=0.5) · Y: functionality points per $10 of effective yearly price (one-time ÷ 3 yrs)</text>
+<rect x="681.4" y="70.0" width="328.6" height="504.0" class="zone"/>
+<text x="1002.0" y="88.0" text-anchor="end" font-size="12" class="zone-label">Đa năng (Web+Studio+API/MCP+VN) &amp; Giá trị cao: Khoảng trống Quick Magic</text>
+<line x1="90.0" y1="70" x2="90.0" y2="630" class="grid"/><text x="90.0" y="650" text-anchor="middle" font-size="12" class="tick">0</text>
+<line x1="287.1" y1="70" x2="287.1" y2="630" class="grid"/><text x="287.1" y="650" text-anchor="middle" font-size="12" class="tick">3</text>
+<line x1="484.3" y1="70" x2="484.3" y2="630" class="grid"/><text x="484.3" y="650" text-anchor="middle" font-size="12" class="tick">6</text>
+<line x1="681.4" y1="70" x2="681.4" y2="630" class="grid"/><text x="681.4" y="650" text-anchor="middle" font-size="12" class="tick">9</text>
+<line x1="878.6" y1="70" x2="878.6" y2="630" class="grid"/><text x="878.6" y="650" text-anchor="middle" font-size="12" class="tick">12</text>
+<line x1="90" y1="630.0" x2="1010" y2="630.0" class="grid"/><text x="80" y="634.0" text-anchor="end" font-size="12" class="tick">0</text>
+<line x1="90" y1="518.0" x2="1010" y2="518.0" class="grid"/><text x="80" y="522.0" text-anchor="end" font-size="12" class="tick">1</text>
+<line x1="90" y1="406.0" x2="1010" y2="406.0" class="grid"/><text x="80" y="410.0" text-anchor="end" font-size="12" class="tick">2</text>
+<line x1="90" y1="294.0" x2="1010" y2="294.0" class="grid"/><text x="80" y="298.0" text-anchor="end" font-size="12" class="tick">3</text>
+<line x1="90" y1="182.0" x2="1010" y2="182.0" class="grid"/><text x="80" y="186.0" text-anchor="end" font-size="12" class="tick">4</text>
+<line x1="90" y1="70.0" x2="1010" y2="70.0" class="grid"/><text x="80" y="74.0" text-anchor="end" font-size="12" class="tick">5</text>
+<text x="550.0" y="680" text-anchor="middle" font-size="13" class="axis">Functionality →</text>
+<text transform="translate(28 350.0) rotate(-90)" text-anchor="middle" font-size="13" class="axis">Value for money →</text>
+<polyline points="944.3,458.1 944.3,569.3 977.1,602.5" fill="none" class="amb-line"/>
+<circle cx="845.7" cy="602.5" r="6" class="pt-studio"><title>Higgsfield Plus: functionality 11.5, $468.00/yr, value 0.2 ($39/mo billed yearly ($468/yr, mở đủ model))</title></circle>
+<text x="855.7" y="606.5" text-anchor="start" font-size="11.5" class="lbl">Higgsfield Plus</text>
+<circle cx="648.6" cy="606.5" r="6" class="pt-studio"><title>Freepik/Magnific Prem+: functionality 8.5, $405.00/yr, value 0.2 ($33.75/mo billed yearly ($405/yr, có Unlimited))</title></circle>
+<text x="658.6" y="610.5" text-anchor="start" font-size="11.5" class="lbl">Freepik/Magnific Prem+</text>
+<circle cx="648.6" cy="592.2" r="6" class="pt-studio"><title>Krea.ai Pro: functionality 8.5, $252.00/yr, value 0.3 ($21/mo billed yearly ($252/yr, mở Veo/Kling/Seedance))</title></circle>
+<text x="658.6" y="596.2" text-anchor="start" font-size="11.5" class="lbl">Krea.ai Pro</text>
+<circle cx="582.9" cy="604.1" r="6" class="pt-studio"><title>OpenArt Plus: functionality 7.5, $324.00/yr, value 0.2 ($27/mo billed yearly ($324/yr, có bản quyền TM))</title></circle>
+<text x="572.9" y="620.1" text-anchor="end" font-size="11.5" class="lbl">OpenArt Plus</text>
+<circle cx="385.7" cy="604.8" r="6" class="pt-studio"><title>Poe Standard: functionality 4.5, $199.99/yr, value 0.2 ($199.99/yr (660k-1M points/mo))</title></circle>
+<text x="395.7" y="608.8" text-anchor="start" font-size="11.5" class="lbl">Poe Standard</text>
+<circle cx="550.0" cy="595.6" r="6" class="pt-studio"><title>Weavy (Figma Weave): functionality 7, $228.00/yr, value 0.3 ($19/mo billed yearly ($228/yr))</title></circle>
+<text x="550.0" y="581.6" text-anchor="middle" font-size="11.5" class="lbl">Weavy (Figma Weave)</text>
+<circle cx="648.6" cy="550.7" r="6" class="pt-ecom"><title>Pippit (CapCut E-com): functionality 8.5, $120.00/yr, value 0.7 (~$10/mo billed yearly ($120/yr))</title></circle>
+<text x="658.6" y="554.7" text-anchor="start" font-size="11.5" class="lbl">Pippit (CapCut E-com)</text>
+<circle cx="582.9" cy="593.2" r="6" class="pt-ecom"><title>Creatify Starter: functionality 7.5, $228.00/yr, value 0.3 ($19/mo billed yearly ($228/yr))</title></circle>
+<text x="572.9" y="597.2" text-anchor="end" font-size="11.5" class="lbl">Creatify Starter</text>
+<circle cx="484.3" cy="606.7" r="6" class="pt-ecom"><title>HeyGen Creator: functionality 6, $288.00/yr, value 0.2 ($24/mo billed yearly ($288/yr))</title></circle>
+<text x="474.3" y="622.7" text-anchor="end" font-size="11.5" class="lbl">HeyGen Creator</text>
+<circle cx="451.4" cy="624.2" r="6" class="pt-ecom"><title>Arcads Starter: functionality 5.5, $1056.00/yr, value 0.1 ($88/mo billed yearly ($1,056/yr))</title></circle>
+<text x="461.4" y="640.2" text-anchor="start" font-size="11.5" class="lbl">Arcads Starter</text>
+<circle cx="615.7" cy="567.8" r="6" class="pt-native"><title>Runway Standard: functionality 8, $144.00/yr, value 0.6 ($12/mo billed yearly ($144/yr))</title></circle>
+<text x="625.7" y="571.8" text-anchor="start" font-size="11.5" class="lbl">Runway Standard</text>
+<circle cx="517.1" cy="538.1" r="6" class="pt-native"><title>Kling AI Standard: functionality 6.5, $79.20/yr, value 0.8 ($6.60/mo billed yearly ($79.20/yr))</title></circle>
+<text x="527.1" y="542.1" text-anchor="start" font-size="11.5" class="lbl">Kling AI Standard</text>
+<circle cx="385.7" cy="580.0" r="6" class="pt-native"><title>Hailuo Standard: functionality 4.5, $100.80/yr, value 0.4 ($8.40/mo billed yearly ($100.80/yr))</title></circle>
+<text x="375.7" y="584.0" text-anchor="end" font-size="11.5" class="lbl">Hailuo Standard</text>
+<circle cx="484.3" cy="574.0" r="6" class="pt-api"><title>fal.ai (Pay-as-you-go): functionality 6, $120.00/yr, value 0.5 ($10/mo ($120/yr) mức nạp dev chuẩn)</title></circle>
+<text x="484.3" y="560.0" text-anchor="middle" font-size="11.5" class="lbl">fal.ai (Pay-as-you-go)</text>
+<circle cx="615.7" cy="555.3" r="6" class="pt-api"><title>each::labs / WaveSpeed: functionality 8, $120.00/yr, value 0.7 ($10/mo ($120/yr) mức nạp dev chuẩn)</title></circle>
+<text x="605.7" y="571.3" text-anchor="end" font-size="11.5" class="lbl">each::labs / WaveSpeed</text>
+<circle cx="385.7" cy="558.6" r="6" class="pt-native"><title>LovinBot VN: functionality 4.5, $70.59/yr, value 0.6 (449k VND/3 tháng (~$70.59/yr))</title></circle>
+<text x="375.7" y="562.6" text-anchor="end" font-size="11.5" class="lbl">LovinBot VN</text>
+<circle cx="385.7" cy="558.1" r="6" class="pt-native"><title>Vbee AI VN: functionality 4.5, $70.12/yr, value 0.6 (149k VND/tháng (~$70.12/yr gia hạn))</title></circle>
+<text x="385.7" y="544.1" text-anchor="middle" font-size="11.5" class="lbl">Vbee AI VN</text>
+<circle cx="385.7" cy="577.5" r="6" class="pt-ecom"><title>FitRoom VN: functionality 4.5, $96.00/yr, value 0.5 ($96/yr gói Standard)</title></circle>
+<text x="395.7" y="593.5" text-anchor="start" font-size="11.5" class="lbl">FitRoom VN</text>
+<path d="M944.3,450.1 L952.3,458.1 L944.3,466.1 L936.3,458.1 Z" stroke-width="2.5" class="amb"><title>Quick Magic Starter (180k/th ~ $85/yr): functionality 13, $84.71/yr, value 1.5</title></path>
+<text x="934.3" y="462.1" text-anchor="end" font-size="11.5" font-weight="700" class="lbl amb-lbl">Quick Magic Starter (180k/th ~ $85/yr)</text>
+<path d="M944.3,561.3 L952.3,569.3 L944.3,577.3 L936.3,569.3 Z" stroke-width="2.5" class="amb"><title>Quick Magic Pro (510k/th ~ $240/yr): functionality 13, $240.00/yr, value 0.5</title></path>
+<text x="934.3" y="585.3" text-anchor="end" font-size="11.5" font-weight="700" class="lbl amb-lbl">Quick Magic Pro (510k/th ~ $240/yr)</text>
+<path d="M977.1,594.5 L985.1,602.5 L977.1,610.5 L969.1,602.5 Z" stroke-width="2.5" class="amb"><title>Quick Magic Business (1,17tr/th ~ $551/yr): functionality 13.5, $550.59/yr, value 0.2</title></path>
+<text x="967.1" y="618.5" text-anchor="end" font-size="11.5" font-weight="700" class="lbl amb-lbl">Quick Magic Business (1,17tr/th ~ $551/yr)</text>
+<rect x="98" y="78" width="250" height="100" rx="8" class="legend"/>
+<circle cx="110" cy="94" r="5" class="pt-studio"/><text x="122" y="98" font-size="11.5" class="lbl">All-in-one AI Studio (Quốc tế)</text>
+<circle cx="110" cy="112" r="5" class="pt-ecom"/><text x="122" y="116" font-size="11.5" class="lbl">E-com &amp; UGC Ad Studio</text>
+<circle cx="110" cy="130" r="5" class="pt-api"/><text x="122" y="134" font-size="11.5" class="lbl">Multi-model Media API</text>
+<circle cx="110" cy="148" r="5" class="pt-native"/><text x="122" y="152" font-size="11.5" class="lbl">Foundation Model / Nội địa VN</text>
+<path d="M110,160 L116,166 L110,172 L104,166 Z" stroke-width="2" class="amb"/><text x="122" y="170" font-size="11.5" class="lbl amb-lbl">Your product, candidate prices</text>
+</svg>

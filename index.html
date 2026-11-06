@@ -18,6 +18,7 @@ p,li{max-width:75ch}
 code{font:.88em "JetBrains Mono",ui-monospace,monospace;background:var(--soft);padding:.1em .35em;border-radius:4px}
 pre{background:var(--soft);padding:12px;border-radius:8px;overflow:auto}
 pre code{background:none;padding:0}
+img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:1em 0;background:#fff}
 .tw{overflow-x:auto;margin:1em 0;border:1px solid var(--line);border-radius:8px}
 table{border-collapse:collapse;width:100%;font-size:.92rem}
 th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
@@ -62,13 +63,13 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 </tr>
 <tr>
 <td><strong>2. Tính năng nào làm "Cửa vào" (Wedge) cho khách mới?</strong></td>
-<td><strong>Thiết kế 2 Phễu Cửa Vào (Dual Wedge) thay vì đẩy Giọng đọc (TTS) đơn lẻ:</strong><br>• <strong>Wedge A (Shop Online):</strong> <em>Ảnh sản phẩm AI + Thử đồ AI (Qimi 360đ/ảnh)</em> $\rightarrow$ upsell sang <em>Marketing Studio / KageBunshin / Qivi 1 làm video quảng cáo</em>.<br>• <strong>Wedge B (Creator):</strong> <em>Tài khoản chính chủ 180k + Combo Phụ đề &amp; Cắt clip + Studio Review phim / Faceless</em>.</td>
+<td><strong>Thiết kế 2 Phễu Cửa Vào (Dual Wedge) thay vì đẩy Giọng đọc (TTS) đơn lẻ:</strong><br>• <strong>Wedge A (Shop Online):</strong> <em>Ảnh sản phẩm AI + Thử đồ AI (Qimi 360đ/ảnh)</em> → upsell sang <em>Marketing Studio / KageBunshin / Qivi 1 làm video quảng cáo</em>.<br>• <strong>Wedge B (Creator):</strong> <em>Tài khoản chính chủ 180k + Combo Phụ đề &amp; Cắt clip + Studio Review phim / Faceless</em>.</td>
 <td>• <strong>Vì sao KHÔNG lấy Giọng đọc (TTS) đơn lẻ làm cửa vào chính?</strong> Ở mảng TTS tiếng Việt thuần tuý, <strong>Vbee AI</strong> (&gt;2 triệu người dùng, &gt;300 doanh nghiệp) đang bán gói năm khuyến mãi chỉ từ <strong>339.000đ/năm (~28.000đ/tháng)</strong> và <strong>Viettel AI / FPT.AI</strong> bán API từ <strong>280–320đ/1.000 ký tự</strong>. Nếu chỉ quảng cáo "Giọng đọc AI", Quick Magic sẽ đụng bức tường thương hiệu của Vbee. Ngược lại, Vbee <strong>không có</strong> tạo ảnh sản phẩm, thử đồ hay dựng video quảng cáo/review phim.<br>• <strong>Vì sao Ảnh SP / Thử đồ AI (360đ/ảnh) là cửa vào tốt nhất cho Shop?</strong> Rẻ hơn đối thủ trực tiếp tại VN là <strong>FitRoom</strong> (<code>$0.029–$0.080/ảnh</code> ≈ 740đ–2.040đ/ảnh) từ <strong>2 đến 5,6 lần</strong>, rủi ro lỗi thấp hơn video, khách thấy kết quả đẹp ngay trong 5 giây đầu tiên trước khi nạp thêm credit làm video quảng cáo.<br>• <strong>Vì sao gói Starter 180.000đ thắng chợ "Mua chung tool AI"?</strong> Chủ shop/creator VN hiện phải trả <strong>~589.000đ/tháng</strong> cho combo tài khoản dùng chung/lậu (<em>CapCut Pro 100k + Vbee 169k + Kling Standard lậu 200k + Midjourney/ChatGPT share 120k</em>) và liên tục bị khóa acc sau 48–72h hoặc bị người lạ xem trộm ảnh sản phẩm/prompt.</td>
 </tr>
 <tr>
 <td><strong>3. Bảng giá gói tháng, API, Qivi 1 &amp; Kling 4.0 có cạnh tranh không?</strong></td>
 <td><strong>Cực kỳ cạnh tranh ở Veo 3.1 Fast, Seedance 2.5, Qimi và Qivi 1</strong>, <strong>NHƯNG kiến trúc giá cần điều chỉnh ngay 3 điểm nghẽn trước khi chốt:</strong><br>1. Giảm giá <strong>Kling V3 Omni trên Web</strong> về ngang biểu giá <strong>Kling 4.0</strong>.<br>2. Sửa cơ chế <strong>Giới hạn 2 luồng API dưới 10 triệu VND</strong>.<br>3. Đóng khung định mức rõ ràng cho <strong>Vé Unlimited</strong> để chống vỡ trận GPU.</td>
-<td>• <strong>Kiểm chứng tuyên bố "Rẻ hơn quốc tế 35–80%" trên Open API:</strong><br>  - <em>Veo 3.1 Fast (8s 1080p = 7.980đ ≈ $0.313):</em> <strong>Rẻ hơn 67,4%</strong> so với giá gốc Google Vertex AI ($0.96/clip 8s có âm) và <strong>rẻ hơn 73,9%</strong> so với <code>fal.ai</code> ($1.20/clip) $\rightarrow$ <strong>Tuyên bố rẻ hơn ~70–80% là ĐÚNG.</strong><br>  - <em>Nano Banana Pro (2.040đ ≈ $0.080/ảnh):</em> <strong>Rẻ hơn 46,7%</strong> so với <code>fal.ai</code> ($0.15/ảnh) và <strong>rẻ hơn 40,3%</strong> so với Google Cloud gốc ($0.134/ảnh), ngang với cổng chiết khấu <code>Kie.ai</code> ($0.081–$0.090/ảnh) $\rightarrow$ <strong>Tuyên bố rẻ hơn ~50% là ĐÚNG.</strong><br>  - <em>Seedance 2.5 (5s 480p = 18.360đ ≈ $0.72; 5s 1080p = 101.540đ ≈ $3.98):</em> Ở 1080p, giá gốc BytePlus ModelArk là <strong>$2.843/5s</strong> ($0.569/s), còn trên <code>Kie.ai</code> là <strong>$3.95/5s</strong> ($0.79/s). Như vậy giá API 1080p (101.540đ) chỉ rẻ hơn ~35% khi so với các cổng có cộng phụ phí hoặc khi tính kèm video tham chiếu đầu vào, chứ đang <strong>cao hơn ~40% so với giá token gốc không kèm video input của BytePlus ($2.843)</strong>. Cần hạ giá API Seedance 2.5 1080p xuống <strong>~48.000đ–55.000đ/5s</strong> nếu muốn giữ đúng mức "rẻ hơn 35% so với hãng gốc".<br>  - <em>Qivi 1 (30s = 99k / 120k / 150k VND, tức $0.13–$0.196/giây):</em> Nếu chất lượng thực sự ngang Seedance 2.5 (vốn tốn $0.231–$0.569/giây gốc, tức ~177.000đ–435.000đ cho 30 giây), thì mức giá <strong>99.000đ–150.000đ cho 30 giây của Qivi 1 rẻ hơn 45%–66%</strong> và sẽ là <strong>át chủ bài có biên lợi nhuận cao nhất</strong>.<br>• <strong>3 điểm nghẽn phải sửa:</strong> Xem chi tiết tại Mục 0.3 bên dưới.</td>
+<td>• <strong>Kiểm chứng tuyên bố "Rẻ hơn quốc tế 35–80%" trên Open API:</strong><br>  - <em>Veo 3.1 Fast (8s 1080p = 7.980đ ≈ $0.313):</em> <strong>Rẻ hơn 67,4%</strong> so với giá gốc Google Vertex AI ($0.96/clip 8s có âm) và <strong>rẻ hơn 73,9%</strong> so với <code>fal.ai</code> ($1.20/clip) → <strong>Tuyên bố rẻ hơn ~70–80% là ĐÚNG.</strong><br>  - <em>Nano Banana Pro (2.040đ ≈ $0.080/ảnh):</em> <strong>Rẻ hơn 46,7%</strong> so với <code>fal.ai</code> ($0.15/ảnh) và <strong>rẻ hơn 40,3%</strong> so với Google Cloud gốc ($0.134/ảnh), ngang với cổng chiết khấu <code>Kie.ai</code> ($0.081–$0.090/ảnh) → <strong>Tuyên bố rẻ hơn ~50% là ĐÚNG.</strong><br>  - <em>Seedance 2.5 (5s 480p = 18.360đ ≈ $0.72; 5s 1080p = 101.540đ ≈ $3.98):</em> Ở 1080p, giá gốc BytePlus ModelArk là <strong>$2.843/5s</strong> ($0.569/s), còn trên <code>Kie.ai</code> là <strong>$3.95/5s</strong> ($0.79/s). Như vậy giá API 1080p (101.540đ) chỉ rẻ hơn ~35% khi so với các cổng có cộng phụ phí hoặc khi tính kèm video tham chiếu đầu vào, chứ đang <strong>cao hơn ~40% so với giá token gốc không kèm video input của BytePlus ($2.843)</strong>. Cần hạ giá API Seedance 2.5 1080p xuống <strong>~48.000đ–55.000đ/5s</strong> nếu muốn giữ đúng mức "rẻ hơn 35% so với hãng gốc".<br>  - <em>Qivi 1 (30s = 99k / 120k / 150k VND, tức $0.13–$0.196/giây):</em> Nếu chất lượng thực sự ngang Seedance 2.5 (vốn tốn $0.231–$0.569/giây gốc, tức ~177.000đ–435.000đ cho 30 giây), thì mức giá <strong>99.000đ–150.000đ cho 30 giây của Qivi 1 rẻ hơn 45%–66%</strong> và sẽ là <strong>át chủ bài có biên lợi nhuận cao nhất</strong>.<br>• <strong>3 điểm nghẽn phải sửa:</strong> Xem chi tiết tại Mục 0.3 bên dưới.</td>
 </tr>
 <tr>
 <td><strong>4. Có nên đóng gói theo ngành (Thời trang, BĐS) không?</strong></td>
@@ -114,18 +115,58 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li><strong>Chi phí thật trên mỗi kết quả dùng được (Cost per Usable Output):</strong></li>
 <li>Trong thực tế sản xuất video quảng cáo AI (Kling V3/4.0, Seedance 2.5, Veo 3.1), người dùng phải tạo trung bình <strong>3 lần (Reroll Multiplier = 3x)</strong> mới chọn được 1 cảnh 5–8 giây không bị lỗi chuyển động hoặc sai chi tiết sản phẩm.</li>
 <li>Như vậy, ở <strong>Gói Starter (180.000đ = 5.000 credit)</strong>:<ul>
-<li>Nếu dùng <strong>Veo 3.1 Fast (8s 1080p = 399 cr/lần)</strong>: 5.000 credit tạo được 12,5 lần bấm $\rightarrow$ thu được <strong>~4 video thành phẩm dùng được</strong> (chi phí thực tế khách trả: <strong>~45.000đ / video thành phẩm</strong>).</li>
-<li>Nếu dùng <strong>Seedance 2.5 (5s 720p = 2.064 cr/lần)</strong>: 5.000 credit chỉ bấm được 2,4 lần $\rightarrow$ <strong>chưa chắc ra nổi 1 video hoàn chỉnh</strong> nếu lần đầu bị lỗi! Đây là lý do bắt buộc phải đẩy khách Shop Online dùng <strong>Marketing Studio (~200 cr/video)</strong> hoặc <strong>Qivi 1 (99.000đ–150.000đ / 30 giây)</strong> thay vì để khách mới tự đốt credit vào Seedance 2.5 thô ở gói 180k.</li>
+<li>Nếu dùng <strong>Veo 3.1 Fast (8s 1080p = 399 cr/lần)</strong>: 5.000 credit tạo được 12,5 lần bấm → thu được <strong>~4 video thành phẩm dùng được</strong> (chi phí thực tế khách trả: <strong>~45.000đ / video thành phẩm</strong>).</li>
+<li>Nếu dùng <strong>Seedance 2.5 (5s 720p = 2.064 cr/lần)</strong>: 5.000 credit chỉ bấm được 2,4 lần → <strong>chưa chắc ra nổi 1 video hoàn chỉnh</strong> nếu lần đầu bị lỗi! Đây là lý do bắt buộc phải đẩy khách Shop Online dùng <strong>Marketing Studio (~200 cr/video)</strong> hoặc <strong>Qivi 1 (99.000đ–150.000đ / 30 giây)</strong> thay vì để khách mới tự đốt credit vào Seedance 2.5 thô ở gói 180k.</li>
 </ul>
 </li>
 <li><strong>Bảng Stress-Test Biên lợi nhuận Gộp (Gross Margin) trên 3 kịch bản người dùng:</strong></li>
 </ul>
-<p>| Gói / Sản phẩm | Doanh thu thu về (VND) | Kịch bản 1: Light User (dùng 30% credit) | Kịch bản 2: Average User (dùng 80% credit) | Kịch bản 3: Power / Abuse User (cày 100% credit + cày tính năng Unlimited 6h/ngày) | Chốt chặn Kiến trúc bắt buộc |
-|---|---:|---|---|---|
-| <strong>Gói Starter</strong> (5.000 cr) | <strong>180.000đ / tháng</strong> | COGS ~25.000đ $\rightarrow$ <strong>Lãi gộp +86%</strong> | COGS ~68.000đ $\rightarrow$ <strong>Lãi gộp +62%</strong> | COGS ~85.000đ (không có Unlimited) $\rightarrow$ <strong>Lãi gộp +53%</strong> | An toàn vì bị chặn cứng bởi trần 5.000 credit. |
-| <strong>Gói Business</strong> (45.000 cr + Unlimited Sub/Cắt clip/Review phim + 10 ngày Free Qimi) | <strong>1.170.000đ / tháng</strong> | COGS ~210.000đ $\rightarrow$ <strong>Lãi gộp +82%</strong> | COGS ~580.000đ $\rightarrow$ <strong>Lãi gộp +50%</strong> | Nếu 1 xưởng MMO dùng chung tài khoản cày <strong>1.000 ảnh Qimi/ngày (×10 ngày = 10.000 ảnh)</strong> + <strong>100 video Review phim/tháng</strong>: COGS GPU/API có thể vọt lên <strong>&gt;1.800.000đ</strong> $\rightarrow$ <strong>LỖ GỘP (-54%)</strong> | <strong>1.</strong> Giới hạn <strong>1 luồng chạy nối tiếp (sequential)</strong> cho tác vụ nằm trong diện Unlimited.<br><strong>2.</strong> Áp dụng <strong>Fair-Use Cap 300 ảnh Qimi miễn phí/ngày</strong> ở tốc độ cao, vượt ngưỡng chuyển sang hàng chờ tiêu chuẩn. |
-| <strong>Vé Unlimited Qimi</strong> (1 ngày / 30 ngày) | <strong>81.000đ / ngày</strong> hoặc <strong>1.215.000đ / tháng</strong> | Tạo ~50 ảnh/ngày $\rightarrow$ COGS ~7.500đ $\rightarrow$ <strong>Lãi gộp +91%</strong> | Tạo ~200 ảnh/ngày $\rightarrow$ COGS ~30.000đ $\rightarrow$ <strong>Lãi gộp +63%</strong> | Cắm script gọi tự động 24/24 (1 ảnh/10 giây = <strong>8.640 ảnh/ngày</strong>): COGS GPU ~1.290.000đ/ngày $\rightarrow$ <strong>LỖ NẶNG (-1.490%)</strong> | <strong>Cấm gọi qua API/script đối với Vé Unlimited Web</strong>; chỉ cho bấm từng lệnh trên giao diện Web (tối đa 1 job <code>IN_PROGRESS</code> tại một thời điểm). |
-| <strong>Open API — Nạp 500.000đ tặng Unlimited ảnh 1K</strong> (Qimi 2.5/3 &amp; GPT Image 2 Fast) | <strong>500.000đ nạp ví</strong> (vốn 500k vẫn còn nguyên để gọi video!) | Gọi 500 ảnh 1K miễn phí $\rightarrow$ COGS phụ thêm ~75.000đ | Gọi 2.000 ảnh 1K miễn phí $\rightarrow$ COGS phụ thêm ~300.000đ | <strong>Tử huyệt lớn nhất:</strong> Khách nạp 500.000đ, dùng toàn bộ 500.000đ đó để gọi Veo/Seedance (COGS đã tốn ~350.000đ), đồng thời bắn API <strong>50.000 ảnh GPT Image 2 Fast 1K miễn phí</strong> (giá gốc OpenAI Low $0.006/ảnh = $300 ≈ <strong>7,65 triệu VND</strong>!) $\rightarrow$ <strong>VỠ TRẬN TÀI CHÍNH</strong> | <strong>Sửa ngay quy tắc API:</strong> Ưu đãi "Unlimited ảnh khi nạp 500k" <strong>CHỈ được áp dụng cho model tự host nội bộ (Qimi 2.5/3)</strong> với giới hạn <code>1 RPS</code>, <strong>TUYỆT ĐỐI KHÔNG bao gồm GPT Image 2 Fast</strong> (vì GPT Image 2 trả tiền tươi theo token cho OpenAI). |</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Gói / Sản phẩm</th>
+<th style="text-align: right;">Doanh thu thu về (VND)</th>
+<th>Kịch bản 1: Light User (dùng 30% credit)</th>
+<th>Kịch bản 2: Average User (dùng 80% credit)</th>
+<th>Kịch bản 3: Power / Abuse User (cày 100% credit + cày tính năng Unlimited 6h/ngày)</th>
+<th>Chốt chặn Kiến trúc bắt buộc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gói Starter</strong> (5.000 cr)</td>
+<td style="text-align: right;"><strong>180.000đ / tháng</strong></td>
+<td>COGS ~25.000đ → <strong>Lãi gộp +86%</strong></td>
+<td>COGS ~68.000đ → <strong>Lãi gộp +62%</strong></td>
+<td>COGS ~85.000đ (không có Unlimited) → <strong>Lãi gộp +53%</strong></td>
+<td>An toàn vì bị chặn cứng bởi trần 5.000 credit.</td>
+</tr>
+<tr>
+<td><strong>Gói Business</strong> (45.000 cr + Unlimited Sub/Cắt clip/Review phim + 10 ngày Free Qimi)</td>
+<td style="text-align: right;"><strong>1.170.000đ / tháng</strong></td>
+<td>COGS ~210.000đ → <strong>Lãi gộp +82%</strong></td>
+<td>COGS ~580.000đ → <strong>Lãi gộp +50%</strong></td>
+<td>Nếu 1 xưởng MMO dùng chung tài khoản cày <strong>1.000 ảnh Qimi/ngày (×10 ngày = 10.000 ảnh)</strong> + <strong>100 video Review phim/tháng</strong>: COGS GPU/API có thể vọt lên <strong>&gt;1.800.000đ</strong> → <strong>LỖ GỘP (-54%)</strong></td>
+<td><strong>1.</strong> Giới hạn <strong>1 luồng chạy nối tiếp (sequential)</strong> cho tác vụ nằm trong diện Unlimited.<br><strong>2.</strong> Áp dụng <strong>Fair-Use Cap 300 ảnh Qimi miễn phí/ngày</strong> ở tốc độ cao, vượt ngưỡng chuyển sang hàng chờ tiêu chuẩn.</td>
+</tr>
+<tr>
+<td><strong>Vé Unlimited Qimi</strong> (1 ngày / 30 ngày)</td>
+<td style="text-align: right;"><strong>81.000đ / ngày</strong> hoặc <strong>1.215.000đ / tháng</strong></td>
+<td>Tạo ~50 ảnh/ngày → COGS ~7.500đ → <strong>Lãi gộp +91%</strong></td>
+<td>Tạo ~200 ảnh/ngày → COGS ~30.000đ → <strong>Lãi gộp +63%</strong></td>
+<td>Cắm script gọi tự động 24/24 (1 ảnh/10 giây = <strong>8.640 ảnh/ngày</strong>): COGS GPU ~1.290.000đ/ngày → <strong>LỖ NẶNG (-1.490%)</strong></td>
+<td><strong>Cấm gọi qua API/script đối với Vé Unlimited Web</strong>; chỉ cho bấm từng lệnh trên giao diện Web (tối đa 1 job <code>IN_PROGRESS</code> tại một thời điểm).</td>
+</tr>
+<tr>
+<td><strong>Open API — Nạp 500.000đ tặng Unlimited ảnh 1K</strong> (Qimi 2.5/3 &amp; GPT Image 2 Fast)</td>
+<td style="text-align: right;"><strong>500.000đ nạp ví</strong> (vốn 500k vẫn còn nguyên để gọi video!)</td>
+<td>Gọi 500 ảnh 1K miễn phí → COGS phụ thêm ~75.000đ</td>
+<td>Gọi 2.000 ảnh 1K miễn phí → COGS phụ thêm ~300.000đ</td>
+<td><strong>Tử huyệt lớn nhất:</strong> Khách nạp 500.000đ, dùng toàn bộ 500.000đ đó để gọi Veo/Seedance (COGS đã tốn ~350.000đ), đồng thời bắn API <strong>50.000 ảnh GPT Image 2 Fast 1K miễn phí</strong> (giá gốc OpenAI Low $0.006/ảnh = $300 ≈ <strong>7,65 triệu VND</strong>!) → <strong>VỠ TRẬN TÀI CHÍNH</strong></td>
+<td><strong>Sửa ngay quy tắc API:</strong> Ưu đãi "Unlimited ảnh khi nạp 500k" <strong>CHỈ được áp dụng cho model tự host nội bộ (Qimi 2.5/3)</strong> với giới hạn <code>1 RPS</code>, <strong>TUYỆT ĐỐI KHÔNG bao gồm GPT Image 2 Fast</strong> (vì GPT Image 2 trả tiền tươi theo token cho OpenAI).</td>
+</tr>
+</tbody>
+</table></div>
 <h4>2. Kênh phân phối gốc &amp; Bài toán <code>CAC vs LTV</code> (Distribution Wedge)</h4>
 <ul>
 <li><strong>Vì sao không thể sống dựa vào chạy Facebook/TikTok Ads bán gói 180.000đ?</strong></li>
@@ -140,7 +181,7 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li>Dữ liệu TrustMRR (Phần 5.2) cho thấy các công cụ "tạo video AI cho vui" bị khách bỏ sau 30 ngày vì không gắn vào dòng tiền hàng ngày.</li>
 <li>Để biến Quick Magic từ <em>Tourist Tool</em> thành <em>Daily Habit</em>:</li>
 <li><strong>Với Shop Online:</strong> Gắn chặt vào nhu cầu <strong>ra mẫu mới hàng tuần + đăng bài tự động + trả lời bình luận/tin nhắn khách mua hàng</strong>. Khi fanpage/Instagram của shop đã nối vào luồng đăng bài và trực inbox của Quick Magic, tỷ lệ huỷ gói (churn) sẽ giảm mạnh.</li>
-<li><strong>Với khách Bất động sản (<em>Studio Phim Dự Án</em>):</strong> Nhu cầu làm phim dự án mang tính thời vụ theo đợt mở bán $\rightarrow$ <strong>Ưu tiên bán Gói 3 tháng (giảm 20%) hoặc gói Credit không hết hạn</strong> thay vì kỳ vọng họ duy trì thuê bao từng tháng lẻ.</li>
+<li><strong>Với khách Bất động sản (<em>Studio Phim Dự Án</em>):</strong> Nhu cầu làm phim dự án mang tính thời vụ theo đợt mở bán → <strong>Ưu tiên bán Gói 3 tháng (giảm 20%) hoặc gói Credit không hết hạn</strong> thay vì kỳ vọng họ duy trì thuê bao từng tháng lẻ.</li>
 </ul>
 <h4>4. Rủi ro Phụ thuộc Nền tảng Đầu vào &amp; Đầu ra (<code>Upstream &amp; Downstream Platform Risk</code>)</h4>
 <ul>
@@ -171,79 +212,7 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li><em>Quick Magic Pro (510.000đ/tháng = 6.120.000đ/năm ≈ $240.00/năm)</em></li>
 <li><em>Quick Magic Business (1.170.000đ/tháng = 14.040.000đ/năm ≈ $550.59/năm)</em></li>
 </ul>
-<div class="tw" style="padding:12px;background:#fff">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 720" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" role="img">
-<title>Định vị Giá trị × Tính năng: Nền tảng AI Video/Image Studio &amp; Media API (đọc 2026-11-06)</title>
-<rect width="1040" height="720" fill="#ffffff"/>
-<text x="90" y="34" font-size="20" font-weight="600" fill="#1C1A33">Định vị Giá trị × Tính năng: Nền tảng AI Video/Image Studio &amp; Media API (đọc 2026-11-06)</text>
-<text x="90" y="54" font-size="12" fill="#5b5f6a">X: categories covered of 14 (✓=1, partial=0.5) · Y: functionality points per $10 of effective yearly price (one-time ÷ 3 yrs)</text>
-<rect x="681.4" y="70.0" width="328.6" height="504.0" fill="#ED708F" opacity="0.07"/>
-<text x="1002.0" y="88.0" text-anchor="end" font-size="12" fill="#B8476A">Đa năng (Web+Studio+API/MCP+VN) &amp; Giá trị cao: Khoảng trống Quick Magic</text>
-<line x1="90.0" y1="70" x2="90.0" y2="630" stroke="#eceef2"/><text x="90.0" y="650" text-anchor="middle" font-size="12" fill="#5b5f6a">0</text>
-<line x1="287.1" y1="70" x2="287.1" y2="630" stroke="#eceef2"/><text x="287.1" y="650" text-anchor="middle" font-size="12" fill="#5b5f6a">3</text>
-<line x1="484.3" y1="70" x2="484.3" y2="630" stroke="#eceef2"/><text x="484.3" y="650" text-anchor="middle" font-size="12" fill="#5b5f6a">6</text>
-<line x1="681.4" y1="70" x2="681.4" y2="630" stroke="#eceef2"/><text x="681.4" y="650" text-anchor="middle" font-size="12" fill="#5b5f6a">9</text>
-<line x1="878.6" y1="70" x2="878.6" y2="630" stroke="#eceef2"/><text x="878.6" y="650" text-anchor="middle" font-size="12" fill="#5b5f6a">12</text>
-<line x1="90" y1="630.0" x2="1010" y2="630.0" stroke="#eceef2"/><text x="80" y="634.0" text-anchor="end" font-size="12" fill="#5b5f6a">0</text>
-<line x1="90" y1="518.0" x2="1010" y2="518.0" stroke="#eceef2"/><text x="80" y="522.0" text-anchor="end" font-size="12" fill="#5b5f6a">1</text>
-<line x1="90" y1="406.0" x2="1010" y2="406.0" stroke="#eceef2"/><text x="80" y="410.0" text-anchor="end" font-size="12" fill="#5b5f6a">2</text>
-<line x1="90" y1="294.0" x2="1010" y2="294.0" stroke="#eceef2"/><text x="80" y="298.0" text-anchor="end" font-size="12" fill="#5b5f6a">3</text>
-<line x1="90" y1="182.0" x2="1010" y2="182.0" stroke="#eceef2"/><text x="80" y="186.0" text-anchor="end" font-size="12" fill="#5b5f6a">4</text>
-<line x1="90" y1="70.0" x2="1010" y2="70.0" stroke="#eceef2"/><text x="80" y="74.0" text-anchor="end" font-size="12" fill="#5b5f6a">5</text>
-<text x="550.0" y="680" text-anchor="middle" font-size="13" fill="#1C1A33">Functionality →</text>
-<text transform="translate(28 350.0) rotate(-90)" text-anchor="middle" font-size="13" fill="#1C1A33">Value for money →</text>
-<polyline points="944.3,458.1 944.3,569.3 977.1,602.5" fill="none" stroke="#ED708F" stroke-dasharray="4 4"/>
-<circle cx="845.7" cy="602.5" r="6" fill="#6B5CE8"><title>Higgsfield Plus: functionality 11.5, $468.00/yr, value 0.2 ($39/mo billed yearly ($468/yr, mở đủ model))</title></circle>
-<text x="855.7" y="606.5" text-anchor="start" font-size="11.5" fill="#1C1A33">Higgsfield Plus</text>
-<circle cx="648.6" cy="606.5" r="6" fill="#6B5CE8"><title>Freepik/Magnific Prem+: functionality 8.5, $405.00/yr, value 0.2 ($33.75/mo billed yearly ($405/yr, có Unlimited))</title></circle>
-<text x="658.6" y="610.5" text-anchor="start" font-size="11.5" fill="#1C1A33">Freepik/Magnific Prem+</text>
-<circle cx="648.6" cy="592.2" r="6" fill="#6B5CE8"><title>Krea.ai Pro: functionality 8.5, $252.00/yr, value 0.3 ($21/mo billed yearly ($252/yr, mở Veo/Kling/Seedance))</title></circle>
-<text x="658.6" y="596.2" text-anchor="start" font-size="11.5" fill="#1C1A33">Krea.ai Pro</text>
-<circle cx="582.9" cy="604.1" r="6" fill="#6B5CE8"><title>OpenArt Plus: functionality 7.5, $324.00/yr, value 0.2 ($27/mo billed yearly ($324/yr, có bản quyền TM))</title></circle>
-<text x="572.9" y="620.1" text-anchor="end" font-size="11.5" fill="#1C1A33">OpenArt Plus</text>
-<circle cx="385.7" cy="604.8" r="6" fill="#6B5CE8"><title>Poe Standard: functionality 4.5, $199.99/yr, value 0.2 ($199.99/yr (660k-1M points/mo))</title></circle>
-<text x="395.7" y="608.8" text-anchor="start" font-size="11.5" fill="#1C1A33">Poe Standard</text>
-<circle cx="550.0" cy="595.6" r="6" fill="#6B5CE8"><title>Weavy (Figma Weave): functionality 7, $228.00/yr, value 0.3 ($19/mo billed yearly ($228/yr))</title></circle>
-<text x="550.0" y="581.6" text-anchor="middle" font-size="11.5" fill="#1C1A33">Weavy (Figma Weave)</text>
-<circle cx="648.6" cy="550.7" r="6" fill="#2F7BD6"><title>Pippit (CapCut E-com): functionality 8.5, $120.00/yr, value 0.7 (~$10/mo billed yearly ($120/yr))</title></circle>
-<text x="658.6" y="554.7" text-anchor="start" font-size="11.5" fill="#1C1A33">Pippit (CapCut E-com)</text>
-<circle cx="582.9" cy="593.2" r="6" fill="#2F7BD6"><title>Creatify Starter: functionality 7.5, $228.00/yr, value 0.3 ($19/mo billed yearly ($228/yr))</title></circle>
-<text x="572.9" y="597.2" text-anchor="end" font-size="11.5" fill="#1C1A33">Creatify Starter</text>
-<circle cx="484.3" cy="606.7" r="6" fill="#2F7BD6"><title>HeyGen Creator: functionality 6, $288.00/yr, value 0.2 ($24/mo billed yearly ($288/yr))</title></circle>
-<text x="474.3" y="622.7" text-anchor="end" font-size="11.5" fill="#1C1A33">HeyGen Creator</text>
-<circle cx="451.4" cy="624.2" r="6" fill="#2F7BD6"><title>Arcads Starter: functionality 5.5, $1056.00/yr, value 0.1 ($88/mo billed yearly ($1,056/yr))</title></circle>
-<text x="461.4" y="640.2" text-anchor="start" font-size="11.5" fill="#1C1A33">Arcads Starter</text>
-<circle cx="615.7" cy="567.8" r="6" fill="#D97706"><title>Runway Standard: functionality 8, $144.00/yr, value 0.6 ($12/mo billed yearly ($144/yr))</title></circle>
-<text x="625.7" y="571.8" text-anchor="start" font-size="11.5" fill="#1C1A33">Runway Standard</text>
-<circle cx="517.1" cy="538.1" r="6" fill="#D97706"><title>Kling AI Standard: functionality 6.5, $79.20/yr, value 0.8 ($6.60/mo billed yearly ($79.20/yr))</title></circle>
-<text x="527.1" y="542.1" text-anchor="start" font-size="11.5" fill="#1C1A33">Kling AI Standard</text>
-<circle cx="385.7" cy="580.0" r="6" fill="#D97706"><title>Hailuo Standard: functionality 4.5, $100.80/yr, value 0.4 ($8.40/mo billed yearly ($100.80/yr))</title></circle>
-<text x="375.7" y="584.0" text-anchor="end" font-size="11.5" fill="#1C1A33">Hailuo Standard</text>
-<circle cx="484.3" cy="574.0" r="6" fill="#0D9488"><title>fal.ai (Pay-as-you-go): functionality 6, $120.00/yr, value 0.5 ($10/mo ($120/yr) mức nạp dev chuẩn)</title></circle>
-<text x="484.3" y="560.0" text-anchor="middle" font-size="11.5" fill="#1C1A33">fal.ai (Pay-as-you-go)</text>
-<circle cx="615.7" cy="555.3" r="6" fill="#0D9488"><title>each::labs / WaveSpeed: functionality 8, $120.00/yr, value 0.7 ($10/mo ($120/yr) mức nạp dev chuẩn)</title></circle>
-<text x="605.7" y="571.3" text-anchor="end" font-size="11.5" fill="#1C1A33">each::labs / WaveSpeed</text>
-<circle cx="385.7" cy="558.6" r="6" fill="#D97706"><title>LovinBot VN: functionality 4.5, $70.59/yr, value 0.6 (449k VND/3 tháng (~$70.59/yr))</title></circle>
-<text x="375.7" y="562.6" text-anchor="end" font-size="11.5" fill="#1C1A33">LovinBot VN</text>
-<circle cx="385.7" cy="558.1" r="6" fill="#D97706"><title>Vbee AI VN: functionality 4.5, $70.12/yr, value 0.6 (149k VND/tháng (~$70.12/yr gia hạn))</title></circle>
-<text x="385.7" y="544.1" text-anchor="middle" font-size="11.5" fill="#1C1A33">Vbee AI VN</text>
-<circle cx="385.7" cy="577.5" r="6" fill="#2F7BD6"><title>FitRoom VN: functionality 4.5, $96.00/yr, value 0.5 ($96/yr gói Standard)</title></circle>
-<text x="395.7" y="593.5" text-anchor="start" font-size="11.5" fill="#1C1A33">FitRoom VN</text>
-<path d="M944.3,450.1 L952.3,458.1 L944.3,466.1 L936.3,458.1 Z" stroke-width="2.5" fill="#ffffff" stroke="#ED708F"><title>Quick Magic Starter (180k/th ~ $85/yr): functionality 13, $84.71/yr, value 1.5</title></path>
-<text x="934.3" y="462.1" text-anchor="end" font-size="11.5" font-weight="700" fill="#B8476A">Quick Magic Starter (180k/th ~ $85/yr)</text>
-<path d="M944.3,561.3 L952.3,569.3 L944.3,577.3 L936.3,569.3 Z" stroke-width="2.5" fill="#ffffff" stroke="#ED708F"><title>Quick Magic Pro (510k/th ~ $240/yr): functionality 13, $240.00/yr, value 0.5</title></path>
-<text x="934.3" y="585.3" text-anchor="end" font-size="11.5" font-weight="700" fill="#B8476A">Quick Magic Pro (510k/th ~ $240/yr)</text>
-<path d="M977.1,594.5 L985.1,602.5 L977.1,610.5 L969.1,602.5 Z" stroke-width="2.5" fill="#ffffff" stroke="#ED708F"><title>Quick Magic Business (1,17tr/th ~ $551/yr): functionality 13.5, $550.59/yr, value 0.2</title></path>
-<text x="967.1" y="618.5" text-anchor="end" font-size="11.5" font-weight="700" fill="#B8476A">Quick Magic Business (1,17tr/th ~ $551/yr)</text>
-<rect x="98" y="78" width="250" height="100" rx="8" fill="#ffffff" stroke="#eceef2"/>
-<circle cx="110" cy="94" r="5" fill="#6B5CE8"/><text x="122" y="98" font-size="11.5" fill="#1C1A33">All-in-one AI Studio (Quốc tế)</text>
-<circle cx="110" cy="112" r="5" fill="#2F7BD6"/><text x="122" y="116" font-size="11.5" fill="#1C1A33">E-com &amp; UGC Ad Studio</text>
-<circle cx="110" cy="130" r="5" fill="#0D9488"/><text x="122" y="134" font-size="11.5" fill="#1C1A33">Multi-model Media API</text>
-<circle cx="110" cy="148" r="5" fill="#D97706"/><text x="122" y="152" font-size="11.5" fill="#1C1A33">Foundation Model / Nội địa VN</text>
-<path d="M110,160 L116,166 L110,172 L104,166 Z" stroke-width="2" fill="#ffffff" stroke="#ED708F"/><text x="122" y="170" font-size="11.5" fill="#B8476A">Your product, candidate prices</text>
-</svg>
-</div>
-
+<p><img alt="Định vị Giá trị × Tính năng: Nền tảng AI Video/Image Studio &amp; Media API (2026-11-06)" src="https://0xdonniechu.github.io/quick-magic-market-research/chart-quick-magic-2026-11-06.png" /></p>
 <h3>1.2. Bảng xếp hạng Giá trị × Tính năng (18 đối thủ &amp; 3 gói Quick Magic đề xuất)</h3>
 <div class="tw"><table>
 <thead>
@@ -898,7 +867,7 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li>
 <p><strong>BytePlus ModelArk (Quốc tế) &amp; Volcano Engine (Trung Quốc) — Giá gốc Seedance &amp; Seedream:</strong>
    - <strong>Công thức tính Token Video Seedance (24 FPS chuẩn):</strong>
-     $$\text{Tokens} = \frac{(\text{Input Video Duration} + \text{Output Video Duration}) \times \text{Width} \times \text{Height} \times 24}{1024}$$
+     <strong><code>Tokens = ((Input Video Duration + Output Video Duration) × Width × Height × 24)(1024)</code></strong>
      <em>(Ví dụ: 1 giây video 1080p 16:9 = <code>48.600 tokens</code>; 1 giây 720p 16:9 = <code>21.600 tokens</code>; 1 giây 480p 16:9 = <code>9.600 tokens</code>. Đã bao gồm âm thanh miễn phí cho dòng 2.0 và 2.5)</em> <strong>[CONFIRMED — BytePlus ModelArk Pricing Docs, 2026-11-06]</strong>.
    - <strong>Đơn giá gốc Seedance trên BytePlus ModelArk (Không kèm video đầu vào):</strong></p>
 <ul>
@@ -1401,17 +1370,66 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <hr />
 <h3>4.2. Danh sách các URL thú vị tìm được (Chuẩn định dạng <code>sites.md</code>)</h3>
 <p><em>(Lưu ý theo hợp đồng: Chỉ trả về danh sách markdown thô để phiên chính tổng hợp, không tự ghi vào file)</em></p>
-<pre><code class="language-markdown">| Site | What | Why it is interesting | Source |
-|---|---|---|---|
-| https://wavespeed.ai | High-speed multi-model video/image API gateway with Official MCP (`@wavespeed/mcp`) | Unlocks 300 concurrent tasks on any single top-up under $1,000 (vs fal.ai's 2–40 cap) and includes pre-run price estimation in MCP | market-research/agent-1b |
-| https://eachlabs.ai | Unified AI media orchestration gateway (600+ models) with MCP UI Cards | Claims zero-markup price matching with original providers, automatic fallback on HTTP 429, and interactive timeline/trim UI cards inside Claude MCP | market-research/agent-1b |
-| https://kie.ai | Discounted multi-model API reseller (Veo 3.1, Seedance 2.5, Kling 4.0, Nano Banana Pro) | Closest international equivalent to Quick Magic's discounted API model ($0.09 Nano Banana Pro, $0.40 Veo 3 Fast 8s clip, 100+ parallel tasks) | market-research/agent-1b |
-| https://piapi.ai | Discounted media generation API aggregator (Veo 3.1 from $0.06/s, Seedance 2.0 from $0.042/s) | High async concurrency (100 in-flight GPT Image tasks) and deep per-second discounts; recently dropped Midjourney and Suno direct hosting | market-research/agent-1b |
-| https://lovinbot.ai | Vietnamese all-in-one AI content, image, and video platform (Veo 3.1, Kling, Flux) | Sells both individual subscriptions (79k–300k VND/mo) and White Label AI platforms (1.47M–2.97M VND/mo) for Vietnamese coaches and agencies | market-research/agent-1b |
-| https://fitroom.app | AI Virtual Try-On app and API built by Vietnamese team SilverAI | Direct benchmark for fashion AI in Vietnam ($16–$29/mo or $0.02–$0.10/API call vs Quick Magic's ~$0.01 try-on) | market-research/agent-1b |
-| https://penci.vn | Vietnamese graphic design and AI product photo platform | Ultra-low-cost local Canva alternative (59,000 VND/mo ≈ $2.31/mo) bundling 1,000 AI product photo/upscale/background-removal points | market-research/agent-1b |
-| https://vbee.vn | Leading Vietnamese AI Voice (TTS), Voice Clone, and AI Dubbing platform | Dominant local incumbent for Vietnamese voiceover and `.SRT` subtitle workflows (149k–399k VND/mo or from 339k VND/yr) | market-research/agent-1b |
-</code></pre>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Site</th>
+<th>What</th>
+<th>Why it is interesting</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>https://wavespeed.ai</td>
+<td>High-speed multi-model video/image API gateway with Official MCP (<code>@wavespeed/mcp</code>)</td>
+<td>Unlocks 300 concurrent tasks on any single top-up under $1,000 (vs fal.ai's 2–40 cap) and includes pre-run price estimation in MCP</td>
+<td>market-research/agent-1b</td>
+</tr>
+<tr>
+<td>https://eachlabs.ai</td>
+<td>Unified AI media orchestration gateway (600+ models) with MCP UI Cards</td>
+<td>Claims zero-markup price matching with original providers, automatic fallback on HTTP 429, and interactive timeline/trim UI cards inside Claude MCP</td>
+<td>market-research/agent-1b</td>
+</tr>
+<tr>
+<td>https://kie.ai</td>
+<td>Discounted multi-model API reseller (Veo 3.1, Seedance 2.5, Kling 4.0, Nano Banana Pro)</td>
+<td>Closest international equivalent to Quick Magic's discounted API model ($0.09 Nano Banana Pro, $0.40 Veo 3 Fast 8s clip, 100+ parallel tasks)</td>
+<td>market-research/agent-1b</td>
+</tr>
+<tr>
+<td>https://piapi.ai</td>
+<td>Discounted media generation API aggregator (Veo 3.1 from $0.06/s, Seedance 2.0 from $0.042/s)</td>
+<td>High async concurrency (100 in-flight GPT Image tasks) and deep per-second discounts; recently dropped Midjourney and Suno direct hosting</td>
+<td>market-research/agent-1b</td>
+</tr>
+<tr>
+<td>https://lovinbot.ai</td>
+<td>Vietnamese all-in-one AI content, image, and video platform (Veo 3.1, Kling, Flux)</td>
+<td>Sells both individual subscriptions (79k–300k VND/mo) and White Label AI platforms (1.47M–2.97M VND/mo) for Vietnamese coaches and agencies</td>
+<td>market-research/agent-1b</td>
+</tr>
+<tr>
+<td>https://fitroom.app</td>
+<td>AI Virtual Try-On app and API built by Vietnamese team SilverAI</td>
+<td>Direct benchmark for fashion AI in Vietnam ($16–$29/mo or $0.02–$0.10/API call vs Quick Magic's ~$0.01 try-on)</td>
+<td>market-research/agent-1b</td>
+</tr>
+<tr>
+<td>https://penci.vn</td>
+<td>Vietnamese graphic design and AI product photo platform</td>
+<td>Ultra-low-cost local Canva alternative (59,000 VND/mo ≈ $2.31/mo) bundling 1,000 AI product photo/upscale/background-removal points</td>
+<td>market-research/agent-1b</td>
+</tr>
+<tr>
+<td>https://vbee.vn</td>
+<td>Leading Vietnamese AI Voice (TTS), Voice Clone, and AI Dubbing platform</td>
+<td>Dominant local incumbent for Vietnamese voiceover and <code>.SRT</code> subtitle workflows (149k–399k VND/mo or from 339k VND/yr)</td>
+<td>market-research/agent-1b</td>
+</tr>
+</tbody>
+</table></div>
 <hr />
 <h1>BÁO CÁO BƯỚC 0 (AGENT 2): PHÂN TÍCH ĐÁNH GIÁ 1–2 SAO, NỖI ĐAU KHÁCH HÀNG ĐÃ TRẢ TIỀN &amp; 6 TỬ HUYỆT NGÀNH CHO QUICK MAGIC (<code>what-to-build</code>)</h1>
 <p><strong>Ngày thực hiện:</strong> <code>2026-11-06</code><br />
@@ -1846,7 +1864,7 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>1. Tiền (VND / tháng)</strong></td>
-<td style="text-align: left;"><strong>7.000.000 – 12.000.000 VND/tháng</strong><br>- Chụp + hậu kỳ 10 bộ: 3,5 – 6tr<br>- Thuê mẫu (1 ca 3–4h): 2,5 – 4tr<br>- Make-up &amp; làm tóc: 1 – 2tr<br><em>(Nếu chụp ghép gom đơn rẻ nhất cũng tốn 3,5 – 5,5 triệu/10 bộ; cộng thuê dựng 10 clip TikTok x 200k = 2tr $\rightarrow$ tổng <strong>5,5 – 14 triệu/tháng</strong>)</em> <strong>[VENDOR-CLAIMED — Kam Media, HThao Studio, vLance, đọc 2026-11-06]</strong></td>
+<td style="text-align: left;"><strong>7.000.000 – 12.000.000 VND/tháng</strong><br>- Chụp + hậu kỳ 10 bộ: 3,5 – 6tr<br>- Thuê mẫu (1 ca 3–4h): 2,5 – 4tr<br>- Make-up &amp; làm tóc: 1 – 2tr<br><em>(Nếu chụp ghép gom đơn rẻ nhất cũng tốn 3,5 – 5,5 triệu/10 bộ; cộng thuê dựng 10 clip TikTok x 200k = 2tr → tổng <strong>5,5 – 14 triệu/tháng</strong>)</em> <strong>[VENDOR-CLAIMED — Kam Media, HThao Studio, vLance, đọc 2026-11-06]</strong></td>
 <td style="text-align: left;"><strong>502.500 VND/tháng</strong> ($18.99 — Gói Pro 17.000 credit)<br>- Thử đồ AI + Ảnh sản phẩm AI (200 lượt chọn lấy 50 ảnh đẹp x 10 credit): <strong>2.000 credit</strong><br>- Tạo 10 video thời trang chuyển động (Marketing Studio 200 credit hoặc Veo 3.1 Fast 399 credit): <strong>2.000 – 4.000 credit</strong><br>- Tổng tiêu hao: <strong>~6.000 credit</strong> (vẫn dư 11.000 credit trong gói Pro, hoặc chỉ cần <strong>Gói Starter 180.000 VND/tháng (~$7.06)</strong>) <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing, đọc 2026-11-06]</strong></td>
 <td style="text-align: left;"><strong>Tiết kiệm 91% – 96% chi phí</strong><br>(Giảm từ <strong>5,5–14 triệu</strong> xuống <strong>185k–502k VND/tháng</strong>; tiết kiệm <strong>~5,3 – 13,5 triệu VND/tháng</strong>)</td>
 </tr>
@@ -1912,7 +1930,7 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>1. Tiền (VND / tháng)</strong></td>
-<td style="text-align: left;"><strong>9.000.000 – 18.000.000 VND/tháng</strong> (nếu thuê CTV trọn gói 30 video):<br>- Viết kịch bản: 100k–250k/bài<br>- Voice/Thu âm: 50k–150k/bài<br>- Editor cắt ghép lách bản quyền: 150k–350k/video<br>$\rightarrow$ Tổng đơn giá CTV: <strong>300.000 – 600.000 VND/video</strong> × 30 video = <strong>9 – 18 triệu/tháng</strong> <strong>[CONFIRMED / SECONDARY — vLance.vn &amp; khảo sát giá freelance 2026-11-06]</strong>.</td>
+<td style="text-align: left;"><strong>9.000.000 – 18.000.000 VND/tháng</strong> (nếu thuê CTV trọn gói 30 video):<br>- Viết kịch bản: 100k–250k/bài<br>- Voice/Thu âm: 50k–150k/bài<br>- Editor cắt ghép lách bản quyền: 150k–350k/video<br>→ Tổng đơn giá CTV: <strong>300.000 – 600.000 VND/video</strong> × 30 video = <strong>9 – 18 triệu/tháng</strong> <strong>[CONFIRMED / SECONDARY — vLance.vn &amp; khảo sát giá freelance 2026-11-06]</strong>.</td>
 <td style="text-align: left;"><strong>1.164.000 VND/tháng</strong> ($43.99 — Gói Business 45.000 credit)<br>- <strong>Review phim AI, Phụ đề tự động (Auto Sub), Cắt video AI:</strong> <strong>MIỄN PHÍ KHÔNG GIỚI HẠN (Unlimited)</strong> trong gói Business!<br>- 45.000 credit trong gói dùng thoải mái cho giọng đọc cao cấp Qimi 5/5.5, tạo ảnh Thumbnail/Keyframe (Qimi 3: 10 credit/ảnh) và tạo cảnh AI bổ trợ <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing, đọc 2026-11-06]</strong>.</td>
 <td style="text-align: left;"><strong>Tiết kiệm 87% – 93% chi phí sản xuất</strong><br>(Giảm từ <strong>9–18 triệu/tháng</strong> thuê CTV xuống <strong>1,164 triệu/tháng</strong> gói Unlimited).</td>
 </tr>
@@ -1946,13 +1964,13 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <tr>
 <td style="text-align: left;"><strong>1. Tiền (VND / dự án 1 phút)</strong></td>
 <td style="text-align: left;"><strong>15.000.000 – 30.000.000 VND / phút phim 3D cơ bản</strong> (hoặc <strong>50 – 150 triệu/phim</strong> cho dự án khu đô thị vừa; chưa tính 5–10 triệu phí dựng model 3D nếu chưa có sẵn):<br>- Đơn giá render xuất phim Walkthrough/Flythrough tầm trung (Lumion/D5/V-Ray): <strong>~17 triệu VND/phút</strong> (300k–800k/giây); phim Cinematic cao cấp: <strong>1,5 – 5 triệu/giây</strong> <strong>[VENDOR-CLAIMED — BigCenter.vn, VR360.one, TVC360.vn, đọc 2026-11-06]</strong>.</td>
-<td style="text-align: left;"><strong>~500.000 – 1.500.000 VND tiền Credit / video 60 giây</strong> (nằm trong gói <strong>Business 1.170.000đ ~ 1,16tr</strong> hoặc <strong>Enterprise 2.250.000đ ~ 2,22tr</strong>):<br>- Quy trình <em>Studio Phim Dự Án</em>: Từ ảnh phối cảnh tĩnh / mặt bằng $\rightarrow$ tạo 12 cảnh (mỗi cảnh 5 giây = 60 giây).<br>- Giả định render chọn lọc gấp 2 lần (24 lượt video) bằng model cao cấp <em>Veo 3.1 Fast 4K</em> (886 credit) hoặc <em>Kling V3 Omni</em> (1.559 credit) + <em>Qimi 3 Keyframe</em> (10 credit) + <em>Melo 3 nhạc nền</em> (333 credit) = <strong>22.000 – 38.000 credit</strong> (~10$ – 30$ chi phí credit) <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing &amp; https://quickmagic.vn/film-studios, đọc 2026-11-06]</strong>.</td>
+<td style="text-align: left;"><strong>~500.000 – 1.500.000 VND tiền Credit / video 60 giây</strong> (nằm trong gói <strong>Business 1.170.000đ ~ 1,16tr</strong> hoặc <strong>Enterprise 2.250.000đ ~ 2,22tr</strong>):<br>- Quy trình <em>Studio Phim Dự Án</em>: Từ ảnh phối cảnh tĩnh / mặt bằng → tạo 12 cảnh (mỗi cảnh 5 giây = 60 giây).<br>- Giả định render chọn lọc gấp 2 lần (24 lượt video) bằng model cao cấp <em>Veo 3.1 Fast 4K</em> (886 credit) hoặc <em>Kling V3 Omni</em> (1.559 credit) + <em>Qimi 3 Keyframe</em> (10 credit) + <em>Melo 3 nhạc nền</em> (333 credit) = <strong>22.000 – 38.000 credit</strong> (~10$ – 30$ chi phí credit) <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing &amp; https://quickmagic.vn/film-studios, đọc 2026-11-06]</strong>.</td>
 <td style="text-align: left;"><strong>Tiết kiệm 90% – 95% chi phí</strong><br>(Giảm từ <strong>15–30 triệu VND/phút</strong> xuống <strong>~0,5–1,5 triệu VND/phút</strong>).</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>2. Thời gian</strong></td>
 <td style="text-align: left;"><strong>10 – 21 ngày làm việc / dự án</strong><br>- Lên kịch bản góc cam, đặt vật liệu, ánh sáng, cây cối/người chuyển động trong phần mềm 3D: 5–10 ngày<br>- Chờ Render Farm kết xuất từng frame (Full HD/4K) &amp; hậu kỳ: 5–10 ngày.</td>
-<td style="text-align: left;"><strong>2 – 4 giờ làm việc</strong><br>- Đưa ảnh phối cảnh 3D tĩnh (hoặc ảnh chụp thực tế dự án/nhà mẫu) vào <em>Studio Phim Dự Án</em> (Bible $\rightarrow$ Board $\rightarrow$ Keyframe $\rightarrow$ Render chuyển động camera, ánh sáng ngày/đêm, người đi lại, lồng tiếng thuyết minh): hoàn tất trong 1 buổi.</td>
+<td style="text-align: left;"><strong>2 – 4 giờ làm việc</strong><br>- Đưa ảnh phối cảnh 3D tĩnh (hoặc ảnh chụp thực tế dự án/nhà mẫu) vào <em>Studio Phim Dự Án</em> (Bible → Board → Keyframe → Render chuyển động camera, ánh sáng ngày/đêm, người đi lại, lồng tiếng thuyết minh): hoàn tất trong 1 buổi.</td>
 <td style="text-align: left;"><strong>Rút ngắn từ 2–3 tuần xuống 2–4 giờ</strong> (nhanh hơn <strong>~30–50 lần</strong>).</td>
 </tr>
 <tr>
@@ -1978,14 +1996,10 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li><strong>Số đơn vị gốc (<code>N_A1</code>):</strong> <strong>601.780 shop</strong> có phát sinh đơn hàng trong năm trên các sàn TMĐT Việt Nam (theo Báo cáo Toàn cảnh 2025 của Metric.vn; tương đương mức 613.800 shop H1/2026) <strong>[CONFIRMED — https://metric.vn/insights/, đọc 2026-11-06]</strong>.</li>
 <li><strong>Giá năm trung bình (<code>ACV_A1</code>):</strong> Chọn <strong>Gói Pro ($18.99/tháng × 12 = $227.88/năm ≈ 6.030.000 VND/năm)</strong> làm mức chuẩn cho một shop bán hàng thường xuyên (cung cấp 17.000 credit/tháng: đủ tạo ~500 ảnh sản phẩm/thử đồ AI + ~60 video Marketing Studio mỗi tháng) <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing, đọc 2026-11-06]</strong>.</li>
 <li><strong>Phép nhân TAM (A1):</strong>
-  $$\text{TAM}_{A1} = 601.780 \text{ shop} \times \$227,88/\text{năm} = \mathbf{\$137.133.626/\text{năm}} \text{ (}\approx \mathbf{3.629 \text{ tỷ VND/năm}}\text{)}$$</li>
-<li><strong>Hệ số lọc SAM (<code>%SAM_A1 = 25%</code>):</strong></li>
+  $$\text{TAM}_{A1} = 601.780 \text{ shop} \times \$227,88/\text{năm} = \mathbf{\$137.133.626/\text{năm}} \text{ (}\approx \mathbf{3.629 \text{ tỷ VND/năm}}\text{)}<strong><code>- **Hệ số lọc SAM (</code>%SAM_A1 = 25%`):</strong></li>
 <li>Trong 601.780 shop có đơn, khoảng <strong>52% (~315.000 shop)</strong> thuộc ngành Thời trang &amp; Làm đẹp/Gia dụng cần hình ảnh mẫu &amp; video thường xuyên <strong>[CONFIRMED — Metric.vn]</strong>.</li>
-<li>Tuy nhiên, nhiều shop nhỏ lẻ chỉ bán cầm chừng hoặc lấy lại ảnh có sẵn của nhà cung cấp/Taobao. Lọc lấy nhóm <strong>Shop Mall (~15.000 shop)</strong> + nhóm <strong>Shop thường hoạt động tích cực hàng quý và có tự làm hình ảnh / chạy Ads / đăng TikTok Video</strong> $\rightarrow$ chiếm <strong>25% tổng số shop toàn sàn</strong> (<strong>150.445 shop</strong>).
-  $$\text{SAM}_{A1} = \$137.133.626 \times 25\% = \mathbf{\$34.283.407/\text{năm}} \text{ (}\approx \mathbf{907,2 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{150.445 \text{ shop}}\text{)}$$</li>
-<li><strong>Hệ số lọc SOM 12 tháng (<code>%SOM_A1 = 1,5%</code> của SAM):</strong></li>
-<li>Với nguồn lực 12 tháng đầu tại Việt Nam, chinh phục <strong>1,5% tập SAM</strong> (tương đương <strong>2.257 shop trả phí gói Pro trung bình cả năm</strong>, hoặc ~4.500 shop dùng gói Starter/nạp credit lẻ).
-  $$\text{SOM}_{A1} = \$34.283.407 \times 1,5\% = \mathbf{\$514.251/\text{năm}} \text{ (}\approx \mathbf{13,61 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{2.257 \text{ shop active quy chuẩn}}\text{)}$$</li>
+<li>Tuy nhiên, nhiều shop nhỏ lẻ chỉ bán cầm chừng hoặc lấy lại ảnh có sẵn của nhà cung cấp/Taobao. Lọc lấy nhóm <strong>Shop Mall (~15.000 shop)</strong> + nhóm <strong>Shop thường hoạt động tích cực hàng quý và có tự làm hình ảnh / chạy Ads / đăng TikTok Video</strong> → chiếm <strong>25% tổng số shop toàn sàn</strong> (<strong>150.445 shop</strong>).<code>**\text{SAM}_{A1} = \$137.133.626 \times 25\% = \mathbf{\$34.283.407/\text{năm}} \text{ (}\approx \mathbf{907,2 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{150.445 \text{ shop}}\text{)}**</code>- <strong>Hệ số lọc SOM 12 tháng (<code>%SOM_A1 = 1,5%</code> của SAM):</strong></li>
+<li>Với nguồn lực 12 tháng đầu tại Việt Nam, chinh phục <strong>1,5% tập SAM</strong> (tương đương <strong>2.257 shop trả phí gói Pro trung bình cả năm</strong>, hoặc ~4.500 shop dùng gói Starter/nạp credit lẻ).`**\text{SOM}_{A1} = \$34.283.407 \times 1,5\% = \mathbf{\$514.251/\text{năm}} \text{ (}\approx \mathbf{13,61 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{2.257 \text{ shop active quy chuẩn}}\text{)}$$</li>
 </ul>
 <h4>Chuỗi 2 (A2): Ngành Bất động sản &amp; Kiến trúc / Nội thất tại Việt Nam (<em>Studio Phim Dự Án</em>)</h4>
 <ul>
@@ -1993,22 +2007,18 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li><strong>40.000 môi giới BĐS có chứng chỉ hành nghề hợp lệ</strong> (VARS 2026) <strong>[CONFIRMED — https://vars.com.vn/, đọc 2026-11-06]</strong></li>
 <li>Cộng <strong>1.500 sàn giao dịch BĐS</strong> đang hoạt động <strong>[SECONDARY — https://baoxaydung.vn/, đọc 2026-11-06]</strong></li>
 <li>Cộng <strong>5.500 công ty/văn phòng kiến trúc &amp; nội thất</strong> (Tổng cục Thống kê / VAA / VNIA) <strong>[SECONDARY — https://nso.gov.vn/ &amp; https://vienkientruc.vn/, đọc 2026-11-06]</strong></li>
-<li>$\rightarrow$ Tổng tập đơn vị có nhu cầu chuyên nghiệp: <strong><code>N_A2</code> = 47.000 đơn vị/cá nhân</strong>.</li>
+<li>→ Tổng tập đơn vị có nhu cầu chuyên nghiệp: <strong><code>N_A2</code> = 47.000 đơn vị/cá nhân</strong>.</li>
 <li><strong>Giá năm trung bình (<code>ACV_A2</code>):</strong> Vì làm phim dự án BĐS/kiến trúc cần các model video chất lượng cao (Veo 3.1 4K, Kling V3, Seedance 2.5 tốn 886–2.000 credit/cảnh), khách hàng phân khúc này phải dùng trung bình <strong>Gói Business ($43.99/tháng × 12 = $527.88/năm ≈ 13.970.000 VND/năm)</strong> <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing, đọc 2026-11-06]</strong>.</li>
 <li><strong>Phép nhân TAM (A2):</strong>
-  $$\text{TAM}_{A2} = 47.000 \text{ đơn vị} \times \$527,88/\text{năm} = \mathbf{\$24.810.360/\text{năm}} \text{ (}\approx \mathbf{656,6 \text{ tỷ VND/năm}}\text{)}$$</li>
-<li><strong>Hệ số lọc SAM (<code>%SAM_A2 = 20%</code>):</strong></li>
-<li>Không phải mọi môi giới có chứng chỉ hoặc văn phòng KTS đều tự làm video AI (nhiều môi giới chỉ dùng video có sẵn của Chủ đầu tư cung cấp, và nhiều KTS chỉ xuất ảnh tĩnh SketchUp/Enscape). Lọc lấy <strong>20%</strong> nhóm chủ động chạy Ads dự án riêng, bán biệt thự/đất nền/nhà phố thứ cấp hoặc studio thiết kế muốn dựng clip diễn họa nhanh cho khách (<strong>9.400 đơn vị</strong>).
-  $$\text{SAM}_{A2} = \$24.810.360 \times 20\% = \mathbf{\$4.962.072/\text{năm}} \text{ (}\approx \mathbf{131,3 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{9.400 \text{ đơn vị}}\text{)}$$</li>
-<li><strong>Hệ số lọc SOM 12 tháng (<code>%SOM_A2 = 2,0%</code> của SAM):</strong></li>
-<li>Chinh phục <strong>2,0% tập SAM</strong> trong 12 tháng đầu thông qua cộng đồng môi giới BĐS &amp; diễn họa kiến trúc AI (<strong>188 khách hàng gói Business trả phí cả năm</strong>, hoặc ~400–500 khách mua theo đợt mở bán dự án).
-  $$\text{SOM}_{A2} = \$4.962.072 \times 2,0\% = \mathbf{\$99.241/\text{năm}} \text{ (}\approx \mathbf{2,63 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{188 \text{ đơn vị quy chuẩn}}\text{)}$$</li>
+  $$\text{TAM}_{A2} = 47.000 \text{ đơn vị} \times \$527,88/\text{năm} = \mathbf{\$24.810.360/\text{năm}} \text{ (}\approx \mathbf{656,6 \text{ tỷ VND/năm}}\text{)}<strong><code>- **Hệ số lọc SAM (</code>%SAM_A2 = 20%`):</strong></li>
+<li>Không phải mọi môi giới có chứng chỉ hoặc văn phòng KTS đều tự làm video AI (nhiều môi giới chỉ dùng video có sẵn của Chủ đầu tư cung cấp, và nhiều KTS chỉ xuất ảnh tĩnh SketchUp/Enscape). Lọc lấy <strong>20%</strong> nhóm chủ động chạy Ads dự án riêng, bán biệt thự/đất nền/nhà phố thứ cấp hoặc studio thiết kế muốn dựng clip diễn họa nhanh cho khách (<strong>9.400 đơn vị</strong>).<code>**\text{SAM}_{A2} = \$24.810.360 \times 20\% = \mathbf{\$4.962.072/\text{năm}} \text{ (}\approx \mathbf{131,3 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{9.400 \text{ đơn vị}}\text{)}**</code>- <strong>Hệ số lọc SOM 12 tháng (<code>%SOM_A2 = 2,0%</code> của SAM):</strong></li>
+<li>Chinh phục <strong>2,0% tập SAM</strong> trong 12 tháng đầu thông qua cộng đồng môi giới BĐS &amp; diễn họa kiến trúc AI (<strong>188 khách hàng gói Business trả phí cả năm</strong>, hoặc ~400–500 khách mua theo đợt mở bán dự án).`**\text{SOM}_{A2} = \$4.962.072 \times 2,0\% = \mathbf{\$99.241/\text{năm}} \text{ (}\approx \mathbf{2,63 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{188 \text{ đơn vị quy chuẩn}}\text{)}$$</li>
 </ul>
 <blockquote>
 <p><strong>Tổng cộng Phân khúc A (A1 + A2):</strong>
-- <strong>$\text{TAM}_A$ = $161.943.986/năm</strong> (~4.285,5 tỷ VND)
-- <strong>$\text{SAM}_A$ = $39.245.479/năm</strong> (~1.038,5 tỷ VND)
-- <strong>$\text{SOM}_A$ = $613.492/năm</strong> (~16,24 tỷ VND)</p>
+- <strong>TAM_A = $161.943.986/năm</strong> (~4.285,5 tỷ VND)
+- <strong>SAM_A = $39.245.479/năm</strong> (~1.038,5 tỷ VND)
+- <strong>SOM_A = $613.492/năm</strong> (~16,24 tỷ VND)</p>
 </blockquote>
 <hr />
 <h3>4.2. Phân khúc B — Content Creator / Làm kênh / Affiliate KOC tại Việt Nam</h3>
@@ -2020,13 +2030,9 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li>Nhóm KOC Affiliate ngắn thường dùng gói Starter ($6.99) hoặc Pro ($18.99), trong khi nhóm làm kênh Review phim / Faceless / Reup đa kênh đặc biệt chuộng <strong>Gói Business ($43.99/tháng)</strong> vì có đặc quyền <strong>Unlimited Review phim, Unlimited Auto Sub và Unlimited Cắt video AI</strong>.</li>
 <li>Lấy mức giá trung bình gia quyền thực tế là <strong>Gói Pro ($18.99/tháng × 12 = $227.88/năm ≈ 6.030.000 VND/năm)</strong> <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing, đọc 2026-11-06]</strong>.</li>
 <li><strong>Phép nhân TAM (Phân khúc B):</strong>
-  $$\text{TAM}_B = 180.000 \text{ creators} \times \$227,88/\text{năm} = \mathbf{\$41.018.400/\text{năm}} \text{ (}\approx \mathbf{1.085,5 \text{ tỷ VND/năm}}\text{)}$$</li>
-<li><strong>Hệ số lọc SAM (<code>%SAM_B = 30%</code>):</strong></li>
-<li>Nhiều KOC chỉ quay bằng cam thường điện thoại và sửa miễn phí trên CapCut bản thường, không trả tiền mua credit AI. Lọc lấy <strong>30%</strong> nhóm Creator làm kênh công nghiệp (Review phim, Faceless, Hoạt hình 3D/Anime, KOC làm affiliate số lượng lớn không lộ mặt, dịch video Trung/Anh sang Việt) thực sự sẵn sàng chi tiền mua công cụ AI để đua sản lượng (<strong>54.000 creators</strong>).
-  $$\text{SAM}_B = \$41.018.400 \times 30\% = \mathbf{\$12.305.520/\text{năm}} \text{ (}\approx \mathbf{325,6 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{54.000 \text{ creators}}\text{)}$$</li>
-<li><strong>Hệ số lọc SOM 12 tháng (<code>%SOM_B = 2,5%</code> của SAM):</strong></li>
-<li>Nhóm MMO / Làm kênh / Review phim tại Việt Nam có tốc độ truyền miệng trong cộng đồng rất nhanh nếu công cụ giải quyết được bài toán <strong>Unlimited Sub / Cắt video / Review phim</strong> với giá rẻ hơn CapCut Pro + ElevenLabs + Midjourney cộng lại. Với mục tiêu chiếm <strong>2,5% SAM</strong> trong 12 tháng đầu (<strong>1.350 Creator duy trì gói Pro/Business trung bình cả năm</strong>):
-  $$\text{SOM}_B = \$12.305.520 \times 2,5\% = \mathbf{\$307.638/\text{năm}} \text{ (}\approx \mathbf{8,14 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{1.350 \text{ creators quy chuẩn}}\text{)}$$</li>
+  $$\text{TAM}_B = 180.000 \text{ creators} \times \$227,88/\text{năm} = \mathbf{\$41.018.400/\text{năm}} \text{ (}\approx \mathbf{1.085,5 \text{ tỷ VND/năm}}\text{)}<strong><code>- **Hệ số lọc SAM (</code>%SAM_B = 30%`):</strong></li>
+<li>Nhiều KOC chỉ quay bằng cam thường điện thoại và sửa miễn phí trên CapCut bản thường, không trả tiền mua credit AI. Lọc lấy <strong>30%</strong> nhóm Creator làm kênh công nghiệp (Review phim, Faceless, Hoạt hình 3D/Anime, KOC làm affiliate số lượng lớn không lộ mặt, dịch video Trung/Anh sang Việt) thực sự sẵn sàng chi tiền mua công cụ AI để đua sản lượng (<strong>54.000 creators</strong>).<code>**\text{SAM}_B = \$41.018.400 \times 30\% = \mathbf{\$12.305.520/\text{năm}} \text{ (}\approx \mathbf{325,6 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{54.000 \text{ creators}}\text{)}**</code>- <strong>Hệ số lọc SOM 12 tháng (<code>%SOM_B = 2,5%</code> của SAM):</strong></li>
+<li>Nhóm MMO / Làm kênh / Review phim tại Việt Nam có tốc độ truyền miệng trong cộng đồng rất nhanh nếu công cụ giải quyết được bài toán <strong>Unlimited Sub / Cắt video / Review phim</strong> với giá rẻ hơn CapCut Pro + ElevenLabs + Midjourney cộng lại. Với mục tiêu chiếm <strong>2,5% SAM</strong> trong 12 tháng đầu (<strong>1.350 Creator duy trì gói Pro/Business trung bình cả năm</strong>):`**\text{SOM}_B = \$12.305.520 \times 2,5\% = \mathbf{\$307.638/\text{năm}} \text{ (}\approx \mathbf{8,14 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{1.350 \text{ creators quy chuẩn}}\text{)}$$</li>
 </ul>
 <hr />
 <h3>4.3. Phân khúc C — Developer / Doanh nghiệp / Agency dùng Open API &amp; MCP (<code>open.quickmagic.vn</code> &amp; MCP/CLI)</h3>
@@ -2035,18 +2041,16 @@ Tôi cần biết cấu trúc cạnh tranh, đơn giá chuẩn hoá ($/ảnh, $/
 <li><strong>~3.000 Digital / Creative / Social Media / E-commerce Enabler Agency</strong> tại Việt Nam.</li>
 <li><strong>~2.000 Công ty sản phẩm SaaS, MarTech, EdTech, Game/App Studio</strong> tại Việt Nam.</li>
 <li><strong>~10.000 Indie Hacker / AI Automation Builder / Freelancer tích hợp workflow (n8n, Make, Claude/Cursor MCP, MMO Tool)</strong> (tương đương ~1,8% trong số 560.000 lập trình viên VN theo TopDev) <strong>[SECONDARY — https://topdev.vn/, đọc 2026-11-06]</strong>.</li>
-<li>$\rightarrow$ Tổng tập đơn vị tiềm năng tại Việt Nam: <strong><code>N_C</code> = 15.000 đơn vị / AI builder</strong> <em>(Lưu ý: nếu tính mở rộng toàn Đông Nam Á - SEA, con số này gấp ~4 lần là 60.000 đơn vị)</em>.</li>
+<li>→ Tổng tập đơn vị tiềm năng tại Việt Nam: <strong><code>N_C</code> = 15.000 đơn vị / AI builder</strong> <em>(Lưu ý: nếu tính mở rộng toàn Đông Nam Á - SEA, con số này gấp ~4 lần là 60.000 đơn vị)</em>.</li>
 <li><strong>Giá năm trung bình (<code>ACV_C</code>):</strong></li>
 <li>Cơ chế API/MCP của Quick Magic (<code>open.quickmagic.vn</code> + MCP Server) trừ trực tiếp vào ví Credit của tài khoản. Một Agency hoặc ứng dụng/workflow tích hợp API chạy tự động hàng ngày sẽ tiêu thụ mức tương đương <strong>Gói Enterprise ($83.99/tháng × 12 = $1.007,88/năm ≈ 26.671.000 VND/năm — 100.000 credit/tháng)</strong> <strong>[VENDOR-CLAIMED — https://quickmagic.vn/pricing &amp; https://quickmagic.vn/mcp, đọc 2026-11-06]</strong>.</li>
 <li><strong>Phép nhân TAM (Phân khúc C — tính riêng thị trường Việt Nam):</strong>
-  $$\text{TAM}<em>C = 15.000 \text{ đơn vị/builder} \times \$1.007,88/\text{năm} = \mathbf{\$15.118.200/\text{năm}} \text{ (}\approx \mathbf{400,1 \text{ tỷ VND/năm}}\text{)}$$
-  *(Nếu tính gộp khu vực SEA với 60.000 đơn vị: $\text{TAM}</em>{C_SEA} = \$60.472.800/\text{năm}$).*</li>
+  $$\text{TAM}_C = 15.000 \text{ đơn vị/builder} \times \$1.007,88/\text{năm} = \mathbf{\$15.118.200/\text{năm}} \text{ (}\approx \mathbf{400,1 \text{ tỷ VND/năm}}\text{)}$$
+  <em>(Nếu tính gộp khu vực SEA với 60.000 đơn vị: <code>TAM_C_SEA = $60.472.800/năm</code>).</em></li>
 <li><strong>Hệ số lọc SAM (<code>%SAM_C = 20%</code>):</strong></li>
-<li>Phần lớn developer/công ty phần mềm gọi trực tiếp API gốc quốc tế (OpenAI, Google Vertex AI / Veo, Replicate, Fal.ai, ElevenLabs). Nhóm chọn dùng cổng gom API nội địa của Quick Magic (<code>open.quickmagic.vn</code> &amp; MCP/CLI) là nhóm cần <strong>thanh toán VND/VietQR dễ dàng, có sẵn 20 MCP tools đóng gói sẵn cho nghiệp vụ bán hàng/thử đồ/review phim tiếng Việt, không phải tự duy trì nhiều tài khoản API quốc tế</strong> $\rightarrow$ ước tính chiếm <strong>20%</strong> (<strong>3.000 đơn vị/builder</strong>).
-  $$\text{SAM}_C = \$15.118.200 \times 20\% = \mathbf{\$3.023.640/\text{năm}} \text{ (}\approx \mathbf{80,0 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{3.000 \text{ đơn vị/builder}}\text{)}$$</li>
-<li><strong>Hệ số lọc SOM 12 tháng (<code>%SOM_C = 3,5%</code> của SAM):</strong></li>
-<li>Với việc đã có sẵn MCP Server (<code>open.quickmagic.vn</code> + MCP Server tích hợp Claude, Cursor, Cline, ChatGPT) và CLI, trong 12 tháng đầu Quick Magic có thể thu hút <strong>3,5% tập SAM</strong> (<strong>105 khách hàng B2B / Agency / AI Builder trả phí mức Enterprise 2.250.000đ/tháng xuyên suốt năm</strong>, hoặc ~300–400 developer nạp ví credit theo dự án).
-  $$\text{SOM}_C = \$3.023.640 \times 3,5\% = \mathbf{\$105.827/\text{năm}} \text{ (}\approx \mathbf{2,80 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{105 \text{ tài khoản API quy chuẩn}}\text{)}$$</li>
+<li>Phần lớn developer/công ty phần mềm gọi trực tiếp API gốc quốc tế (OpenAI, Google Vertex AI / Veo, Replicate, Fal.ai, ElevenLabs). Nhóm chọn dùng cổng gom API nội địa của Quick Magic (<code>open.quickmagic.vn</code> &amp; MCP/CLI) là nhóm cần <strong>thanh toán VND/VietQR dễ dàng, có sẵn 20 MCP tools đóng gói sẵn cho nghiệp vụ bán hàng/thử đồ/review phim tiếng Việt, không phải tự duy trì nhiều tài khoản API quốc tế</strong> → ước tính chiếm <strong>20%</strong> (<strong>3.000 đơn vị/builder</strong>).
+  $$\text{SAM}_C = \$15.118.200 \times 20\% = \mathbf{\$3.023.640/\text{năm}} \text{ (}\approx \mathbf{80,0 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{3.000 \text{ đơn vị/builder}}\text{)}<strong><code>- **Hệ số lọc SOM 12 tháng (</code>%SOM_C = 3,5%` của SAM):</strong></li>
+<li>Với việc đã có sẵn MCP Server (<code>open.quickmagic.vn</code> + MCP Server tích hợp Claude, Cursor, Cline, ChatGPT) và CLI, trong 12 tháng đầu Quick Magic có thể thu hút <strong>3,5% tập SAM</strong> (<strong>105 khách hàng B2B / Agency / AI Builder trả phí mức Enterprise 2.250.000đ/tháng xuyên suốt năm</strong>, hoặc ~300–400 developer nạp ví credit theo dự án).`**\text{SOM}_C = \$3.023.640 \times 3,5\% = \mathbf{\$105.827/\text{năm}} \text{ (}\approx \mathbf{2,80 \text{ tỷ VND/năm}}\text{, tương ứng } \mathbf{105 \text{ tài khoản API quy chuẩn}}\text{)}$$</li>
 </ul>
 <hr />
 <h3>4.4. Bảng Tổng hợp Chuỗi TAM → SAM → SOM Toàn Hệ sinh thái Quick Magic (Việt Nam — 12 Tháng)</h3>
